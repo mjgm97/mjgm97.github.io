@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Manuel J. Gomez - Personal Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="owwwlab.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <meta name="description" content="A theme for faculty profile page" />
+        <meta name="keywords" content="faculty profile, theme,css, html, jquery, transition, transform, 3d, css3" />
+
+        <link rel="shortcut icon" href="../favicon.ico">
+
+        <!--CSS styles-->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">  
+        <link rel="stylesheet" href="css/perfect-scrollbar-0.4.5.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link id="theme-style" rel="stylesheet" href="css/styles/purple.css">
+
+        
+        <!--/CSS styles-->
+        <!--Javascript files-->
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/TweenMax.min.js"></script>
+        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+        
+        <script type="text/javascript" src="js/modernizr.custom.63321.js"></script>
+        <script type="text/javascript" src="js/jquery.dropdownit.js"></script>
+
+        <script type="text/javascript" src="js/ScrollToPlugin.min.js"></script>
+
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+
+        <script type="text/javascript" src="js/masonry.min.js"></script>
+
+        <script type="text/javascript" src="js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+        <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+        
+        <script type="text/javascript" src="js/magnific-popup.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+
+        <!--/Javascript files-->
+
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <a href="#sidebar" class="mobilemenu"><i class="fa fa-reorder"></i></a>
+
+            <div id="sidebar">
+                <div id="sidebar-wrapper">
+                    <div id="sidebar-inner">
+                        <!-- Profile/logo section-->
+                        <div id="profile" class="clearfix">
+                            <div class="portrate hidden-xs"></div>
+                            <div class="title">
+                                <h2>Manuel J. Gomez</h2>
+                                <h3>University of Murcia</h3>
+                            </div>   
+                        </div>
+                        <!-- /Profile/logo section-->
+
+                        <!-- Main navigation-->
+                        <div id="main-nav">
+                            <ul id="navigation">
+                                <li>
+                                  <a href="index.html">
+                                    <i class="fa fa-user"></i>
+                                    <div class="text">About Me</div>
+                                  </a>
+                                </li>  
+                                
+                                <li>
+                                  <a href="research.html">
+                                    <i class="fa fa-book"></i>
+                                    <div class="text">Research</div>
+                                  </a>
+                                </li>
+                                
+                                <li>
+                                  <a href="teaching.html">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    <div class="text">Teaching</div>
+                                  </a>
+                                </li>
+                                
+                                <li class="currentmenu">
+                                  <a href="publication.html">
+                                    <i class="fa fa-edit"></i>
+                                    <div class="text">Publications</div>
+                                  </a>
+                                </li> 
+
+                                <li>
+                                  <a href="projects.html">
+                                    <i class="fa fa-clock-o"></i>
+                                    <div class="text">Projects</div>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="gallery.html">
+                                    <i class="fa fa-picture-o"></i>
+                                    <div class="text">Gallery</div>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a href="contact.html">
+                                      <i class="fa fa-calendar"></i>
+                                      <div class="text">Contact Me</div>
+                                  </a>
+                                </li>
+
+                                <li class="external">
+                                  <a href="cv.pdf">
+                                      <i class="fa fa-download"></i>
+                                      <div class="text">Download CV</div>
+                                  </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Main navigation-->
+                        <!-- Sidebar footer -->
+                        <div id="sidebar-footer">
+                            <div class="social-icons">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+
+        
+                            <div id="copyright">All rights reserved © 2022</div>
+                    
+                        </div>
+                        <!-- /Sidebar footer -->
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="main">
+            
+                <div id="publications" class="page">
+                    <div class="page-container">
+                        <div class="pageheader">
+                            <div class="headercontent">
+                                <div class="section-container">
+                                    <h2 class="title">Publications</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pagecontents">
+                            
+                            <div class="section color-1" id="filters">
+                                <div class="section-container">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-3">
+                                            <h3>Filter by type:</h3>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+                                                <option class="filter" value="all" selected>All types</option>
+                                                <option class="filter" value="jpaper">Jounal Papers</option>
+                                                <option class="filter" value="cpaper">Conference Papers</option>
+                                                <option class="filter" value="bookchapter">Book Chapters</option>
+                                                <!-- <option class="filter" value="report">Reports</option>
+                                                <option class="filter" value="tpaper">Technical Papers</option> -->
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-md-3" id="sort">
+                                            <span>Sort by year:</span>
+                                            <div class="btn-group pull-right"> 
+
+                                                <button type="button" data-sort="data-year" data-order="desc" class="sort btn btn-default"><i class="fa fa-sort-numeric-asc"></i></button>
+                                                <button type="button" data-sort="data-year" data-order="asc" class="sort btn btn-default"><i class="fa fa-sort-numeric-desc"></i></button>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section color-2" id="pub-grid">
+                                <div class="section-container">
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pitems">
+                                                
+                                                <div class="item mix jpaper" data-year="2022">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://www.sciencedirect.com/science/article/pii/S0957417422015081?via%3Dihub" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="#" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Large scale analysis of open MOOC reviews to support learners’ course selection</h4>
+                                                        <div class="pubauthor"><strong>Gomez, M. J.</strong>, Calderón, M., Sánchez, V.,  Ruipérez-Valiente, J. A. & Clemente, F. J. G.</div>
+                                                        <div class="pubcite"><span class="label label-success">Journal Paper</span> Expert Systems with Applications, 210, 118400. 2022.</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>The recent pandemic has changed the way we see education. During recent years, Massive Open Online Course (MOOC) providers, such as Coursera or edX, are reporting millions of new users signing up on their platforms. Though online review systems are standard among many verticals, no standardized or fully decentralized review systems exist in the MOOC ecosystem. In this vein, we believe that there is an opportunity to leverage available open MOOC reviews in order to build simpler and more transparent reviewing systems, allowing users to really identify the best courses out there. Specifically, in our research we analyze 2.4 million reviews (which is the largest MOOC reviews dataset used until now) from five different platforms in order to determine the following: (1) if the numeric ratings provide discriminant information to learners, (2) if NLP-driven sentiment analysis on textual reviews could provide valuable information to learners, (3) if we can leverage NLP-driven topic finding techniques to infer themes that could be important for learners, and (4) if we can use these models to effectively characterize MOOCs based on the open reviews. Results show that numeric ratings are clearly biased (63% of them are 5-star ratings), and the topic modeling reveals some interesting topics related with course advertisements, the real applicability, or the difficulty of the different courses.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="item mix jpaper" data-year="2022">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://ieeexplore.ieee.org/document/9745089" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="#" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Analyzing Trends and Patterns Across the Educational Technology Communities Using Fontana Framework</h4>
+                                                        <div class="pubauthor"><strong>Gomez, M. J.</strong>, J. A. & Clemente, F. J. G.</div>
+                                                        <div class="pubcite"><span class="label label-success">Journal Paper</span> IEEE Access, 10, 35336-35351. 2022.</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Nowadays, the use of technology in continuously increasing, making a significant impact in almost every area, including education. New areas have gained much popularity in the last years in educational technology (EdTech), such as Massive Open Online Courses (MOOCs) or computer-supported collaborative learning. In addition, research and interest in this area have also been growing over the years. The quantity of research and scientific publications in EdTech is constantly increasing, and trying to analyze and extract information from a set of research papers is often a very time-consuming task. To make this process easier and solve these limitations, we present Fontana , a framework that can quickly perform trend and social network analysis using any corpus of documents and its metadata. Specifically, the framework can: 1) Discover the latest trends given any corpus of documents, using Natural Language Processing (NLP) analysis and keywords (bibliometric approach); 2) Discover the evolution of the trends previously identified over the years; 3) Discover the primary authors and papers, along with hidden relationships between existing communities. To test its functionality, we evaluated the framework using a corpus of papers from the EdTech research field. We also followed an open science methodology making the entire framework available in Open Science Framework (OSF) easy to access and use. The case study successfully proved the capabilities of the framework, revealing some of the most frequent topics in the area, such as “EDM,” “learning analytics,” or “collaborative learning.” We expect our work to help identifying trends and patterns in the EdTech area, using natural language processing and social network analysis to objectively process large amounts of research.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="item mix bookchapter" data-year="2022">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://www.igi-global.com/gateway/chapter/303498" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="#" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">
+                                                            Analyzing the Evolution of Digital Assessment in Education Literature Using Bibliometrics and Natural Language Processing
+                                                        </h4>
+                                                        <div class="pubauthor"><strong>Gomez, M. J.</strong> & Ruipérez-Valiente, J. A.</div>
+                                                        <div class="pubcite">
+                                                            <span class="label label-info">Book Chapter</span> In Handbook of Research on Digital-Based Assessment and Innovative Practices in Education (pp. 178-200). IGI Global. 2022.
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <img alt="image" src="img/pubs/9781668424681.png" align="left"  style="padding:0 30px 30px 0;">
+                                                        <h4>Handbook of Research on Digital-Based Assessment and Innovative Practices in Education</h4>
+                                                        <p>The Handbook of Research on Digital-Based Assessment and Innovative Practices in Education identifies digital tools and applications for effective assessment of learning, shares various models of digital-based assessment in education, and considers best pedagogical practices for assessment in education. Covering a range of topics such as formative assessments, design thinking, virtual reality, and equity, this major reference work is crucial for educational technologists, instructional designers, policymakers, administrators, faculty, researchers, academicians, scholars, practitioners, instructors, and students.</p>
+                                                        <p>Over the last decade, we have seen a large amount of research being performed in technology-enhanced learning. Within this area, the use of digital assessment has been gaining a lot of popularity. Researchers aim to identify the main topics in this area, proposing a new methodology to perform a text analytics and bibliometrics driven approach, using the metadata and full text from papers within the last 15 years. The analysis in this work is focused on three objectives: 1) discover which are the main topics based on topic modeling and keywords analysis, 2) discover the evolution of said topics over the last 15 years of research, and 3) discover the primary authors and papers, along with hidden relationships between existing communities.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="item mix jpaper" data-year="2021">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://www.mdpi.com/1424-8220/21/4/1025" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="#" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Applying Learning Analytics to Detect Sequences of Actions and Common Errors in a Geometry Game</h4>
+                                                        <div class="pubauthor"><strong>Gomez, M. J.</strong>, Ruipérez-Valiente, J. A., Martínez, P. A., & Kim, Y. J.</div>
+                                                        <div class="pubcite"><span class="label label-success">Journal Paper</span> Sensors, 21(4), 1025. 2021.</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Games have become one of the most popular activities across cultures and ages. There is ample evidence that supports the benefits of using games for learning and assessment. However, incorporating game activities as part of the curriculum in schools remains limited. Some of the barriers for broader adoption in classrooms is the lack of actionable assessment data, the fact that teachers often do not have a clear sense of how students are interacting with the game, and it is unclear if the gameplay is leading to productive learning. To address this gap, we seek to provide sequence and process mining metrics to teachers that are easily interpretable and actionable. More specifically, we build our work on top of Shadowspect, a three-dimensional geometry game that has been developed to measure geometry skills as well other cognitive and noncognitive skills. We use data from its implementation across schools in the U.S. to implement two sequence and process mining metrics in an interactive dashboard for teachers. The final objective is to facilitate that teachers can understand the sequence of actions and common errors of students using Shadowspect so they can better understand the process, make proper assessment, and conduct personalized interventions when appropriate.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="item mix cpaper" data-year="2021">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://link.springer.com/chapter/10.1007/978-3-030-86436-1_31" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="http://ceur-ws.org/Vol-2671/paper10.pdf" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Bibliometric Analysis of the Last Ten Years of the European Conference on Technology-Enhanced Learning</h4>
+                                                        <div class="pubauthor"><strong>Gomez, M. J.</strong>, Ruipérez-Valiente, J. A., & Clemente, F. J. G.</div>
+                                                        <div class="pubcite"><span class="label label-warning">Conference Papers</span> In European Conference on Technology Enhanced Learning (pp. 337-341). Springer, Cham. 2021.</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Over the last decade, we have seen a large amount of research being performed in technology-enhanced learning. The European Conference on Technology-enhanced Learning (EC-TEL) is one of the conferences with the most extended trajectory in this area. The goal of this paper is to provide an overview of the last ten years of the conference. We collected all papers from the last ten years of the conference, along with the metadata, and used their keywords to find the most important ones across the papers. We also parsed papers’ full text automatically, and used it to extract information about this year’s conference topic. These results will shed some light on the latest trends and evolution of EC-TEL.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="item mix jpaper" data-year="2021">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://ieeexplore.ieee.org/document/9446995" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="#" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Ideating and Developing a Visualization Dashboard to Support Teachers Using Educational Games in the Classroom</h4>
+                                                        <div class="pubauthor">Ruipérez-Valiente, J. A.,<strong>Gomez, M. J.</strong>, Martínez, P. A., & Kim, Y. J</div>
+                                                        <div class="pubcite"><span class="label label-success">Journal Paper</span> IEEE access, 9, 83467-83481. 2021.</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Technology has become an integral part of our everyday life, and its use in educational environments keeps growing. Additionally, video games are one of the most popular mediums across cultures and ages. There is ample evidence that supports the benefits of using games for learning and assessment, and educators are mainly supportive of using games in classrooms. However, we do not usually find educational games within the classroom activities. One of the main problems is that teachers report difficulties to actually know how their students are using the game so that they can analyze properly the effect of the activity and the interaction of students. To support teachers, educational games should incorporate learning analytics to transform data generated by students when playing useful information in a friendly and understandable way. For this work, we build upon Shadowspect , a 3D geometry puzzle game that has been used by teachers in a group of schools in the US. We use learning analytics techniques to generate a set of metrics implemented in a live dashboard that aims to facilitate that teachers can understand students’ interaction with Shadowspect . We depict the multidisciplinary design process that we have followed to generate the metrics and the dashboard with great detail. Finally, we also provide uses cases that exemplify how teachers can use the dashboard to understand the global progress of their class and each of their students at an individual level, in order to intervene, adapt their classes and provide personalize feedback when appropriate.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="item mix cpaper" data-year="2020">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://dl.acm.org/doi/10.1145/3434780.3436562" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="http://ceur-ws.org/Vol-2671/paper10.pdf" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Exploring the Affordances of Sequence Mining in Educational Games</h4>
+                                                        <div class="pubauthor"><strong>Gomez, M. J.</strong>, Ruipérez-Valiente, J.A., Martinez, P.A. & Kim Y.J. </div>
+                                                        <div class="pubcite"><span class="label label-warning">Conference Papers</span> In Eighth international conference on technological ecosystems for enhancing multiculturality (pp. 648--654). Salamanca, Spain. 2020.</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Games have become one of the most popular mediums across cultures and ages and the use of educational games is growing. There is ample evidence that supports the benefits of using games for learning and assessment. However, we do not usually find games incorporated into educational environments. One of the main problems that teachers face is to actually know how students are interacting with the game as they cannot analyze properly the effect of the activity on the students. To improve this issue, we can use the data generated by the interaction of students with such educational games to analyze the sequences and errors by transforming raw data into meaningful sequences that are interpretable and actionable for teachers. In this study we use a data collection from our game Shadowspect and implement learning analytics with process and sequence mining techniques to generate two metrics that aim to help teachers make proper assessment and better understand the process.</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="item mix cpaper" data-year="2020">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="fa fa-expand"></i>
+                                                            </a>
+                                                            <a href="https://www.researchgate.net/publication/341884985_Visualizing_Educational_Game_Data_A_Case_Study_of_Visualizations_to_Support_Teachers" class="tooltips" title="External link" target="_blank">
+                                                                <i class="fa fa-external-link"></i>
+                                                            </a>
+                                                            <a href="http://ceur-ws.org/Vol-2671/paper10.pdf" class="tooltips" title="Download" target="_blank">
+                                                                <i class="fa fa-cloud-download"></i>
+                                                            </a>
+                                                            
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Visualizing educational game data: A case study of visualizations to support teachers</h4>
+                                                        <div class="pubauthor">Martinez, P.A.,<strong>Gomez, M. J.</strong>, Ruipérez-Valiente, J.A., Martínez Pérez, G. & Kim Y.J.</div>
+                                                        <div class="pubcite"><span class="label label-warning">Conference Papers</span> In Learning Analytics Summer Institute Spain. CEUR Workshop Proceedings, Vol 2671, 97-111. 2020</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Video games have become one of the most popular mediums across cultures and ages. There is ample evidence that supports the benefits of using games for learning and assessment, and educators are largely supportive of using games in classrooms. However, the implementation of educational games as part of the curriculum and classroom practices has been rather scarce. One of the main barriers is that teachers face to actually know how their students are using the game so that they can analyze properly the effect of the activity and the interaction of students. Therefore, to support teachers to fully leverage the potential benefits of games in classrooms and make data-based decisions, educational games should incorporate learning analytics by transforming click-stream data generated from the gameplay into meaningful metrics and present visualizations of those metrics so that teachers can receive the information in an interactive and friendly way. For this work, we use data collected in a case study where teachers used Shadowspect geometry puzzle games in their classrooms. We apply learning analytics techniques to generate a series of metrics and visualizations that seek to facilitate that teachers can understand the interaction of students with the game. In this way, teachers can be more aware of the global progress of the class and each one of their students at an individual level, and intervene and adapt their classes when necessary.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </body>
+</html>
+
