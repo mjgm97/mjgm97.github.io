@@ -421,6 +421,12 @@ ul#navigation li .fa {
     background-size: cover !important;
 }
 
+@media only screen and (max-width:749px) {
+  .parallax {
+    background-attachment: inherit;
+  }
+}
+
 .fixedbg.parallax{
     background-attachment: fixed !important;
 }
