@@ -1337,7 +1337,7 @@ ul.grid li a,ul.grid li img {
 
 
 /* fix for mobile view of pages */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 770px) {
 	 
 	 #blog-content{
 	 	width:100% !important;
@@ -1352,6 +1352,10 @@ ul.grid li a,ul.grid li img {
 	}
     
     .fixedbg.parallax {
+      background-attachment: inherit;
+    }
+    
+    .section .fixedbg .parallax {
       background-attachment: inherit;
     }
 
