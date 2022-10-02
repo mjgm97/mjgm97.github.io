@@ -942,11 +942,12 @@ ul.timeline li .data .text {
 	background-image: url(../img/profileManuel.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center right;
-	padding: 150px 10%;
+	background-position: center center;
+	padding: 100px 10%;
 }
 .home .pageheader .title{
 	border: none;
+    margin: 100px 0 30px 0;
 }
 .home .fixedbg.parallax{
 	background: #fff url('../img/home-parallaxbg.jpg');
