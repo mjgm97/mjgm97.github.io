@@ -1337,7 +1337,7 @@ ul.grid li a,ul.grid li img {
 
 
 /* fix for mobile view of pages */
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 730px) {
 	 
 	 #blog-content{
 	 	width:100% !important;
