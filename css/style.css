@@ -422,7 +422,7 @@ ul#navigation li .fa {
 }
 
 .fixedbg.parallax{
-    background-attachment: fixed !important;
+    background-attachment: scroll !important;
 }
 
 .fixedbg .heading{
