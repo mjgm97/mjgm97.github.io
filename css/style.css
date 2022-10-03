@@ -1353,7 +1353,7 @@ ul.grid li a,ul.grid li img {
 	}
     
     .fixedbg.parallax {
-        background-attachment: scroll;
+        background-attachment: scroll !important;
         background-size: 100% 100%;
     }
 
