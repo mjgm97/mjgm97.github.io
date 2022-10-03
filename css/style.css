@@ -920,7 +920,7 @@ ul.timeline li .data .text {
 	font-weight: 700;
 }
 
-/* home
+/* teaching
  **************************************************/
  .teaching .pageheader{
     background-image: url(../img/teaching.jpg);
@@ -1355,6 +1355,11 @@ ul.grid li a,ul.grid li img {
     .fixedbg.parallax {
         background-attachment: scroll !important;
         background-size: 100% 100%;
+    }
+    
+    .home .pageheader .title{
+        font-size: 20px;
+        margin-left:200px;
     }
 
 	
