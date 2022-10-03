@@ -422,7 +422,7 @@ ul#navigation li .fa {
 }
 
 .fixedbg.parallax{
-    background-attachment: scroll !important;
+    background-attachment: fixed !important;
 }
 
 .fixedbg .heading{
@@ -949,8 +949,9 @@ ul.timeline li .data .text {
 	border: none;
     margin: 100px 0 30px 0;
 }
+
 .home .fixedbg.parallax{
-	background: #fff url('../img/home-parallaxbg.jpg');
+	background: url('../img/home-parallaxbg.jpg');
 }
 
 /* publications
@@ -1352,16 +1353,6 @@ ul.grid li a,ul.grid li img {
 	}
     
     .fixedbg.parallax {
-        background-attachment: scroll;
-        background-size: 100% 100%;
-    }
-    
-    .section .fixedbg .parallax {
-        background-attachment: scroll;
-        background-size: 100% 100%;
-    }
-    
-    .section .fixedbg.parallax {
         background-attachment: scroll;
         background-size: 100% 100%;
     }
