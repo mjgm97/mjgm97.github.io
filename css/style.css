@@ -421,8 +421,8 @@ ul#navigation li .fa {
     background-size: cover !important;
 }
 
-.fixedbg.parallax{
-    background-attachment: fixed !important;
+.fixedbg.parallax {
+    background-attachment: scroll !important;
 }
 
 .fixedbg .heading{
@@ -952,6 +952,7 @@ ul.timeline li .data .text {
 
 .home .fixedbg.parallax{
 	background: url('../img/home-parallaxbg.jpg');
+    background-position: 20% 30%;
 }
 
 /* publications
