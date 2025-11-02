@@ -69,18 +69,20 @@ const Works = () => {
 				title="Education"
 				body={
 					<div className="works-body">
-						<div className="work">
+						<a href="/phd" className="work thesis-link">
 							<img src="./escudoUmu.jpg" alt="umu" className="work-image" />
 							<div className="work-content">
 								<div className="work-header">
-									<div className="work-title">Ph.D. in Computer Science</div>
+									<div className="work-title">
+										Ph.D. in Computer Science
+									</div>
 									<div className="work-duration">2025</div>
 								</div>
 								<div className="work-subtitle">
 									University of Murcia, Spain
 								</div>
 							</div>
-						</div>
+						</a>
 
 						<div className="work">
 							<img src="./escudoUmu.jpg" alt="upv" className="work-image" />

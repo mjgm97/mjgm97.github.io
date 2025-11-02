@@ -1,16 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
-import Article from "../components/articles/article";
+import AnimatedCard from "../components/common/animatedCard";
 
 import INFO from "../data/user";
+import PHD_PUBLICATIONS from "../data/phd_publications";
 import SEO from "../data/seo";
-import myArticles from "../data/articles";
 
-import "./styles/teaching.css";
+import "./styles/homepage.css"; // reuse layout classes
+import "./styles/research.css";
+import "./styles/phd.css";
+
+// Highlight "Manuel J. Gomez" in author lists
+const highlightAuthor = (text) => {
+	if (!text) return text;
+	const regex = /(Manuel\s*J\.?\s*Gomez)/gi;
+	return text.replace(regex, '<span class="highlight-author">$1</span>');
+};
 
 const PhD = () => {
 	useEffect(() => {
@@ -18,53 +27,176 @@ const PhD = () => {
 	}, []);
 
 	const currentSEO = SEO.find((item) => item.page === "phd");
+	const [expanded, setExpanded] = useState({});
+
+	const toggleAbstract = (index) => {
+		setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
+	};
 
 	return (
-		<React.Fragment>
+		<>
 			<Helmet>
 				<title>{`PhD | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
-				<meta
-					name="keywords"
-					content={currentSEO.keywords.join(", ")}
-				/>
+				<meta name="keywords" content={currentSEO.keywords.join(", ")} />
 			</Helmet>
 
 			<div className="page-content">
-				<NavBar active="articles" />
+				<NavBar active="" />
 				<div className="content-wrapper">
-					<div className="articles-logo-container">
-						<div className="articles-logo">
+					<div className="phd-logo-container">
+						<div className="phd-logo">
 							<Logo width={46} />
 						</div>
 					</div>
-
-					<div className="articles-main-container">
-						<div className="title articles-title">
-							{INFO.articles.title}
-						</div>
-
-						<div className="subtitle articles-subtitle">
-							{INFO.articles.description}
-						</div>
-
-						<div className="articles-container">
-							<div className="articles-wrapper">
-								{myArticles.map((article, index) => (
-									<div
-										className="articles-article"
-										key={(index + 1).toString()}
-									>
-										<Article
-											key={(index + 1).toString()}
-											date={article().date}
-											title={article().title}
-											description={article().description}
-											link={"/article/" + (index + 1)}
-										/>
-									</div>
-								))}
+					{/* === HERO SECTION (two columns like homepage) === */}
+					<div className="homepage-first-area">
+						<div className="homepage-first-area-left-side">
+							<div className="homepage-heading">
+								<h1 className="homepage-title underline-animated">Ph.D. Thesis</h1>
+								<h2 className="homepage-subtitle-accent">
+									Towards Interoperability and Novel Methodological Approaches
+									for Scalable Game-Based Assessment
+								</h2>
+								<p className="homepage-subtitle">
+									Hacia la interoperabilidad y nuevos enfoques metodológicos
+									para la evaluación escalable basada en juegos
+								</p>
 							</div>
+
+							{/* Buttons under subtitle */}
+							<div
+								className="thesis-buttons"
+								style={{
+									marginTop: "90px",
+									display: "flex",
+									flexWrap: "wrap",
+									gap: "15px",
+								}}
+							>
+								<a
+									href="https://mjgm97.github.io/docs/full_thesis.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="glass-btn"
+								>
+									<i className="fa fa-file-pdf-o"></i> Full Version
+								</a>
+								<a
+									href="https://mjgm97.github.io/docs/short_thesis.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="glass-btn secondary"
+								>
+									<i className="fa fa-file-pdf-o"></i> Short Version
+								</a>
+								<a
+									href="https://mjgm97.github.io/docs/slides.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="glass-btn"
+									style={{ background: "rgba(132,103,215,0.25)" }}
+								>
+									<i className="fa fa-file-powerpoint-o"></i> Slides
+								</a>
+							</div>
+						</div>
+
+						<div className="homepage-first-area-right-side">
+							<div className="homepage-image-container">
+								<div className="homepage-image-wrapper">
+									<img
+										src="/phdDefense.JPG"
+										alt="PhD Thesis"
+										className="homepage-image"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* === Publications Section === */}
+					<div className="research-container">
+						<h2 className="research-year-title" style={{ marginTop: "0px" }}>
+							Publications included in this PhD Thesis
+						</h2>
+
+						<div className="research-list">
+							{PHD_PUBLICATIONS.map((pub, index) => (
+								<AnimatedCard key={index} threshold={0.2}>
+									<div
+										className={`research-card glass-card ${
+											expanded[index] ? "expanded" : ""
+										}`}
+										onClick={() => toggleAbstract(index)}
+									>
+										<div className="research-left">
+											<img
+												src={pub.cover}
+												alt={pub.title}
+												className="research-cover"
+											/>
+										</div>
+
+										<div className="research-right">
+											<div className="research-meta">
+												<span className="meta-badge type">{pub.type}</span>
+												<span className="meta-badge journal">{pub.journal}</span>
+											</div>
+
+											<h3 className="research-article-title">{pub.title}</h3>
+											<p
+												className="research-authors"
+												dangerouslySetInnerHTML={{
+													__html: highlightAuthor(pub.authors),
+												}}
+											></p>
+
+											<div
+												className={`abstract-wrapper ${
+													expanded[index] ? "show" : "hide"
+												}`}
+											>
+												<p className="research-abstract">{pub.abstract}</p>
+											</div>
+
+											<div className="research-links">
+												<a
+													href={pub.publisherLink}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="glass-btn"
+													onClick={(e) => e.stopPropagation()}
+												>
+													🌐 External Link
+												</a>
+												<a
+													href={pub.download}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="glass-btn secondary"
+													onClick={(e) => e.stopPropagation()}
+												>
+													⬇️ Download
+												</a>
+												<div className="collapse-right">
+													<button
+														className="glass-btn toggle-btn"
+														onClick={(e) => {
+															e.stopPropagation();
+															toggleAbstract(index);
+														}}
+													>
+														{expanded[index]
+															? "Hide Abstract"
+															: "Show Abstract"}
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</AnimatedCard>
+							))}
 						</div>
 					</div>
 					<div className="page-footer">
@@ -72,7 +204,7 @@ const PhD = () => {
 					</div>
 				</div>
 			</div>
-		</React.Fragment>
+		</>
 	);
 };
 

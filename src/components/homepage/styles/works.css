@@ -35,6 +35,24 @@
 	color: var(--text-color);
 }
 
+/* === Thesis link hover glow === */
+.thesis-link .work-title {
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+}
+
+.thesis-link:hover .work-title {
+	color: #b79df7;
+	text-shadow:
+		0 0 6px rgba(132, 103, 215, 0.6),
+		0 0 12px rgba(132, 103, 215, 0.4),
+		0 0 20px rgba(132, 103, 215, 0.3);
+}
+
+.thesis-link:hover {
+	text-decoration: none;
+}
+
 .work-duration {
 	font-size: 12px;
 	background: var(--accent-color, #7e5bef); /* fallback purple */

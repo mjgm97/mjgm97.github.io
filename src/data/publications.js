@@ -210,5 +210,4 @@ const PUBLICATIONS = [
     },
 ];
 
-
 export default PUBLICATIONS;
