@@ -532,9 +532,13 @@
 	}
 
 	.research-cover {
-		max-width: 80%;
+		max-width: 100%;
 		/* smaller but still centered */
 		height: auto;
+	}
+
+	.research-left {
+		max-width: 20%;
 	}
 
 }
