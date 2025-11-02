@@ -25,6 +25,7 @@
 	from {
 		width: 0%;
 	}
+
 	to {
 		width: 100%;
 	}
@@ -64,7 +65,7 @@
 	font-size: 1rem;
 	line-height: 1.6;
 	max-width: 850px;
-    margin-top: 20px;
+	margin-top: 20px;
 	margin-bottom: 0px;
 }
 
@@ -83,13 +84,13 @@
 }
 
 /* === Research Cards === */
-.research-card.glass-card{
+.research-card.glass-card {
 	display: flex;
 	align-items: flex-start;
-    flex-direction: row;
+	flex-direction: row;
 	gap: 25px;
 	padding: 25px;
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 	border-radius: 16px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -147,7 +148,8 @@
 	-webkit-backdrop-filter: blur(10px);
 	box-shadow: 0 3px 8px rgba(132, 103, 215, 0.15);
 	transition: all 0.3s ease;
-	cursor: default; /* ✅ not clickable */
+	cursor: default;
+	/* ✅ not clickable */
 	user-select: none;
 }
 
@@ -244,6 +246,7 @@
 		opacity: 0;
 		transform: translateY(-5px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -257,7 +260,7 @@
 	opacity: 0;
 	transform: translateY(-5px);
 	filter: blur(4px);
-	transition: 
+	transition:
 		max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
 		opacity 0.4s ease,
 		transform 0.4s ease,
@@ -265,8 +268,9 @@
 }
 
 .abstract-wrapper.show {
-    overflow-y: auto;
-	max-height: 400px; /* enough space for abstracts */
+	overflow-y: auto;
+	max-height: 400px;
+	/* enough space for abstracts */
 	opacity: 1;
 	transform: translateY(0);
 	filter: blur(0);
@@ -312,7 +316,7 @@
 	transform: scale(1.05);
 	background: rgba(255, 255, 255, 0.25);
 	color: var(--accent-color);
-    text-decoration: none;
+	text-decoration: none;
 	box-shadow: 0 6px 16px rgba(132, 103, 215, 0.25);
 }
 
@@ -320,7 +324,7 @@
 .glass-btn.secondary {
 	border-color: rgba(200, 200, 200, 0.3);
 	background: rgba(200, 200, 200, 0.25);
-    text-decoration: none;
+	text-decoration: none;
 	color: var(--secondary-color);
 }
 
@@ -350,6 +354,7 @@
 		opacity: 0;
 		transform: translateY(20px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -381,7 +386,7 @@
 /* === Year Section Divider === */
 .research-year-section {
 	position: relative;
-    margin-top: 20px;
+	margin-top: 20px;
 	margin-bottom: 70px;
 	text-align: center;
 	opacity: 0;
@@ -397,12 +402,10 @@
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(132, 103, 215, 0.6),
-		transparent
-	);
+	background: linear-gradient(90deg,
+			transparent,
+			rgba(132, 103, 215, 0.6),
+			transparent);
 	filter: blur(1px);
 	opacity: 0.7;
 	transition: all 0.4s ease;
@@ -458,11 +461,13 @@
 		opacity: 0;
 		filter: blur(3px);
 	}
+
 	60% {
 		opacity: 1;
 		filter: blur(0);
-		
+
 	}
+
 	100% {
 		opacity: 1;
 		box-shadow: none;
@@ -517,12 +522,19 @@
 		margin-bottom: 20px;
 	}
 
-	.research-logo{
+	.research-logo {
 		top: 3vh;
 		opacity: 0.6;
 	}
 
 	.nav-item.home-link {
-    display: none !important;
-  }
+		display: none !important;
+	}
+
+	.research-cover {
+		max-width: 80%;
+		/* smaller but still centered */
+		height: auto;
+	}
+
 }
