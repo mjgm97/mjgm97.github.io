@@ -49,7 +49,7 @@ const Teaching = () => {
 
 						{/* === Undergraduate & Graduate Studies === */}
 						<div className="teaching-row">
-							<div className="teaching-column glass-card fade-slide">
+							<div className="supervision-section glass-card fade-slide">
 								<h2 className="section-title underline-animated">Undergraduate Studies</h2>
 								<div className="subcard-grid">
 									{TEACHING.undergraduateCourses.map((course, i) => (
@@ -75,7 +75,7 @@ const Teaching = () => {
 								</div>
 							</div>
 
-							<div className="teaching-column glass-card fade-slide">
+							<div className="supervision-section glass-card fade-slide">
 								<h2 className="section-title underline-animated">Graduate Studies</h2>
 								<div className="subcard-grid">
 									{TEACHING.graduateCourses.map((course, i) => (
