@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ReactGA from "react-ga4";
 import "./theme.css";
 
@@ -16,11 +17,20 @@ import { TRACKING_ID } from "./data/tracking";
 import "./app.css";
 
 function App() {
+
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		if (TRACKING_ID !== "") {
 			ReactGA.initialize(TRACKING_ID);
 		}
-	}, []);
+
+		const redirect = sessionStorage.getItem("redirect");
+		if (redirect && redirect !== "/") {
+			sessionStorage.removeItem("redirect");
+			navigate(redirect);
+		}
+	}, [navigate]);
 
 	return (
 		<div className="App">
