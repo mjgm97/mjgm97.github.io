@@ -1,0 +1,35 @@
+@import "../../../data/styles.css";
+
+.card {
+	mix-blend-mode: normal;
+	border-radius: 20px;
+	outline: 2px solid rgba(126, 91, 239, 0.25);
+	justify-content: center;
+}
+
+.card-container {
+	padding: 30px;
+	padding-bottom: 5px;
+}
+
+.card-header {
+	display: flex;
+	align-items: center;
+}
+
+.card-icon {
+	font-size: 20px;
+	color: var(--tertiary-color);
+}
+
+.card-title {
+	color: var(--text-color);
+	font-size: 18px;
+	padding-left: 20px;
+	font-weight: 650;
+}
+
+.card-body {
+	padding-top: 40px;
+	font-size: 15px;
+}

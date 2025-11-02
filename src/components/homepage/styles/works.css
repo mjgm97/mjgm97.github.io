@@ -1,0 +1,111 @@
+@import "../../../data/styles.css";
+
+.work {
+	display: flex;
+	align-items: flex-start;
+	padding-bottom: 30px;
+	width: 100%;
+	position: relative;
+}
+
+.work-image {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	outline: 4px solid white;
+	box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+	margin-right: 15px;
+}
+
+.work-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.work-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.work-title {
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+.work-duration {
+	font-size: 12px;
+	background: var(--accent-color, #7e5bef); /* fallback purple */
+	color: white;
+	padding: 3px 2px;
+	border-radius: 999px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	white-space: nowrap;
+	width: 100px;
+	text-align: center;
+}
+
+.work-subtitle {
+	font-size: 12px;
+	color: var(--tertiary-color);
+	margin-top: 5px;
+	line-height: 1.4;
+}
+
+.work-duration {
+	transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.work-duration:hover {
+	transform: scale(1.1);
+	background: #9b72ff; /* lighter purple variant */
+}
+
+.work-image {
+	transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.work-duration:hover {
+	transform: scale(1.1);
+}
+
+.works {
+	background: transparent;
+	box-shadow: none;
+}
+
+/* === Grid layout for multiple cards === */
+.works-grid {
+	display: grid;
+	grid-template-columns: 1fr; /* default: single column (mobile) */
+	gap: 30px;
+	width: 100%;
+	justify-content: center;
+	align-items: start;
+	margin: 20px 0;
+}
+
+/* On wider screens (e.g. >900px), show two cards side by side */
+@media (min-width: 900px) {
+	.works-grid {
+		grid-template-columns: repeat(2, 1fr);
+		max-width: 1500px;
+		margin: 0 auto;
+	}
+}
+
+/* Ensure cards fill available height evenly */
+.works-grid .animated-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	height: 100%; /* ✅ allow card to grow equally */
+}
+
+.works-grid .card {
+	flex: 1; /* ✅ makes each card stretch to fill the cell height */
+	display: flex;
+	flex-direction: column;
+}

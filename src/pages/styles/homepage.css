@@ -1,0 +1,279 @@
+@import "../../data/styles.css";
+
+.homepage-logo-container {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-top: 50px;
+}
+
+.homepage-container {
+	padding-top: 25px;
+}
+
+.homepage-first-area {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.homepage-first-area-left-side {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.homepage-title {
+	width: 90% !important;
+}
+
+.homepage-subtitle {
+	width: 85% !important;
+}
+
+.homepage-first-area-right-side {
+	display: flex;
+	align-items: center;
+}
+
+.homepage-image-container {
+	width: 400px;
+	height: 400px;
+	margin-top: auto;
+}
+
+.homepage-image-wrapper {
+	overflow: hidden;
+	border-radius: 10%;
+	transform: rotate(3deg);
+}
+
+.homepage-image-wrapper img {
+	width: 100%;
+}
+
+.homepage-socials {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.homepage-social-icon {
+	padding-right: 20px;
+	font-size: 25px;
+	transition: color 0.2s ease-in-out;
+	color: var(--secondary-color);
+}
+
+.homepage-socials a:nth-child(1):hover .homepage-social-icon { 
+	color: #1DA1F2; 
+}
+
+.homepage-socials a:nth-child(2):hover .homepage-social-icon { 
+	color: #000; 
+}
+.homepage-socials a:nth-child(3):hover .homepage-social-icon { 
+	color: #0A66C2; 
+}
+.homepage-socials a:nth-child(4):hover .homepage-social-icon { 
+	color: #8467d7; 
+}
+
+.homepage-after-title {
+	display: flex;
+}
+
+.homepage-projects {
+	flex-basis: 300px;
+	padding-top: 40px;
+}
+
+.homepage-articles {
+	flex-basis: 900px;
+	padding-top: 30px;
+	margin-left: -30px;
+}
+
+.homepage-article {
+	padding-bottom: 5px;
+}
+
+.homepage-works {
+	padding-top: 10px;
+}
+
+.homepage-title {
+	position: relative;
+	display: inline-block;
+	color: var(--text-color);
+	font-weight: 700;
+}
+
+.homepage-title::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 0%;
+	height: 3px;
+	background: linear-gradient(90deg, #8467d7, #6e56c7);
+	border-radius: 2px;
+	animation: underline-appear 1.2s ease-out forwards;
+}
+
+@keyframes underline-appear {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+/* Subtitle directly under the underline */
+.homepage-subtitle-accent {
+	margin-top: 0px;
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: var(--secondary-color);
+	letter-spacing: 0.5px;
+	transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
+}
+
+/* Keep description text neutral and readable */
+.homepage-subtitle {
+	color: var(--secondary-color);
+	font-size: 1rem;
+	line-height: 1.6;
+	max-width: 700px;
+}
+
+/* === Fade & Slide In Animation === */
+.homepage-heading,
+.homepage-subtitle{
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeSlideIn 1.0s ease-out forwards;
+}
+
+.homepage-image-wrapper {
+	opacity: 0;
+	animation: fadeSlideImageIn 1.0s ease-out forwards;
+}
+
+.homepage-heading {
+	animation-delay: 0.2s;
+}
+
+.homepage-subtitle {
+	animation-delay: 0.5s;
+}
+
+.homepage-image-wrapper {
+	animation-delay: 0.6s;
+}
+
+/* === Interactive Hover Effects === */
+
+/* Title hover glow */
+.homepage-title:hover {
+	color: var(--accent-color);
+	text-shadow: 0 0 12px rgba(132, 103, 215, 0.4);
+	transition: all 0.3s ease;
+}
+
+/* Subtitle hover lift */
+.homepage-subtitle-accent:hover {
+	transform: translateY(-3px);
+	color: var(--primary-color);
+	transition: all 0.3s ease;
+}
+
+@keyframes fadeSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+		transform: rotate(1deg);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeSlideImageIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		transform: rotate(3deg);
+	}
+}
+
+@media (max-width: 1024px) {
+	.homepage-first-area {
+		flex-direction: column;
+	}
+
+	.homepage-first-area-left-side {
+		display: flex;
+		flex-direction: column; /* Changed: set direction to column */
+		align-items: flex-start;
+		width: 100%;
+		order: 2;
+	}
+
+	.homepage-title {
+		width: 100% !important;
+		margin-top: -50px;
+		order: 2;
+	}
+
+	.homepage-subtitle {
+		width: 100% !important;
+		margin-top: 10px;
+		order: 3;
+	}
+
+	.homepage-first-area-right-side {
+		width: 100%;
+		order: 1;
+	}
+
+	.homepage-image-container {
+		padding-top: 10px;
+		padding-bottom: 50px;
+		margin-left: auto;
+		margin-right: auto;
+		order: 1;
+	}
+
+	.homepage-after-title {
+		flex-direction: column;
+	}
+
+	.homepage-projects {
+		flex-basis: auto;
+	}
+
+	.homepage-articles {
+		flex-basis: auto;
+	}
+
+	.homepage-works {
+		flex-basis: auto;
+	}
+	
+	.homepage-socials {
+		padding-top: 50px;
+		padding-bottom: 10px;
+	}
+	.homepage-logo-container {
+		padding-top: 90px;
+	}
+}

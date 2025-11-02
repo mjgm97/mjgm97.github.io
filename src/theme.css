@@ -1,0 +1,190 @@
+/* =======================================================
+   Unified Theme: Manuel J. Gomez
+   Refined palette — neutral text, purple accents only
+   ======================================================= */
+
+:root {
+	/* Core Colors */
+	--primary-color: #8467d7;          /* Accent purple */
+	--primary-color-dark: #6e56c7;     /* Accent hover */
+	--secondary-color: #55546b;        /* Neutral secondary text */
+	--text-color: #1e1e2f;             /* Main text color */
+	--background-color: #ffffff;       /* Clean white background */
+	--border-color: #e6e3f5;           /* Light lavender-gray border */
+
+	/* Links and Buttons */
+	--link-color: var(--primary-color);
+	--link-hover: var(--primary-color-dark);
+
+	/* Shadows */
+	--soft-shadow: 0px 4px 10px rgba(132, 103, 215, 0.15);
+	--medium-shadow: 0px 6px 20px rgba(132, 103, 215, 0.25);
+
+	/* Fonts */
+	--primary-font: "Poppins", "Open Sans", sans-serif;
+	--secondary-font: "Poppins", "Open Sans", sans-serif;
+}
+
+/* =======================================================
+   Base
+   ======================================================= */
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: var(--primary-font);
+	line-height: 1.6;
+}
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+	transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+	color: var(--link-hover);
+	text-decoration: underline;
+}
+
+/* =======================================================
+   Typography
+   ======================================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--text-color);
+	font-family: var(--secondary-font);
+	margin-top: 0;
+	font-weight: 600;
+}
+
+p,
+span,
+li {
+	color: var(--secondary-color);
+}
+
+/* Section Titles */
+.section-title,
+.page-title {
+	position: relative;
+	display: inline-block;
+	color: var(--text-color);
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+.section-title::after,
+.page-title::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 3px;
+	margin-top: 8px;
+	background: linear-gradient(90deg, #8467d7, #6e56c7);
+	border-radius: 2px;
+}
+
+/* =======================================================
+   Cards and Containers
+   ======================================================= */
+.card,
+.section-container,
+.page-container {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: var(--soft-shadow);
+	padding: 1.5rem 2rem;
+	margin-bottom: 1.5rem;
+	border: 1px solid var(--border-color);
+}
+
+/* Optional subtle background sections */
+.section.light {
+	background-color: #faf9ff;
+}
+
+/* =======================================================
+   Buttons and Interactive Elements
+   ======================================================= */
+button,
+.btn,
+a.button-link {
+	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+	padding: 0.7rem 1.5rem;
+	border-radius: 50px;
+	cursor: pointer;
+	font-weight: 500;
+	font-family: var(--primary-font);
+	box-shadow: var(--soft-shadow);
+	transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+a.button-link:hover {
+	background-color: var(--primary-color-dark);
+	box-shadow: var(--medium-shadow);
+	transform: translateY(-1px);
+}
+
+/* =======================================================
+   Decorative Accents
+   ======================================================= */
+.icon-accent {
+	color: var(--primary-color);
+}
+
+.icon-accent:hover {
+	color: var(--primary-color-dark);
+}
+
+.border-accent {
+	border-left: 4px solid var(--primary-color);
+	padding-left: 1rem;
+}
+
+/* =======================================================
+   Footer
+   ======================================================= */
+footer {
+	text-align: center;
+	padding: 1rem;
+	font-size: 0.9rem;
+	color: var(--secondary-color);
+	background-color: #faf9ff;
+	border-top: 1px solid var(--border-color);
+}
+
+/* =======================================================
+   Layout and Sections
+   ======================================================= */
+.section {
+	padding: 4rem 2rem;
+}
+
+.section.alt {
+	background-color: #faf9ff; /* Very light lavender section */
+}
+
+@media (max-width: 768px) {
+	.section {
+		padding: 2rem 1.5rem;
+	}
+}
+
+/* Override title/subtitle colors to be neutral */
+.title,
+.subtitle,
+.homepage-title,
+.homepage-subtitle {
+	color: var(--text-color) !important;
+}
+

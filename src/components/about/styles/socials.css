@@ -1,0 +1,81 @@
+@import "../../../data/styles.css";
+
+/* === Layout Grid === */
+.socials-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	margin-top: 30px;
+	width: 100%;
+}
+
+/* === Social Card (Glass style) === */
+.social-card {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 16px 20px;
+	border-radius: 20px;
+	text-decoration: none;
+	background: rgba(255, 255, 255, 0.12);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border: 2px solid rgba(132, 103, 215, 0.35);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+	color: var(--text-color);
+	transition: all 0.35s ease;
+	position: relative;
+}
+
+/* Hover animation with accent glow */
+.social-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 0 25px var(--accent);
+	border-color: var(--accent);
+	text-decoration: none;
+}
+
+/* === Icon Section === */
+.icon-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.15);
+	color: var(--accent);
+	font-size: 1.5rem;
+	transition: all 0.4s ease;
+}
+
+.social-card:hover .icon-wrapper {
+	background: var(--accent);
+	color: #fff;
+	box-shadow: 0 0 20px var(--accent);
+}
+
+/* === Text Section === */
+.social-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.social-name {
+	font-weight: 600;
+	font-size: 1rem;
+}
+
+.social-text {
+	font-size: 0.85rem;
+	color: var(--secondary-color);
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+	.social-card {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+}

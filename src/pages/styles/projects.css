@@ -1,0 +1,124 @@
+@import "../../data/styles.css";
+
+/* === Logo === */
+.projects-logo-container {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-top: 50px;
+}
+
+.projects-logo {
+	display: flex;
+	position: fixed;
+	border: 1px solid white;
+	border-radius: 50%;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	top: 4vh;
+	z-index: 999;
+}
+
+/* === Page container === */
+.projects-container {
+	display: flex;
+	flex-direction: column;
+	padding-top: 50px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.projects-heading {
+	margin-bottom: 40px;
+}
+
+/* === Title & subtitle (same animation style as homepage) === */
+.projects-title {
+	position: relative;
+	display: inline-block;
+	font-weight: 700;
+	font-size: 1.8rem;
+	color: var(--text-color);
+	margin-bottom: 20px;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeSlideIn 1s ease-out forwards;
+	animation-delay: 0.2s;
+	transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.projects-title:hover {
+	transform: translateY(-3px);
+	color: var(--accent-color);
+	text-shadow: 0 0 12px rgba(132, 103, 215, 0.4);
+}
+
+/* underline effect */
+.projects-title::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 0%;
+	height: 3px;
+	background: linear-gradient(90deg, #8467d7, #6e56c7);
+	border-radius: 2px;
+	animation: underline-appear 1.2s ease-out forwards;
+	animation-delay: 0.6s;
+}
+
+.projects-subtitle {
+	color: var(--secondary-color);
+	font-size: 1rem;
+	line-height: 1.6;
+	max-width: 750px;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeSlideIn 1s ease-out forwards;
+	animation-delay: 0.4s;
+}
+
+/* === Project list grid === */
+
+/* === Animations === */
+@keyframes fadeSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes underline-appear {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+	.projects-container {
+		padding-top: 20px;
+	}
+
+	.projects-title {
+		font-size: 1.4rem;
+	}
+
+	.projects-subtitle {
+		font-size: 0.95rem;
+	}
+
+	.projects-logo{
+		top: 3vh;
+		opacity: 0.6;
+	}
+}
+
+
+

@@ -1,0 +1,524 @@
+@import "../../data/styles.css";
+
+
+/* === Title underline animation (same as other pages) === */
+.underline-animated {
+	position: relative;
+	display: inline-block;
+	color: var(--text-color);
+	font-weight: 700;
+}
+
+.underline-animated::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 0%;
+	height: 3px;
+	background: linear-gradient(90deg, #8467d7, #6e56c7);
+	border-radius: 2px;
+	animation: underline-appear 1.2s ease-out forwards;
+}
+
+@keyframes underline-appear {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+/* === Layout === */
+.research-logo-container {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-top: 50px;
+}
+
+.research-logo {
+	display: flex;
+	position: fixed;
+	border: 1px solid white;
+	border-radius: 50%;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	top: 4vh;
+	z-index: 999;
+}
+
+.research-container {
+	padding-top: 60px;
+}
+
+.research-title {
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: var(--text-color);
+	margin-bottom: 10px;
+}
+
+.research-subtitle {
+	color: var(--secondary-color);
+	font-size: 1rem;
+	line-height: 1.6;
+	max-width: 850px;
+    margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+/* === Year header === */
+.research-year-group {
+	margin-bottom: 10px;
+}
+
+.research-year-title {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-bottom: 25px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+/* === Research Cards === */
+.research-card.glass-card{
+	display: flex;
+	align-items: flex-start;
+    flex-direction: row;
+	gap: 25px;
+	padding: 25px;
+    margin-bottom: 20px;
+	border-radius: 16px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 10px 25px rgba(126, 91, 239, 0.25);
+}
+
+/* === Left (cover image) === */
+.research-left {
+	flex: 0 0 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.research-cover {
+	width: 150px;
+	height: 200px;
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	object-fit: cover;
+}
+
+/* === Right (text info) === */
+.research-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.research-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
+/* === Glass-style meta badges (non-clickable) === */
+.meta-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 5px 14px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	border-radius: 40px;
+	border: 2px solid rgba(132, 103, 215, 0.3);
+	background: rgba(132, 103, 215, 0.12);
+	color: var(--text-color);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 0 3px 8px rgba(132, 103, 215, 0.15);
+	transition: all 0.3s ease;
+	cursor: default; /* ✅ not clickable */
+	user-select: none;
+}
+
+.meta-badge.journal {
+	border-color: rgba(132, 103, 215, 0.4);
+	background: rgba(132, 103, 215, 0.2);
+	color: var(--text-color);
+}
+
+.meta-badge.publisher {
+	border-color: rgba(200, 200, 200, 0.25);
+	background: rgba(155, 155, 155, 0.08);
+	color: var(--secondary-color);
+}
+
+/* Optional: subtle glow on hover (just visual, not clickable) */
+.meta-badge:hover {
+	transform: scale(1.04);
+	box-shadow: 0 4px 14px rgba(132, 103, 215, 0.25);
+}
+
+/* === Meta badge color variants === */
+.meta-badge.type {
+	font-weight: 700;
+	color: var(--text-color);
+	border: 2px solid transparent;
+}
+
+.meta-badge.type.journal {
+	background: rgba(46, 204, 113, 0.25);
+	border-color: rgba(46, 204, 113, 0.4);
+	box-shadow: 0 3px 8px rgba(46, 204, 113, 0.2);
+}
+
+.meta-badge.type.conference {
+	background: rgba(255, 165, 0, 0.25);
+	border-color: rgba(255, 165, 0, 0.4);
+	box-shadow: 0 3px 8px rgba(255, 165, 0, 0.25);
+}
+
+.meta-badge.type.chapter {
+	background: rgba(52, 152, 219, 0.25);
+	border-color: rgba(52, 152, 219, 0.4);
+	box-shadow: 0 3px 8px rgba(52, 152, 219, 0.25);
+}
+
+.research-article-title {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-bottom: 6px;
+}
+
+.research-authors {
+	font-size: 0.9rem;
+	color: var(--secondary-color);
+	margin-bottom: 16px;
+}
+
+/* === Action buttons === */
+.research-links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+}
+
+/* Toggle indicator */
+.expand-toggle {
+	margin-top: 12px;
+	font-size: 0.85rem;
+	color: var(--accent-color);
+	font-weight: 500;
+}
+
+/* Expanded card style */
+.research-card.expanded {
+	background: rgba(255, 255, 255, 0.18);
+	box-shadow: 0 10px 25px rgba(126, 91, 239, 0.3);
+}
+
+/* === Abstract reveal animation === */
+.research-abstract {
+	margin-top: 0px;
+	color: var(--secondary-color);
+	font-size: 0.95rem;
+	line-height: 1.5;
+	animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-5px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* === Abstract collapse animation === */
+.abstract-wrapper {
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transform: translateY(-5px);
+	filter: blur(4px);
+	transition: 
+		max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+		opacity 0.4s ease,
+		transform 0.4s ease,
+		filter 0.5s ease;
+}
+
+.abstract-wrapper.show {
+    overflow-y: auto;
+	max-height: 400px; /* enough space for abstracts */
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0);
+}
+
+.abstract-wrapper.hide {
+	max-height: 0;
+	opacity: 0;
+	transform: translateY(-5px);
+	filter: blur(4px);
+}
+
+/* Optional: glow or shadow when expanded */
+.research-card.expanded {
+	box-shadow: 0 10px 25px rgba(126, 91, 239, 0.3);
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(20px);
+	transition: all 0.5s ease;
+}
+
+/* === Glass Buttons (like navbar) === */
+.glass-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 6px 14px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	border-radius: 40px;
+	border: 2px solid rgba(132, 103, 215, 0.3);
+	background: rgba(132, 103, 215, 0.15);
+	color: var(--text-color);
+	cursor: pointer;
+	backdrop-filter: blur(1px);
+	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 0 4px 12px rgba(132, 103, 215, 0.15);
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+	transform: scale(1.05);
+	background: rgba(255, 255, 255, 0.25);
+	color: var(--accent-color);
+    text-decoration: none;
+	box-shadow: 0 6px 16px rgba(132, 103, 215, 0.25);
+}
+
+/* Variant for secondary links (e.g. BibTeX) */
+.glass-btn.secondary {
+	border-color: rgba(200, 200, 200, 0.3);
+	background: rgba(200, 200, 200, 0.25);
+    text-decoration: none;
+	color: var(--secondary-color);
+}
+
+.glass-btn.secondary:hover {
+	background: rgba(255, 255, 255, 0.25);
+	color: var(--accent-color);
+}
+
+/* === Animated appearance for title & subtitle === */
+.research-title,
+.research-subtitle {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.research-title {
+	animation-delay: 0.2s;
+}
+
+.research-subtitle {
+	animation-delay: 0.4s;
+}
+
+@keyframes fadeSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.collapse-right {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+}
+
+/* === Highlight only when card is hovered === */
+.highlight-author {
+	color: inherit;
+	font-weight: 700;
+	transition: color 0.3s ease, text-shadow 0.3s ease;
+	text-shadow: none;
+}
+
+/* When hovering the whole card */
+.research-card:hover .highlight-author {
+	color: var(--accent-color);
+	text-shadow:
+		0 0 6px rgba(132, 103, 215, 0.6),
+		0 0 12px rgba(132, 103, 215, 0.4);
+}
+
+/* === Year Section Divider === */
+.research-year-section {
+	position: relative;
+    margin-top: 0px;
+	margin-bottom: 70px;
+	text-align: center;
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeUpGlow 1s ease forwards;
+	animation-delay: 0.2s;
+}
+
+/* === Glowing horizontal line === */
+.year-line {
+	position: absolute;
+	top: 80%;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(132, 103, 215, 0.6),
+		transparent
+	);
+	filter: blur(1px);
+	opacity: 0.7;
+	transition: all 0.4s ease;
+}
+
+/* === Glass-style year title === */
+.research-year-title {
+	position: relative;
+	display: inline-block;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--text-color);
+	padding: 6px 20px;
+	border-radius: 40px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 2px solid rgba(132, 103, 215, 0.3);
+	box-shadow: 0 4px 18px rgba(132, 103, 215, 0.25);
+	z-index: 1;
+	transition: all 0.4s ease;
+}
+
+/* Gradient year text */
+.year-text {
+	background: var(--text-color);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 800;
+}
+
+/* Icon spacing */
+.year-icon {
+	margin-right: 10px;
+	font-size: 1.4rem;
+}
+
+/* === Hover effects === */
+.research-year-section:hover .year-line {
+	opacity: 1;
+	box-shadow: 0 0 25px rgba(132, 103, 215, 0.6);
+	filter: blur(2px);
+}
+
+.research-year-section:hover .research-year-title {
+	box-shadow: 0 0 25px rgba(132, 103, 215, 0.4);
+	transform: scale(1.04);
+}
+
+/* === Scroll reveal animation === */
+@keyframes fadeUpGlow {
+	0% {
+		opacity: 0;
+		filter: blur(3px);
+	}
+	60% {
+		opacity: 1;
+		filter: blur(0);
+		
+	}
+	100% {
+		opacity: 1;
+		box-shadow: none;
+	}
+}
+
+/* === Load More Button === */
+.load-more-container {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+	animation: fadeIn 0.6s ease forwards;
+}
+
+.load-more-btn {
+	font-size: 0.95rem;
+	padding: 10px 26px;
+	border-radius: 40px;
+	background: rgba(132, 103, 215, 0.15);
+	border: 2px solid rgba(132, 103, 215, 0.4);
+	color: var(--text-color);
+	cursor: pointer;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 12px rgba(132, 103, 215, 0.15);
+}
+
+.load-more-btn:hover {
+	transform: translateY(-3px) scale(1.05);
+	background: rgba(255, 255, 255, 0.25);
+	color: var(--accent-color);
+	box-shadow: 0 6px 18px rgba(132, 103, 215, 0.25);
+}
+
+/* Fade-out animation for final disappearance */
+.fade-out {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s ease;
+}
+
+/* === Responsive (image moves to top) === */
+@media (max-width: 768px) {
+	.research-card {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.research-left {
+		margin-bottom: 20px;
+	}
+
+	.research-logo{
+		top: 3vh;
+		opacity: 0.6;
+	}
+}
