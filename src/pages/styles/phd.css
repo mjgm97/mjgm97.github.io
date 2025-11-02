@@ -26,6 +26,45 @@
 	padding-top: 150px;
 }
 
+/* === Thesis Info Section === */
+.thesis-info {
+	margin-top: 60px;
+	margin-bottom: 0px;
+	padding: 30px 40px;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 2px solid rgba(132, 103, 215, 0.25);
+	box-shadow: 0 8px 25px rgba(132, 103, 215, 0.15);
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.thesis-info-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--text-color);
+	margin-bottom: 15px;
+	text-align: center;
+	text-shadow: 0 0 8px rgba(132, 103, 215, 0.4);
+}
+
+.thesis-info-content p {
+	color: var(--secondary-color);
+	line-height: 1.7;
+	margin: 6px 0;
+	font-size: 1rem;
+}
+
+.thesis-info-content strong {
+	color: var(--text-color);
+	font-weight: 600;
+}
+
+
 @media (max-width: 768px) {
     .phd-logo {
 		top: 3vh;

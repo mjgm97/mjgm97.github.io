@@ -114,20 +114,32 @@ const PhD = () => {
 							</div>
 						</div>
 					</div>
+					{/* === Thesis Info Section === */}
+					<div className="thesis-info glass-card">
+						<h2 className="thesis-info-title">🎓 Defense Details</h2>
 
+						<div className="thesis-info-content">
+							<p><strong>Supervisors:</strong> Dr. Félix Jesús García Clemente and Dr. José Antonio Ruipérez Valiente</p>
+							<p><strong>Thesis Defense Committee:</strong> Ms. Ruth Cobos Pérez (Chair), Mr. Óscar Cánovas Reverte (Secretary), and Ms. Sonsoles López Pernas (External Member)</p>
+							<p><strong>Date of the Defense:</strong> 03/10/2025</p>
+							<p><strong>Grade:</strong> Sobresaliente</p>
+							<p><strong>Honors:</strong> “Cum Laude” and “International Doctorate”</p>
+						</div>
+					</div>
 					{/* === Publications Section === */}
-					<div className="research-container">
-						<h2 className="research-year-title" style={{ marginTop: "0px" }}>
-							Publications included in this PhD Thesis
-						</h2>
-
+					<div className="research-container" style={{paddingTop: "25px"}}>
+						<div className="research-year-section" style={{marginTop: "0px", marginBottom: "50px"}}>
+							<div className="year-line"></div>
+							<h2 className="research-year-title st">
+								<span className="year-text">Publications included</span>
+							</h2>
+						</div>
 						<div className="research-list">
 							{PHD_PUBLICATIONS.map((pub, index) => (
 								<AnimatedCard key={index} threshold={0.2}>
 									<div
-										className={`research-card glass-card ${
-											expanded[index] ? "expanded" : ""
-										}`}
+										className={`research-card glass-card ${expanded[index] ? "expanded" : ""
+											}`}
 										onClick={() => toggleAbstract(index)}
 									>
 										<div className="research-left">
@@ -153,9 +165,8 @@ const PhD = () => {
 											></p>
 
 											<div
-												className={`abstract-wrapper ${
-													expanded[index] ? "show" : "hide"
-												}`}
+												className={`abstract-wrapper ${expanded[index] ? "show" : "hide"
+													}`}
 											>
 												<p className="research-abstract">{pub.abstract}</p>
 											</div>
