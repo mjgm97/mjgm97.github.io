@@ -20,6 +20,9 @@
 
 /* === Floating glass background === */
 .nav-background {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	width: 440px;
 	height: 42px;
 	/* ✨ Subtle purple glass tint */
@@ -29,7 +32,29 @@
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+	white-space: nowrap;
+	max-width: 90vw;
 	transition: all 0.4s ease;
+	overflow: hidden;
+}
+
+/* Ensure inner text scales and doesn’t overflow */
+.navbar a {
+	font-size: clamp(0.85rem, 3vw, 0.95rem); /* responsive text */
+	text-decoration: none;
+	padding: 0 5px;
+	color: var(--text-color);
+}
+
+/* Center the pill and adjust spacing on mobile */
+@media (max-width: 600px) {
+	.nav-container {
+		justify-content: center;
+	}
+	.nav-background {
+		padding: 0 12px;
+		max-width: 95vw;
+	}
 }
 
 /* Hover interaction: slightly more opaque and glowing */
