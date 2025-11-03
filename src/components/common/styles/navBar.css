@@ -123,12 +123,12 @@
 	.navbar {
 		margin-left: 20%;
 		margin-right: 20%;
-		width: 78%;
+		width: 70%;
 		font-size: 80%;
 	}
 
 	.nav-background {
-		max-width: 80%;
+		max-width: 75%;
 		height: 40px;
 	}
 
@@ -139,7 +139,7 @@
 	.nav-item a {
 		
 		padding: 0px 9px;
-		font-size: 0.85rem;;
+		font-size: 0.80rem;
 	}
 }
 
