@@ -78,7 +78,7 @@ const Research = () => {
 				<div className="content-wrapper">
 					<div className="research-logo-container">
 						<div className="research-logo">
-							<Logo width={46} />
+							<Logo width={45} />
 						</div>
 					</div>
 

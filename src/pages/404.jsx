@@ -22,7 +22,7 @@ const Notfound = () => {
 				<div className="content-wrapper">
 					<div className="notfound-logo-container">
 						<div className="projects-logo">
-							<Logo width={46} />
+							<Logo width={45} />
 						</div>
 					</div>
 					<div className="notfound-container">

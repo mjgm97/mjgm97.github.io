@@ -46,7 +46,7 @@ const PhD = () => {
 				<div className="content-wrapper">
 					<div className="phd-logo-container">
 						<div className="phd-logo">
-							<Logo width={46} />
+							<Logo width={45} />
 						</div>
 					</div>
 					{/* === HERO SECTION (two columns like homepage) === */}
