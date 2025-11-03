@@ -122,15 +122,15 @@
 /* === Responsive === */
 @media (max-width: 600px) {
 	.navbar {
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: 20%;
+		margin-right: 20%;
 		width: 80%;
 		font-size: 80%;
 	}
 
 	.nav-background {
-		max-width: 90vw;
-		padding: 0 10px;
+		max-width: 80%;
+		height: 40px;
 	}
 
 	.nav-item {
