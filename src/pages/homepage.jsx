@@ -92,7 +92,7 @@ const Homepage = () => {
 								<div className="homepage-heading">
 									<h1 className="homepage-title">Manuel Jesús Gómez</h1>
 									<h2 className="homepage-subtitle-accent">
-										Ph.D. in Computer Science & Researcher on Serious Games and AI in Education
+										Ph.D. in Computer Science & Researcher in Serious Games and AI in Education
 									</h2>
 								</div>
 

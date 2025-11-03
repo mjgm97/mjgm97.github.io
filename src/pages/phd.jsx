@@ -54,7 +54,7 @@ const PhD = () => {
 						<div className="homepage-first-area-left-side">
 							<div className="homepage-heading">
 								<h1 className="homepage-title underline-animated">Ph.D. Thesis</h1>
-								<h2 className="homepage-subtitle-accent">
+								<h2 className="homepage-subtitle-accent" style= {{marginBottom: "0px;"}}>
 									Towards Interoperability and Novel Methodological Approaches
 									for Scalable Game-Based Assessment
 								</h2>
@@ -62,13 +62,14 @@ const PhD = () => {
 									Hacia la interoperabilidad y nuevos enfoques metodológicos
 									para la evaluación escalable basada en juegos
 								</p>
+								<p className="homepage-subtitle"><strong>Supervisors:</strong> Dr. Félix Jesús García Clemente and Dr. José Antonio Ruipérez Valiente</p>
 							</div>
 
 							{/* Buttons under subtitle */}
 							<div
 								className="thesis-buttons"
 								style={{
-									marginTop: "90px",
+									marginTop: "60px",
 									display: "flex",
 									flexWrap: "wrap",
 									gap: "15px",
@@ -115,11 +116,11 @@ const PhD = () => {
 						</div>
 					</div>
 					{/* === Thesis Info Section === */}
-					<div className="thesis-info glass-card">
+					<div className="thesis-info glass-card" style={{marginTop: "40px", marginBottom: "0px"}}>
 						<h2 className="thesis-info-title">🎓 Defense Details</h2>
 
 						<div className="thesis-info-content">
-							<p><strong>Supervisors:</strong> Dr. Félix Jesús García Clemente and Dr. José Antonio Ruipérez Valiente</p>
+							
 							<p><strong>Thesis Defense Committee:</strong> Ms. Ruth Cobos Pérez (Chair), Mr. Óscar Cánovas Reverte (Secretary), and Ms. Sonsoles López Pernas (External Member)</p>
 							<p><strong>Date of the Defense:</strong> 03/10/2025</p>
 							<p><strong>Grade:</strong> Sobresaliente</p>
