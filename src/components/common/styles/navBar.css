@@ -14,8 +14,6 @@
 	position: fixed;
 	top: 3vh;
 	z-index: 999;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
 }
 
 /* === Floating glass background === */
@@ -40,6 +38,7 @@
 
 /* Ensure inner text scales and doesn’t overflow */
 .navbar a {
+	margin-top: 10px;
 	font-size: clamp(0.85rem, 3vw, 0.95rem); /* responsive text */
 	text-decoration: none;
 	padding: 0 5px;
@@ -76,7 +75,7 @@
 
 .nav-item {
 	font-weight: 600;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	position: relative;
 	transition: color 0.3s ease;
 }
@@ -135,6 +134,12 @@
 
 	.nav-item {
 		font-weight: bold;
+	}
+
+	.nav-item a {
+		
+		padding: 0px 9px;
+		font-size: 0.85rem;;
 	}
 }
 
