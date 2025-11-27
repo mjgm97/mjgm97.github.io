@@ -33,6 +33,17 @@ const PUBLICATIONS = [
         download: ""
     },
     {
+        cover: "../covers/teem24Cover.jpg",
+        year: "2025",
+        type: "Conference Paper",
+        journal: "International Conference on Technological Ecosystems for Enhancing Multiculturality (TEEM 2024)",
+        title: "Towards the Development of an Assessment Model of Spatial Reasoning with a Serious Game",
+        authors: "Ana M. Aguilar, Manuel J. Gomez & José A. Ruipérez-Valiente",
+        abstract: "This study presents a rubric for manual labeling of spatial reasoning skills in Shadowspect, a geometric puzzle-solving game that provides a rich dataset for analysis. The rubric facilitates dataset labeling, enabling the exploration of Machine Learning (ML) techniques to assess spatial reasoning through Shadowspect. To validate the rubric, following its guidelines, a dataset of Shadowspect gameplay was annotated and used to train various ML models. The Support Vector Machine regressor (SVR) performed best, achieving an value of 0.83 and a Mean Square Error (MSE) of 0.06. The predictions of the model closely matched the true values, evidencing the accuracy of the rubric and demonstrating the potential of ML techniques for dynamic, Game-Based Assessment (GBA) of spatial reasoning skills.",
+        publisherLink: "https://link.springer.com/chapter/10.1007/978-981-96-5658-5_7",
+        download: ""
+    },
+    {
         cover: "../covers/expertSystems-cover.jpg",
         year: "2025",
         type: "Journal Paper",
