@@ -1,6 +1,20 @@
     const TEACHING = {
         undergraduateCourses : [
 		{
+			title: "Programación Concurrente y Distribuida",
+			university: "University of Murcia",
+			degree: "Computer Science Degree",
+			years: "2025-Present",
+            logo: "/umLogo.jpeg"
+		},
+		{
+			title: "Analítica de Aprendizaje y Minería de Datos Educacionales",
+			university: "University of Murcia",
+			degree: "Data Science and Data Engineering Degree",
+			years: "2025-Present",
+            logo: "/umLogo.jpeg"
+		},
+		{
 			title: "Business Intelligence",
 			university: "University of Murcia",
 			degree: "Information and Digital Content Management Degree",
@@ -10,14 +24,14 @@
 	],
         graduateCourses: [
 		{
-			title: "Business Intelligence",
+			title: "Inteligencia de Negocio",
 			university: "University of Murcia",
 			degree: "MSc on Big Data Analytics Technologies",
 			years: "2022–Present",
             logo: "/umLogo.jpeg"
 		},
 		{
-			title: "Business Intelligence",
+			title: "Inteligencia de Negocio",
 			university: "University of Murcia",
 			degree: "MSc on New Technologies in Computer Science",
 			years: "2022–2024",
@@ -35,6 +49,13 @@
 		},
 	],
 	degreeTheses: [
+		{
+			title: "Academic Dishonesty in Serious Games",
+			student: "Frank Antonio Oldfield Montilla",
+            university: "University of Murcia",
+			degree: "Computer Science Degree",
+			year: "2025/26",
+		},
 		{
 			title: "A Video-Based Multimodal Framework for Nonverbal Communication Assessment in Oral Presentations",
 			student: "Álvaro González Moya",

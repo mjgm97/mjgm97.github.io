@@ -47,7 +47,9 @@ const Research = () => {
 	};
 
 	// === Load More logic ===
-	const [visibleYears, setVisibleYears] = useState(1);
+	const [visibleYears, setVisibleYears] = useState(() =>
+		Math.min(2, sortedYears.length)
+	);
 
 	const handleLoadMore = () => {
 		if (visibleYears < sortedYears.length) {

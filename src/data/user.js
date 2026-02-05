@@ -51,7 +51,7 @@ const INFO = {
 		logo: "../projects/semantic.png",
 		title: "SEMANTIC - Distributed and Efficient Game-Based Assessments as a Service",
 		description:
-		"Funded by Fundación Séneca, SEMANTIC develops scalable and interoperable architectures for Game-Based Assessment, enabling the integration of AI-driven analysis into serious games.",
+		"A Proof of Concept project funded by Fundación Séneca to transfer academic innovations on GBA into applied tools for commercialization and educational technology ecosystems.",
 		linkText: "Project details",
 		link: "https://portalinvestigacion.um.es/proyectos/701885/detalle"
 	},
@@ -59,7 +59,7 @@ const INFO = {
 		logo: "../projects/logoGBAaaS.png",
 		title: "REASSESS - Towards Interoperable Game-Based Assessments as a Service",
 		description:
-		"A Proof of Concept project funded by Fundación Séneca to transfer academic innovations on GBA into applied tools for commercialization and educational technology ecosystems.",
+		"Funded by Fundación Séneca, REASSESS develops scalable and interoperable architectures for Game-Based Assessment, enabling the integration of AI-driven analysis into serious games.",
 		linkText: "Project details",
 		link: "https://portalinvestigacion.um.es/proyectos/587648/detalle"
 	},

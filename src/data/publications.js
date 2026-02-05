@@ -1,5 +1,16 @@
 const PUBLICATIONS = [
     {
+        cover: "../covers/eswa-cover.jpeg",
+        year: "2026",
+        type: "Journal Paper",
+        journal: "Expert Systems With Applications",
+        title: "Quantifying expert speech: a comprehensive analysis of instructional discourses",
+        authors: "Mariano Albaladejo-González, Manuel J. Gomez, Óscar Cánovas, Félix Gómez Mármol & José A. Ruipérez-Valiente",
+        abstract: "Oral communication is a crucial skill in modern society. Nevertheless, it requires sustained practice and constructive feedback. Consequently, several studies have explored the development of oral communication trainers powered by Artificial Intelligence (AI). However, what characterizes expert speech remains unclear, especially given the need to adapt speech to contextual factors. In instructional environments, the speaker’s communication proficiency is a key determinant of audience learning outcomes. For this reason, we have analyzed 1,250 speeches from five types of instructional discourses: in-person college classes (Lectures), online learning lessons (Online Courses), instructional animations (Animated Lessons), supplementary materials for school and high school (Supplementary Lessons), and public presentations (Public Talks). We extracted 16 speech metrics, including six additional multiple-participant metrics for Lectures. We obtained 250 videos of each discourse type, ensuring a minimum length of five minutes. Our analysis revealed expert values for each speech metric and showed how speech metrics vary across discourse types. We also developed an AI speech classifier that achieved an F1 score of 0.78. The model struggled to identify Online Courses, which is consistent with the Uniform Manifold Approximation and Projection analysis, showing that Online Courses are closely interjected with the speech of other instructional discourses. Furthermore, we identified distinct speech profiles in Lectures, Public Talks, and Online Courses, highlighting variations in speaking styles. This research provides valuable insights into expert speech in instructional discourses by offering reference values that can help speakers refine their delivery and support researchers in developing more effective speech training systems.",
+        publisherLink: "https://www.sciencedirect.com/science/article/pii/S0957417426004288",
+        download: ""
+    },
+    {
         cover: "../covers/ihjcs-cover.jpeg",
         year: "2025",
         type: "Journal Paper",
