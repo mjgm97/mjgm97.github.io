@@ -44,7 +44,7 @@
 			title: "Semi-supervised Learning for GBA",
             student: "Ana María Aguilar Igualada",
 			university: "University of Murcia",
-			degree: "Computer Science Degree",
+			degree: "MSc on Big Data Analytics Technologies",
 			year: "2024/25",
 		},
 	],
