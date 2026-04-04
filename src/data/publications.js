@@ -1,5 +1,16 @@
 const PUBLICATIONS = [
     {
+        cover: "../covers/cae-cover.jpeg",
+        year: "2026",
+        type: "Journal Paper",
+        journal: "Computer Applications in Engineering Education",
+        title: "Towards the Integration of Remote Laboratories in Massive Open Online Courses: Insights from Usage Logs and Student Feedback",
+        authors: "Manuel J. Gomez, Mariano Albaladejo-González, José A. Ruipérez-Valiente, Carlos Rejón, Félix García-Loro, Antonio Robles-Gómez & Sergio Martin",
+        abstract: "Massive Open Online Courses (MOOCs) have established a new paradigm in education, enabling asynchronous, remote learning. Although MOOCs offer diverse educational content to students, comprehensive and realistic education requires hands-on training. Therefore, we present our integration of remote laboratories within a MOOC focused on Industry 4.0, together with a mixed-methods analysis combining demographic data, questionnaire responses, platform logs, and remote laboratory server records. The course incorporated seven distinct laboratories in two categories: remote Arduino-based laboratories, which connected physical devices to the MOOC, and a virtual infrastructure based on JupyterHub to support practical activities. Our findings indicate that the majority of participants in our MOOC were actively employed, with a mean age of 46.9 years, and males representing 88%. The students were mainly motivated by personal and professional growth, and 66% of these learners had no prior remote laboratory experience. Learners reported generally positive perceptions of the laboratory experience, including high levels of interest, usefulness, and self-efficacy, although engagement varied substantially across participants. Behavioral analyses revealed that students who ultimately pursued certification showed markedly higher participation and involvement in the remote laboratories than those who did not. At the same time, the course exhibited the substantial dropout patterns commonly reported in MOOCs, indicating that the inclusion of remote laboratories does not by itself eliminate persistence challenges. Our work provides an illustrative example of integrating remote laboratories into a MOOC and offers an analysis of enrolled students, delivering valuable findings for future researchers.",
+        publisherLink: "https://onlinelibrary.wiley.com/doi/10.1002/cae.70185",
+        download: "/publications/Gomez2026TowardsTheIntegration.pdf"
+    },
+    {
         cover: "../covers/eswa-cover.jpeg",
         year: "2026",
         type: "Journal Paper",
