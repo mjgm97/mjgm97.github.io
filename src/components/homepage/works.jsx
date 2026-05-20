@@ -12,6 +12,19 @@ const Works = () => {
 				body={
 					<div className="works-body">
 						<div className="work">
+							<img src="./uefLogo.jpeg" alt="umu" className="work-image" />
+							<div className="work-content">
+								<div className="work-header">
+									<div className="work-title">Visiting Researcher</div>
+									<div className="work-duration">2026</div>
+								</div>
+								<div className="work-subtitle">
+									University of Eastern Finland
+								</div>
+							</div>
+						</div>
+
+						<div className="work">
 							<img src="./escudoUmu.jpg" alt="umu" className="work-image" />
 							<div className="work-content">
 								<div className="work-header">
