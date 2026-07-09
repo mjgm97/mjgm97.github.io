@@ -1,5 +1,27 @@
 const PUBLICATIONS = [
     {
+        cover: "../covers/las26.jpg",
+        year: "2026",
+        type: "Conference Paper",
+        journal: "Learning @ Scale 2026",
+        title: "Survival Rules: Teaching Rule-Based AI Through a Block-based Serious Game",
+        authors: "Manuel J. Gomez,  Mariano Albaladejo-González & José A. Ruipérez-Valiente",
+        abstract: "Artificial Intelligence (AI) literacy is becoming increasingly important in education, yet many approaches focus on using AI tools rather than helping learners understand core AI mechanisms. This work introduces Survival Rules, a Serious Game (SG) that teaches rule-based reasoning by having players construct and refine a block-based rule knowledge base that controls the actions of an autonomous agent in a survival environment. We conducted a preliminary experiment with 12 undergraduate students, reporting results from post-game questionnaires and gameplay logs. Results indicate high perceived utility, and exploratory log analyses suggest potential correlations between students' metrics and performance (i.e., survival time in the game). We discuss implications for improving onboarding and for leveraging interaction traces to support Learning Analytics (LA) and feedback in future studies.",
+        publisherLink: "https://dl.acm.org/doi/abs/10.1145/3774398.3811586",
+        download: "https://dl.acm.org/doi/epdf/10.1145/3774398.3811586"
+    },
+    {
+        cover: "../covers/las26.jpg",
+        year: "2026",
+        type: "Conference Paper",
+        journal: "Learning @ Scale 2026",
+        title: "An Advanced Analytics Dashboard with a Conversational Agent to Support the Analysis of Teacher Training Simulations",
+        authors: "Mariano Albaladejo-González, Pablo Pérez-Melgarejo, Manuel J. Gomez, Justin Reich & José A. Ruipérez-Valiente",
+        abstract: "Educational simulations provide engaging learning experiences in safe environments. Classroom simulations enable hands-on training of novice teachers without affecting the students' education. These simulations typically include open-ended questions, which allow novice teachers to express their thoughts freely but complicate the analysis of their responses. To address this problem, we present an artificial intelligence-powered dashboard designed for teacher educators to analyze novice teachers' behaviors during the simulations. The dashboard provides analytics of the simulation responses using Natural Language Processing (NLP) techniques, along with a conversational agent that enables more detailed analyses. The conversational agent follows a tool-based architecture in which a large language model orchestrates a repertoire of predefined tools for data management and NLP. In addition, the agent combines short-term memory to track intermediate steps within each request with long-term memory that stores prior executions to support multi-request conversations. Finally, we verified the scalability of the conversational agent using synthetic data. Overall, our work aims to equip teacher educators with the instruments to explore novice teachers' responses during classroom simulations.",
+        publisherLink: "https://dl.acm.org/doi/abs/10.1145/3774398.3811554",
+        download: "https://dl.acm.org/doi/epdf/10.1145/3774398.3811554"
+    },
+    {
         cover: "../covers/cae-cover.jpeg",
         year: "2026",
         type: "Journal Paper",

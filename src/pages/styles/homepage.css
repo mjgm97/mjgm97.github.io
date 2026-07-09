@@ -227,7 +227,7 @@
 	width: 88%;
 	height: 88%;
 	background: linear-gradient(140deg, rgba(var(--primary-rgb), 0.5), rgba(var(--primary-rgb), 0));
-	filter: blur(60px);
+	filter: blur(30px);
 	border-radius: 50%;
 	z-index: 0;
 }
