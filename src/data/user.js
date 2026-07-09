@@ -35,6 +35,7 @@ const INFO = {
 	{
 		logo: "../projects/hexaxii.jpg",
 		title: "HEXA-X-II - European Flagship for 6G Networks",
+		tag: "Horizon Europe",
 		description:
 		"A Horizon Europe initiative shaping the next generation of 6G networks. At UMU, contributions focus on AI-driven learning and cyber situational awareness within complex communication systems.",
 		linkText: "Visit project page",
@@ -43,6 +44,7 @@ const INFO = {
 	{
 		logo: "../projects/ecysap.jpg",
 		title: "ECYSAP EYE - European Cyber Situational Awareness Platform",
+		tag: "European Defence Fund",
 		description:
 		"Part of the European Defence Fund, ECYSAP EYE aims to enhance cyber situational awareness and decision-making through AI and data fusion across multinational defense organizations.",
 		linkText: "Visit project page",
@@ -51,6 +53,7 @@ const INFO = {
 		{
 		logo: "../projects/semantic.png",
 		title: "SEMANTIC - Distributed and Efficient Game-Based Assessments as a Service",
+		tag: "Fundación Séneca",
 		description:
 		"A Proof of Concept project funded by Fundación Séneca to transfer academic innovations on GBA into applied tools for commercialization and educational technology ecosystems.",
 		linkText: "Project details",
@@ -59,6 +62,7 @@ const INFO = {
 	{
 		logo: "../projects/logoGBAaaS.png",
 		title: "REASSESS - Towards Interoperable Game-Based Assessments as a Service",
+		tag: "Fundación Séneca",
 		description:
 		"Funded by Fundación Séneca, REASSESS develops scalable and interoperable architectures for Game-Based Assessment, enabling the integration of AI-driven analysis into serious games.",
 		linkText: "Project details",
@@ -67,6 +71,7 @@ const INFO = {
 	{
 		logo: "../projects/sg-asia.jpeg",
 		title: "GBA-ARCH - Architecture for Game-Based Assessment Analytics",
+		tag: "Serious Games Asia",
 		description:
 		"A collaboration with Serious Games Asia (Singapore) to design a general architecture for data analytics and AI integration in game-based learning systems.",
 		linkText: "About the project",
@@ -75,6 +80,7 @@ const INFO = {
 	{
 		logo: "../projects/MIT_logo.png",
 		title: "LAGA - Learning Analytics and Game-Based Assessment",
+		tag: "MIT Collaboration",
 		description:
 		"A collaboration with the Massachusetts Institute of Technology (MIT) focused on developing analytics indicators and dashboards for educational games, advancing multimodal learning analytics.",
 		linkText: "About the project",

@@ -1,23 +1,24 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import "./styles/project.css";
 
-const Project = ({ logo, title, description, linkText, link }) => {
+const Project = ({ logo, title, tag, description, linkText, link }) => {
 	return (
 		<div className="project glass-card">
-			<div className="project-container">
+			<div className="project-cover">
 				{logo && (
-					<div className="project-logo">
-						<img src={logo} alt={`${title} logo`} />
-					</div>
+					<img src={logo} alt={`${title} logo`} className="project-logo-img" />
 				)}
+				{tag && <span className="project-tag">{tag}</span>}
+			</div>
 
-				<div className="project-title">{title}</div>
+			<div className="project-content">
+				<h3 className="project-title">{title}</h3>
 
 				{description && (
-					<div className="project-description">{description}</div>
+					<p className="project-description">{description}</p>
 				)}
 
 				{link && linkText && (
@@ -27,10 +28,8 @@ const Project = ({ logo, title, description, linkText, link }) => {
 						rel="noopener noreferrer"
 						className="project-link"
 					>
-						<div className="project-link-icon">
-							<FontAwesomeIcon icon={faLink} />
-						</div>
-						<div className="project-link-text">{linkText}</div>
+						{linkText}
+						<FontAwesomeIcon icon={faArrowRight} />
 					</a>
 				)}
 			</div>
@@ -39,5 +38,3 @@ const Project = ({ logo, title, description, linkText, link }) => {
 };
 
 export default Project;
-
-

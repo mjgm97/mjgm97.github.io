@@ -41,6 +41,14 @@ const TEACHING = {
 
 	masterTheses: [
 		{
+			title: "Evaluación de diferentes medidas del rendimiento de anotadores en Active Learning",
+			student: "Salvador Rubio López",
+			university: "University of Murcia",
+			degree: "MSc on Big Data Analytics Technologies",
+			year: "2025/26",
+			faculty: "informatica",
+		},
+		{
 			title: "Semi-supervised Learning for GBA",
 			student: "Ana María Aguilar Igualada",
 			university: "University of Murcia",
@@ -50,6 +58,22 @@ const TEACHING = {
 		},
 	],
 	degreeTheses: [
+		{
+			title: "Estrategias de aprendizaje activo para regresión",
+			student: "Rubén Moyano Palazón",
+			university: "University of Murcia",
+			degree: "Computer Science Degree",
+			year: "2025/26",
+			faculty: "informatica",
+		},
+		{
+			title: "Detección de emociones multimodal con el apoyo de Multimodal Large Language Models",
+			student: "Raúl Sánchez Ibáñez",
+			university: "University of Murcia",
+			degree: "Data Science and Engineering Degree",
+			year: "2025/26",
+			faculty: "informatica",
+		},
 		{
 			title: "Academic Dishonesty in Serious Games",
 			student: "Frank Antonio Oldfield Montilla",

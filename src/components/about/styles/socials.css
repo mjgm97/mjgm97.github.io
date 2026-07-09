@@ -1,80 +1,41 @@
 @import "../../../data/styles.css";
 
-/* === Layout Grid === */
-.socials-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 18px;
-	margin-top: 30px;
-	width: 100%;
+/* === Minimal social link row (text + small icon, no heavy cards) === */
+.socials-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 
-/* === Social Card === */
-.social-card {
-	display: flex;
+.social-link {
+	display: inline-flex;
 	align-items: center;
-	gap: 15px;
-	padding: 18px 20px;
-	border-radius: var(--radius-lg);
-	text-decoration: none;
+	gap: 9px;
+	padding: 0.6rem 1.1rem;
+	border-radius: var(--radius-pill);
 	background: var(--card-background);
 	border: 1px solid var(--border-color);
-	box-shadow: var(--soft-shadow);
 	color: var(--text-color);
-	transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-	position: relative;
+	font-weight: 600;
+	font-size: 0.85rem;
+	box-shadow: var(--soft-shadow);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-/* Hover animation with accent glow */
-.social-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 10px 26px color-mix(in srgb, var(--accent) 35%, transparent);
-	border-color: var(--accent);
+.social-link svg {
+	font-size: 0.9em;
+	color: var(--tertiary-color);
+	transition: color 0.25s ease;
+}
+
+.social-link:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--medium-shadow);
+	border-color: var(--glass-border);
+	color: var(--primary-color-dark);
 	text-decoration: none;
 }
 
-/* === Icon Section === */
-.icon-wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 48px;
-	height: 48px;
-	border-radius: 50%;
-	background: rgba(var(--primary-rgb), 0.1);
-	color: var(--accent);
-	font-size: 1.4rem;
-	flex-shrink: 0;
-	transition: all 0.35s ease;
-}
-
-.social-card:hover .icon-wrapper {
-	background: var(--accent);
-	color: #fff;
-}
-
-/* === Text Section === */
-.social-info {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.social-name {
-	font-weight: 700;
-	font-size: 1rem;
-	color: var(--text-color);
-}
-
-.social-text {
-	font-size: 0.85rem;
-	color: var(--secondary-color);
-}
-
-/* Responsive tweak */
-@media (max-width: 600px) {
-	.social-card {
-		flex-direction: row;
-		justify-content: flex-start;
-	}
+.social-link:hover svg {
+	color: var(--primary-color-dark);
 }
