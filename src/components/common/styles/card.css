@@ -1,35 +1,36 @@
 @import "../../../data/styles.css";
 
-.card {
-	mix-blend-mode: normal;
-	border-radius: 20px;
-	outline: 2px solid rgba(126, 91, 239, 0.25);
-	justify-content: center;
-}
-
 .card-container {
-	padding: 30px;
-	padding-bottom: 5px;
+	padding: 28px 30px;
 }
 
 .card-header {
 	display: flex;
 	align-items: center;
+	gap: 16px;
 }
 
 .card-icon {
-	font-size: 20px;
-	color: var(--tertiary-color);
+	font-size: 18px;
+	width: 42px;
+	height: 42px;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--radius-sm);
+	background: rgba(var(--primary-rgb), 0.12);
+	color: var(--primary-color);
 }
 
 .card-title {
 	color: var(--text-color);
-	font-size: 18px;
-	padding-left: 20px;
-	font-weight: 650;
+	font-family: var(--secondary-font);
+	font-size: 19px;
+	font-weight: 700;
 }
 
 .card-body {
-	padding-top: 40px;
+	padding-top: 28px;
 	font-size: 15px;
 }

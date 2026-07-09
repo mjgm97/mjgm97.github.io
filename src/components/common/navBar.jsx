@@ -64,14 +64,16 @@ const NavBar = (props) => {
 						</ul>
 					</div>
 				</nav>
-				<div className="nav-right">
-					<button className="theme-toggle" onClick={toggleTheme}>
-						<FontAwesomeIcon
-							icon={theme === "dark" ? faSun : faMoon}
-							className="theme-icon"
-						/>
-					</button>
-				</div>
+				<button
+					className="theme-toggle"
+					onClick={toggleTheme}
+					aria-label="Toggle color theme"
+				>
+					<FontAwesomeIcon
+						icon={theme === "dark" ? faSun : faMoon}
+						className="theme-icon"
+					/>
+				</button>
 			</div>
 		</React.Fragment>
 	);

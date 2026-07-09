@@ -16,7 +16,7 @@
 	bottom: -6px;
 	width: 0%;
 	height: 3px;
-	background: linear-gradient(90deg, #8467d7, #6e56c7);
+	background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
 	border-radius: 2px;
 	animation: underline-appear 1.2s ease-out forwards;
 }
@@ -42,9 +42,9 @@
 .research-logo {
 	display: flex;
 	position: fixed;
-	border: 1px solid white;
+	border: 1px solid var(--card-background);
 	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	box-shadow: var(--soft-shadow);
 	top: 4vh;
 	z-index: 999;
 }
@@ -91,13 +91,13 @@
 	gap: 25px;
 	padding: 25px;
 	margin-bottom: 20px;
-	border-radius: 16px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border-radius: var(--radius-lg);
+	transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .research-card:hover {
 	transform: translateY(-6px);
-	box-shadow: 0 10px 25px rgba(126, 91, 239, 0.25);
+	box-shadow: var(--medium-shadow);
 }
 
 /* === Left (cover image) === */
@@ -141,12 +141,12 @@
 	font-size: 0.8rem;
 	font-weight: 600;
 	border-radius: 40px;
-	border: 2px solid rgba(132, 103, 215, 0.3);
-	background: rgba(132, 103, 215, 0.12);
+	border: 2px solid rgba(var(--primary-rgb), 0.3);
+	background: rgba(var(--primary-rgb), 0.12);
 	color: var(--text-color);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 3px 8px rgba(132, 103, 215, 0.15);
+	box-shadow: 0 3px 8px rgba(var(--primary-rgb), 0.15);
 	transition: all 0.3s ease;
 	cursor: default;
 	/* ✅ not clickable */
@@ -154,8 +154,8 @@
 }
 
 .meta-badge.journal {
-	border-color: rgba(132, 103, 215, 0.4);
-	background: rgba(132, 103, 215, 0.2);
+	border-color: rgba(var(--primary-rgb), 0.4);
+	background: rgba(var(--primary-rgb), 0.2);
 	color: var(--text-color);
 }
 
@@ -168,7 +168,7 @@
 /* Optional: subtle glow on hover (just visual, not clickable) */
 .meta-badge:hover {
 	transform: scale(1.04);
-	box-shadow: 0 4px 14px rgba(132, 103, 215, 0.25);
+	box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.25);
 }
 
 /* === Meta badge color variants === */
@@ -226,12 +226,6 @@
 	font-weight: 500;
 }
 
-/* Expanded card style */
-.research-card.expanded {
-	background: rgba(255, 255, 255, 0.18);
-	box-shadow: 0 10px 25px rgba(126, 91, 239, 0.3);
-}
-
 /* === Abstract reveal animation === */
 .research-abstract {
 	margin-top: 0px;
@@ -283,11 +277,10 @@
 	filter: blur(4px);
 }
 
-/* Optional: glow or shadow when expanded */
+/* Expanded card style */
 .research-card.expanded {
-	box-shadow: 0 10px 25px rgba(126, 91, 239, 0.3);
-	background: rgba(255, 255, 255, 0.15);
-	backdrop-filter: blur(20px);
+	box-shadow: var(--medium-shadow);
+	border-color: var(--glass-border);
 	transition: all 0.5s ease;
 }
 
@@ -301,35 +294,35 @@
 	font-size: 0.85rem;
 	font-weight: 600;
 	border-radius: 40px;
-	border: 2px solid rgba(132, 103, 215, 0.3);
-	background: rgba(132, 103, 215, 0.15);
+	border: 2px solid rgba(var(--primary-rgb), 0.3);
+	background: rgba(var(--primary-rgb), 0.15);
 	color: var(--text-color);
 	cursor: pointer;
 	backdrop-filter: blur(1px);
 	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 4px 12px rgba(132, 103, 215, 0.15);
+	box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.15);
 	text-decoration: none;
 	transition: all 0.3s ease;
 }
 
 .glass-btn:hover {
 	transform: scale(1.05);
-	background: rgba(255, 255, 255, 0.25);
+	background: var(--glass-bg-strong);
 	color: var(--accent-color);
 	text-decoration: none;
-	box-shadow: 0 6px 16px rgba(132, 103, 215, 0.25);
+	box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.25);
 }
 
 /* Variant for secondary links (e.g. BibTeX) */
 .glass-btn.secondary {
-	border-color: rgba(200, 200, 200, 0.3);
-	background: rgba(200, 200, 200, 0.25);
+	border-color: var(--border-color);
+	background: var(--background-alt);
 	text-decoration: none;
 	color: var(--secondary-color);
 }
 
 .glass-btn.secondary:hover {
-	background: rgba(255, 255, 255, 0.25);
+	background: var(--glass-bg-strong);
 	color: var(--accent-color);
 }
 
@@ -379,8 +372,8 @@
 .research-card:hover .highlight-author {
 	color: var(--accent-color);
 	text-shadow:
-		0 0 6px rgba(132, 103, 215, 0.6),
-		0 0 12px rgba(132, 103, 215, 0.4);
+		0 0 6px rgba(var(--primary-rgb), 0.6),
+		0 0 12px rgba(var(--primary-rgb), 0.4);
 }
 
 /* === Year Section Divider === */
@@ -404,7 +397,7 @@
 	height: 2px;
 	background: linear-gradient(90deg,
 			transparent,
-			rgba(132, 103, 215, 0.6),
+			rgba(var(--primary-rgb), 0.6),
 			transparent);
 	filter: blur(1px);
 	opacity: 0.7;
@@ -420,20 +413,17 @@
 	color: var(--text-color);
 	padding: 6px 20px;
 	border-radius: 40px;
-	background: rgba(255, 255, 255, 0.15);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	border: 2px solid rgba(132, 103, 215, 0.3);
-	box-shadow: 0 4px 18px rgba(132, 103, 215, 0.25);
+	background: var(--glass-bg-strong);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	border: 2px solid rgba(var(--primary-rgb), 0.3);
+	box-shadow: 0 4px 18px rgba(var(--primary-rgb), 0.25);
 	z-index: 1;
 	transition: all 0.4s ease;
 }
 
-/* Gradient year text */
 .year-text {
-	background: var(--text-color);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	color: var(--text-color);
 	font-weight: 800;
 }
 
@@ -446,12 +436,12 @@
 /* === Hover effects === */
 .research-year-section:hover .year-line {
 	opacity: 1;
-	box-shadow: 0 0 25px rgba(132, 103, 215, 0.6);
+	box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.6);
 	filter: blur(2px);
 }
 
 .research-year-section:hover .research-year-title {
-	box-shadow: 0 0 25px rgba(132, 103, 215, 0.4);
+	box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.4);
 	transform: scale(1.04);
 }
 
@@ -486,21 +476,21 @@
 	font-size: 0.95rem;
 	padding: 10px 26px;
 	border-radius: 40px;
-	background: rgba(132, 103, 215, 0.15);
-	border: 2px solid rgba(132, 103, 215, 0.4);
+	background: rgba(var(--primary-rgb), 0.15);
+	border: 2px solid rgba(var(--primary-rgb), 0.4);
 	color: var(--text-color);
 	cursor: pointer;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	transition: all 0.3s ease;
-	box-shadow: 0 4px 12px rgba(132, 103, 215, 0.15);
+	box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.15);
 }
 
 .load-more-btn:hover {
 	transform: translateY(-3px) scale(1.05);
-	background: rgba(255, 255, 255, 0.25);
+	background: var(--glass-bg-strong);
 	color: var(--accent-color);
-	box-shadow: 0 6px 18px rgba(132, 103, 215, 0.25);
+	box-shadow: 0 6px 18px rgba(var(--primary-rgb), 0.25);
 }
 
 /* Fade-out animation for final disappearance */

@@ -4,33 +4,31 @@
 .socials-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 20px;
+	gap: 18px;
 	margin-top: 30px;
 	width: 100%;
 }
 
-/* === Social Card (Glass style) === */
+/* === Social Card === */
 .social-card {
 	display: flex;
 	align-items: center;
 	gap: 15px;
-	padding: 16px 20px;
-	border-radius: 20px;
+	padding: 18px 20px;
+	border-radius: var(--radius-lg);
 	text-decoration: none;
-	background: rgba(255, 255, 255, 0.12);
-	backdrop-filter: blur(14px);
-	-webkit-backdrop-filter: blur(14px);
-	border: 2px solid rgba(132, 103, 215, 0.35);
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+	background: var(--card-background);
+	border: 1px solid var(--border-color);
+	box-shadow: var(--soft-shadow);
 	color: var(--text-color);
-	transition: all 0.35s ease;
+	transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 	position: relative;
 }
 
 /* Hover animation with accent glow */
 .social-card:hover {
 	transform: translateY(-5px);
-	box-shadow: 0 0 25px var(--accent);
+	box-shadow: 0 10px 26px color-mix(in srgb, var(--accent) 35%, transparent);
 	border-color: var(--accent);
 	text-decoration: none;
 }
@@ -43,16 +41,16 @@
 	width: 48px;
 	height: 48px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.15);
+	background: rgba(var(--primary-rgb), 0.1);
 	color: var(--accent);
-	font-size: 1.5rem;
-	transition: all 0.4s ease;
+	font-size: 1.4rem;
+	flex-shrink: 0;
+	transition: all 0.35s ease;
 }
 
 .social-card:hover .icon-wrapper {
 	background: var(--accent);
 	color: #fff;
-	box-shadow: 0 0 20px var(--accent);
 }
 
 /* === Text Section === */
@@ -63,8 +61,9 @@
 }
 
 .social-name {
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 1rem;
+	color: var(--text-color);
 }
 
 .social-text {

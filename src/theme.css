@@ -1,33 +1,91 @@
 /* =======================================================
    Unified Theme: Manuel J. Gomez
-   Refined palette — neutral text, purple accents only
+   Single source of truth for color, type, shadow & radius
+   tokens. Every other stylesheet consumes these variables —
+   do not redeclare :root colors elsewhere.
    ======================================================= */
 
 :root {
-	/* Core Colors */
-	--primary-color: #8467d7;          /* Accent purple */
-	--primary-color-dark: #6e56c7;     /* Accent hover */
-	--secondary-color: #55546b;        /* Neutral secondary text */
-	--text-color: #1e1e2f;             /* Main text color */
-	--background-color: #ffffff;       /* Clean white background */
-	--border-color: #e6e3f5;           /* Light lavender-gray border */
-
-	/* Links and Buttons */
+	/* Brand */
+	--primary-color: #7c5cfa;
+	--primary-color-dark: #6544e0;
+	--primary-rgb: 124, 92, 250;
 	--link-color: var(--primary-color);
-	--link-hover: var(--primary-color-dark);
+	--accent-color: var(--primary-color);
+
+	/* Surfaces */
+	--background-color: #f6f5fb;
+	--background-alt: #efedf8;
+	--card-background: #ffffff;
+	--border-color: #e7e3f6;
+
+	/* Text */
+	--text-color: #1a1a24;
+	--secondary-color: #58566c;
+	--tertiary-color: #8b8998;
+	--quaternary-color: #e7e4f2;
+
+	/* Glass surfaces (navbar, chips, translucent panels) */
+	--glass-bg: rgba(255, 255, 255, 0.62);
+	--glass-bg-strong: rgba(255, 255, 255, 0.82);
+	--glass-border: rgba(124, 92, 250, 0.22);
+	--glass-blur: blur(18px) saturate(160%);
+	--glass-shadow: 0 8px 24px rgba(69, 48, 143, 0.10);
 
 	/* Shadows */
-	--soft-shadow: 0px 4px 10px rgba(132, 103, 215, 0.15);
-	--medium-shadow: 0px 6px 20px rgba(132, 103, 215, 0.25);
+	--soft-shadow: 0 4px 16px rgba(69, 48, 143, 0.10);
+	--medium-shadow: 0 12px 32px rgba(69, 48, 143, 0.16);
+
+	/* Radius */
+	--radius-sm: 10px;
+	--radius-md: 16px;
+	--radius-lg: 22px;
+	--radius-pill: 999px;
+
+	/* Motion */
+	--transition-fast: 0.2s ease;
+	--transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 	/* Fonts */
-	--primary-font: "Poppins", "Open Sans", sans-serif;
-	--secondary-font: "Poppins", "Open Sans", sans-serif;
+	--primary-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	--secondary-font: "Sora", "Inter", -apple-system, sans-serif;
+}
+
+[data-theme="dark"] {
+	--primary-color: #a389ff;
+	--primary-color-dark: #c1adff;
+	--primary-rgb: 163, 137, 255;
+
+	--background-color: #0d0d13;
+	--background-alt: #131320;
+	--card-background: #191926;
+	--border-color: rgba(255, 255, 255, 0.08);
+
+	--text-color: #f3f2f9;
+	--secondary-color: #b8b6ca;
+	--tertiary-color: #86849c;
+	--quaternary-color: rgba(255, 255, 255, 0.08);
+
+	--glass-bg: rgba(24, 22, 36, 0.55);
+	--glass-bg-strong: rgba(24, 22, 36, 0.78);
+	--glass-border: rgba(163, 137, 255, 0.3);
+	--glass-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+
+	--soft-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+	--medium-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
 }
 
 /* =======================================================
    Base
    ======================================================= */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -35,17 +93,29 @@ body {
 	color: var(--text-color);
 	font-family: var(--primary-font);
 	line-height: 1.6;
+	transition: background-color var(--transition), color var(--transition);
+}
+
+::selection {
+	background: rgba(var(--primary-rgb), 0.28);
+	color: var(--text-color);
 }
 
 a {
 	color: var(--link-color);
 	text-decoration: none;
-	transition: color 0.2s ease-in-out;
+	transition: color var(--transition-fast);
 }
 
 a:hover {
-	color: var(--link-hover);
+	color: var(--primary-color-dark);
 	text-decoration: underline;
+}
+
+:focus-visible {
+	outline: 2px solid var(--primary-color);
+	outline-offset: 3px;
+	border-radius: 4px;
 }
 
 /* =======================================================
@@ -60,7 +130,8 @@ h6 {
 	color: var(--text-color);
 	font-family: var(--secondary-font);
 	margin-top: 0;
-	font-weight: 600;
+	font-weight: 700;
+	letter-spacing: -0.01em;
 }
 
 p,
@@ -75,7 +146,7 @@ li {
 	position: relative;
 	display: inline-block;
 	color: var(--text-color);
-	font-weight: 600;
+	font-weight: 700;
 	margin-bottom: 1rem;
 }
 
@@ -86,7 +157,7 @@ li {
 	width: 100%;
 	height: 3px;
 	margin-top: 8px;
-	background: linear-gradient(90deg, #8467d7, #6e56c7);
+	background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
 	border-radius: 2px;
 }
 
@@ -96,8 +167,8 @@ li {
 .card,
 .section-container,
 .page-container {
-	background-color: #fff;
-	border-radius: 10px;
+	background-color: var(--card-background);
+	border-radius: var(--radius-lg);
 	box-shadow: var(--soft-shadow);
 	padding: 1.5rem 2rem;
 	margin-bottom: 1.5rem;
@@ -106,7 +177,7 @@ li {
 
 /* Optional subtle background sections */
 .section.light {
-	background-color: #faf9ff;
+	background-color: var(--background-alt);
 }
 
 /* =======================================================
@@ -115,24 +186,31 @@ li {
 button,
 .btn,
 a.button-link {
-	background-color: var(--primary-color);
+	background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
 	color: #fff;
 	border: none;
 	padding: 0.7rem 1.5rem;
-	border-radius: 50px;
+	border-radius: var(--radius-pill);
 	cursor: pointer;
-	font-weight: 500;
+	font-weight: 600;
 	font-family: var(--primary-font);
 	box-shadow: var(--soft-shadow);
-	transition: all 0.3s ease;
+	transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
 }
 
 button:hover,
 .btn:hover,
 a.button-link:hover {
-	background-color: var(--primary-color-dark);
+	filter: brightness(1.06);
 	box-shadow: var(--medium-shadow);
 	transform: translateY(-1px);
+	text-decoration: none;
+}
+
+button:active,
+.btn:active,
+a.button-link:active {
+	transform: translateY(0);
 }
 
 /* =======================================================
@@ -159,7 +237,7 @@ footer {
 	padding: 1rem;
 	font-size: 0.9rem;
 	color: var(--secondary-color);
-	background-color: #faf9ff;
+	background-color: var(--background-alt);
 	border-top: 1px solid var(--border-color);
 }
 
@@ -171,7 +249,7 @@ footer {
 }
 
 .section.alt {
-	background-color: #faf9ff; /* Very light lavender section */
+	background-color: var(--background-alt);
 }
 
 @media (max-width: 768px) {
@@ -188,3 +266,16 @@ footer {
 	color: var(--text-color) !important;
 }
 
+/* =======================================================
+   Ambient background glow
+   Gives glass/translucent surfaces something to sit on top
+   of instead of a flat single color.
+   ======================================================= */
+.page-content {
+	background-image:
+		radial-gradient(720px circle at 8% -8%, rgba(var(--primary-rgb), 0.14), transparent 60%),
+		radial-gradient(640px circle at 108% 18%, rgba(var(--primary-rgb), 0.10), transparent 55%),
+		radial-gradient(900px circle at 50% 120%, rgba(var(--primary-rgb), 0.08), transparent 55%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}

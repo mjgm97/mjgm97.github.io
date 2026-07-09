@@ -9,9 +9,9 @@
 .teaching-logo {
 	display: flex;
 	position: fixed;
-	border: 1px solid white;
+	border: 1px solid var(--card-background);
 	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	box-shadow: var(--soft-shadow);
 	top: 4vh;
 	z-index: 999;
 }
@@ -62,15 +62,13 @@
 	box-sizing: border-box;
 }
 
-/* === Glass cards === */
+/* === Cards === */
 .glass-card {
-	background: rgba(255, 255, 255, 0.1);
-	border: 2px solid rgba(132, 103, 215, 0.3);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	border-radius: 20px;
+	background: var(--card-background);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-lg);
 	padding: 30px 20px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--soft-shadow);
 	color: var(--text-color);
 	transition: all 0.3s ease;
 }
@@ -94,14 +92,12 @@
 
 /* === Individual sub-card === */
 .glass-subcard {
-	background: rgba(255, 255, 255, 0.08);
-	border: 1px solid rgba(255, 255, 255, 0.25);
-	border-radius: 15px;
+	background: var(--background-alt);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-md);
 	padding: 20px 15px;
 	flex: 1 1 280px;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--soft-shadow);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	opacity: 0;
 	transform: translateY(0px);
@@ -109,13 +105,15 @@
 }
 
 .glass-card:hover {
-	transform: translateY(-2px) scale(1.02);
-	box-shadow: 0 0 25px rgba(132, 103, 215, 0.3);
+	transform: translateY(-4px);
+	box-shadow: var(--medium-shadow);
+	border-color: var(--glass-border);
 }
 
 .glass-subcard:hover {
-	transform: translateY(-2px) scale(1.02);
-	box-shadow: 0 0 24px rgba(132, 103, 215, 0.3);
+	transform: translateY(-4px);
+	box-shadow: var(--medium-shadow);
+	border-color: var(--glass-border);
 }
 
 /* === Supervision Sections === */
@@ -182,12 +180,12 @@
 	font-weight: 600;
 	padding: 4px 12px;
 	border-radius: 40px;
-	border: 2px solid rgba(132, 103, 215, 0.3);
-	background: rgba(132, 103, 215, 0.15);
+	border: 2px solid rgba(var(--primary-rgb), 0.3);
+	background: rgba(var(--primary-rgb), 0.15);
 	color: var(--text-color);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 2px 8px rgba(132, 103, 215, 0.15);
+	box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.15);
 	user-select: none;
 	cursor: default;
 	transition: all 0.3s ease;
@@ -195,9 +193,9 @@
 
 .subcard-year:hover {
 	transform: scale(1.05);
-	background: rgba(255, 255, 255, 0.25);
+	background: var(--glass-bg-strong);
 	color: var(--accent-color);
-	box-shadow: 0 6px 16px rgba(132, 103, 215, 0.25);
+	box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.25);
 }
 
 /* === University and degree line === */
@@ -245,7 +243,7 @@
 .thesis-year:hover {
 	transform: scale(1.05);
 	color: var(--text-color);
-	background: rgba(255, 255, 255, 0.25);
+	background: rgba(255, 200, 100, 0.3);
 	box-shadow: 0 6px 16px rgba(255, 200, 100, 0.15);
 }
 

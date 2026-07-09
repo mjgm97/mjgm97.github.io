@@ -1,14 +1,3 @@
-:root {
-	/* ------- colors ------- */
-	--primary-color: #27272a;
-	--secondary-color: #65656d;
-	--tertiary-color: #acacb4;
-	--quaternary-color: #e4e4e7;
-	--link-color: #14b8a6;
-	/* ---------------------- */
-
-	/* ------- fonts ------- */
-	--primary-font: "Heebo", sans-serif;
-	--secondary-font: "Roboto", sans-serif;
-	/* --------------------- */
-}
+/* Design tokens now live exclusively in /src/theme.css (imported once
+   globally by App.js). This file is kept as a no-op import target since
+   many component stylesheets still reference it. */
