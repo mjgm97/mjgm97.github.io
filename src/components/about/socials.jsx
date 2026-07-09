@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faResearchgate, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import INFO from "../../data/user";
 
@@ -9,11 +9,11 @@ import "./styles/socials.css";
 
 const socials = [
 	{
-		name: "Twitter",
-		icon: faTwitter,
-		url: INFO.socials.twitter,
-		text: "Follow on Twitter",
-		color: "#1DA1F2",
+		name: "Researchgate",
+		icon: faResearchgate,
+		url: INFO.socials.researchgate,
+		text: "Follow on ResearchGate",
+		color: "#000000ff",
 	},
 	{
 		name: "GitHub",

@@ -1,36 +1,5 @@
 @import "../../data/styles.css";
 
-
-/* === Title underline animation (same as other pages) === */
-.underline-animated {
-	position: relative;
-	display: inline-block;
-	color: var(--text-color);
-	font-weight: 700;
-}
-
-.underline-animated::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: -6px;
-	width: 0%;
-	height: 3px;
-	background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
-	border-radius: 2px;
-	animation: underline-appear 1.2s ease-out forwards;
-}
-
-@keyframes underline-appear {
-	from {
-		width: 0%;
-	}
-
-	to {
-		width: 100%;
-	}
-}
-
 /* === Layout === */
 .research-logo-container {
 	display: flex;
@@ -39,33 +8,53 @@
 	padding-top: 50px;
 }
 
-.research-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid var(--card-background);
-	border-radius: 50%;
-	box-shadow: var(--soft-shadow);
-	top: 4vh;
-	z-index: 999;
-}
-
 .research-container {
 	padding-top: 50px;
 }
 
+.research-heading {
+	max-width: 780px;
+	margin-bottom: 12px;
+}
+
+/* === Eyebrow badge (shared visual language with the homepage hero) === */
+.page-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 16px;
+	border-radius: var(--radius-pill);
+	background: rgba(var(--primary-rgb), 0.1);
+	border: 1px solid rgba(var(--primary-rgb), 0.25);
+	color: var(--primary-color);
+	font-size: 0.82rem;
+	font-weight: 600;
+	margin-bottom: 18px;
+}
+
+.page-eyebrow-dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--primary-color);
+	box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.25);
+}
+
 .research-title {
-	font-size: 1.8rem;
-	font-weight: 700;
+	font-family: var(--secondary-font);
+	font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+	font-weight: 800;
+	letter-spacing: -0.01em;
 	color: var(--text-color);
-	margin-bottom: 10px;
+	margin-bottom: 12px;
 }
 
 .research-subtitle {
 	color: var(--secondary-color);
 	font-size: 1rem;
-	line-height: 1.6;
-	max-width: 850px;
-	margin-top: 20px;
+	line-height: 1.65;
+	max-width: 720px;
+	margin-top: 0;
 	margin-bottom: 0px;
 }
 
@@ -83,16 +72,21 @@
 	gap: 8px;
 }
 
-/* === Research Cards === */
+/* =======================================================
+   Research cards — cover image is now a full-bleed panel
+   flush with the card edge instead of a padded thumbnail.
+   ======================================================= */
 .research-card.glass-card {
 	display: flex;
-	align-items: flex-start;
+	align-items: stretch;
 	flex-direction: row;
-	gap: 25px;
-	padding: 25px;
+	gap: 0;
+	padding: 0;
 	margin-bottom: 20px;
 	border-radius: var(--radius-lg);
+	overflow: hidden;
 	transition: transform var(--transition), box-shadow var(--transition);
+	cursor: pointer;
 }
 
 .research-card:hover {
@@ -100,107 +94,82 @@
 	box-shadow: var(--medium-shadow);
 }
 
-/* === Left (cover image) === */
-.research-left {
-	flex: 0 0 120px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+/* === Cover (flush, edge-to-edge) === */
+.research-cover-wrap {
+	position: relative;
+	flex: 0 0 210px;
+	min-height: 210px;
+	overflow: hidden;
+	background: var(--background-alt);
 }
 
 .research-cover {
-	width: 150px;
-	height: 200px;
-	border-radius: 10px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.research-card:hover .research-cover {
+	transform: scale(1.06);
+}
+
+/* Publication type badge, overlaid directly on the cover */
+.cover-badge {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	display: inline-flex;
+	align-items: center;
+	padding: 5px 12px;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	border-radius: var(--radius-pill);
+	color: #fff;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.cover-badge.journal {
+	background: linear-gradient(135deg, #2ecc71, #1fa85c);
+}
+
+.cover-badge.conference {
+	background: linear-gradient(135deg, #ffa500, #e08900);
+}
+
+.cover-badge.chapter {
+	background: linear-gradient(135deg, #3498db, #2a7fb8);
 }
 
 /* === Right (text info) === */
 .research-right {
 	flex: 1;
+	min-width: 0;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
-}
-
-.research-meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	margin-bottom: 10px;
-}
-
-/* === Glass-style meta badges (non-clickable) === */
-.meta-badge {
-	display: inline-flex;
-	align-items: center;
 	justify-content: center;
-	gap: 6px;
-	padding: 5px 14px;
-	font-size: 0.8rem;
-	font-weight: 600;
-	border-radius: 40px;
-	border: 2px solid rgba(var(--primary-rgb), 0.3);
-	background: rgba(var(--primary-rgb), 0.12);
-	color: var(--text-color);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 3px 8px rgba(var(--primary-rgb), 0.15);
-	transition: all 0.3s ease;
-	cursor: default;
-	/* ✅ not clickable */
-	user-select: none;
+	padding: 24px 28px;
 }
 
-.meta-badge.journal {
-	border-color: rgba(var(--primary-rgb), 0.4);
-	background: rgba(var(--primary-rgb), 0.2);
-	color: var(--text-color);
-}
-
-.meta-badge.publisher {
-	border-color: rgba(200, 200, 200, 0.25);
-	background: rgba(155, 155, 155, 0.08);
-	color: var(--secondary-color);
-}
-
-/* Optional: subtle glow on hover (just visual, not clickable) */
-.meta-badge:hover {
-	transform: scale(1.04);
-	box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.25);
-}
-
-/* === Meta badge color variants === */
-.meta-badge.type {
+.research-journal {
+	font-size: 0.75rem;
 	font-weight: 700;
-	color: var(--text-color);
-	border: 2px solid transparent;
-}
-
-.meta-badge.type.journal {
-	background: rgba(46, 204, 113, 0.25);
-	border-color: rgba(46, 204, 113, 0.4);
-	box-shadow: 0 3px 8px rgba(46, 204, 113, 0.2);
-}
-
-.meta-badge.type.conference {
-	background: rgba(255, 165, 0, 0.25);
-	border-color: rgba(255, 165, 0, 0.4);
-	box-shadow: 0 3px 8px rgba(255, 165, 0, 0.25);
-}
-
-.meta-badge.type.chapter {
-	background: rgba(52, 152, 219, 0.25);
-	border-color: rgba(52, 152, 219, 0.4);
-	box-shadow: 0 3px 8px rgba(52, 152, 219, 0.25);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--primary-color);
+	margin-bottom: 8px;
 }
 
 .research-article-title {
-	font-size: 1.1rem;
-	font-weight: 600;
+	font-family: var(--secondary-font);
+	font-size: 1.15rem;
+	font-weight: 700;
 	color: var(--text-color);
-	margin-bottom: 6px;
+	margin-bottom: 8px;
+	line-height: 1.35;
 }
 
 .research-authors {
@@ -284,54 +253,105 @@
 	transition: all 0.5s ease;
 }
 
-/* === Glass Buttons (like navbar) === */
-.glass-btn {
+/* =======================================================
+   Link buttons — a refined, layered take on the glass style:
+   a soft frosted fill at rest with an inner highlight, that
+   fills in solid on hover. Primary/secondary give the row a
+   real hierarchy instead of three identical pills.
+   ======================================================= */
+.link-btn {
 	display: inline-flex;
 	align-items: center;
-	justify-content: center;
 	gap: 6px;
-	padding: 6px 14px;
+	padding: 9px 18px;
 	font-size: 0.85rem;
 	font-weight: 600;
-	border-radius: 40px;
-	border: 2px solid rgba(var(--primary-rgb), 0.3);
-	background: rgba(var(--primary-rgb), 0.15);
-	color: var(--text-color);
+	border-radius: 10px;
+	text-decoration: none;
 	cursor: pointer;
-	backdrop-filter: blur(1px);
-	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.15);
-	text-decoration: none;
-	transition: all 0.3s ease;
+	white-space: nowrap;
+	transition: transform 0.25s ease, box-shadow 0.25s ease,
+		background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-.glass-btn:hover {
-	transform: scale(1.05);
-	background: var(--glass-bg-strong);
-	color: var(--accent-color);
+.link-btn:hover {
 	text-decoration: none;
-	box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.25);
 }
 
-/* Variant for secondary links (e.g. BibTeX) */
-.glass-btn.secondary {
-	border-color: var(--border-color);
-	background: var(--background-alt);
-	text-decoration: none;
+.link-btn:active {
+	transform: translateY(0);
+}
+
+.link-btn.primary {
+	color: var(--primary-color-dark);
+	background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.14), rgba(var(--primary-rgb), 0.07));
+	border: 1px solid rgba(var(--primary-rgb), 0.25);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 6px rgba(var(--primary-rgb), 0.1);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+}
+
+.link-btn.primary:hover {
+	color: #fff;
+	background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+	border-color: transparent;
+	box-shadow: 0 10px 22px rgba(var(--primary-rgb), 0.32);
+	transform: translateY(-2px);
+}
+
+.link-btn.secondary {
 	color: var(--secondary-color);
+	background: rgba(var(--primary-rgb), 0.04);
+	border: 1px solid var(--border-color);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
 }
 
-.glass-btn.secondary:hover {
-	background: var(--glass-bg-strong);
-	color: var(--accent-color);
+.link-btn.secondary:hover {
+	color: var(--text-color);
+	background: rgba(var(--primary-rgb), 0.09);
+	border-color: rgba(var(--primary-rgb), 0.3);
+	transform: translateY(-2px);
+	box-shadow: var(--soft-shadow);
 }
 
-/* === Animated appearance for title & subtitle === */
+/* Abstract disclosure control — deliberately not a boxed button, so it
+   reads as "expand this text" rather than competing with the real
+   actions on the left. */
+.abstract-toggle {
+	margin-left: auto;
+	display: inline-flex;
+	align-items: center;
+	background: none;
+	border: none;
+	padding: 10px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--primary-color);
+	cursor: pointer;
+	background-image: linear-gradient(var(--primary-color-dark), var(--primary-color-dark));
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 1.5px;
+	transition: color 0.25s ease, background-size 0.25s ease;
+}
+
+.abstract-toggle:hover {
+	color: var(--primary-color-dark);
+	background-size: 100% 1.5px;
+}
+
+/* === Animated appearance for heading === */
+.page-eyebrow,
 .research-title,
 .research-subtitle {
 	opacity: 0;
 	transform: translateY(20px);
 	animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.page-eyebrow {
+	animation-delay: 0.05s;
 }
 
 .research-title {
@@ -352,12 +372,6 @@
 		opacity: 1;
 		transform: translateY(0);
 	}
-}
-
-.collapse-right {
-	margin-left: auto;
-	display: flex;
-	align-items: center;
 }
 
 /* === Highlight only when card is hovered === */
@@ -500,35 +514,23 @@
 	transition: opacity 0.5s ease;
 }
 
-/* === Responsive (image moves to top) === */
+/* === Responsive (cover moves to top, full width) === */
 @media (max-width: 768px) {
-	.research-card {
+	.research-card.glass-card {
 		flex-direction: column;
-		align-items: center;
-		text-align: center;
 	}
 
-	.research-left {
-		margin-bottom: 20px;
+	.research-cover-wrap {
+		flex: 0 0 180px;
+		min-height: 180px;
+		width: 100%;
 	}
 
-	.research-logo {
-		top: 3vh;
-		opacity: 0.6;
+	.research-right {
+		padding: 20px;
 	}
 
-	.nav-item.home-link {
-		display: none !important;
+	.abstract-wrapper.show {
+		margin-bottom: 12px;
 	}
-
-	.research-cover {
-		max-width: 100%;
-		/* smaller but still centered */
-		height: auto;
-	}
-
-	.research-left {
-		max-width: 20%;
-	}
-
 }

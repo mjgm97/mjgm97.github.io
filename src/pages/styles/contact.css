@@ -5,16 +5,6 @@
 	padding-top: 10px;
 }
 
-.contact-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid var(--card-background);
-	border-radius: 50%;
-	z-index: 999;
-	box-shadow: var(--soft-shadow);
-	top: 4vh;
-}
-
 .contact-subtitle {
 	width: 100% !important;
 }
@@ -205,11 +195,6 @@
 
 	.info-title {
 		font-size: 1.15rem;
-	}
-
-	.contact-logo {
-		top: 3vh;
-		opacity: 0.6;
 	}
 }
 

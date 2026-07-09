@@ -6,16 +6,6 @@
 	padding-top: 150px;
 }
 
-.phd-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid var(--card-background);
-	border-radius: 50%;
-	box-shadow: var(--soft-shadow);
-	top: 4vh;
-	z-index: 999;
-}
-
 /* === Thesis Info Section === */
 .thesis-info {
 	margin-top: 60px;
@@ -54,11 +44,6 @@
 
 
 @media (max-width: 768px) {
-    .phd-logo {
-		top: 3vh;
-		opacity: 0.6;
-	}
-
     .thesis-buttons {
         margin-top: 80px;
     }

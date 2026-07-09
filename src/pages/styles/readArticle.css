@@ -6,15 +6,6 @@
 	padding-top: 25px;
 }
 
-.read-article-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid var(--card-background);
-	border-radius: 50%;
-	box-shadow: var(--soft-shadow);
-	top: 4vh;
-}
-
 .read-article-container {
 	display: flex;
 	height: 100%;

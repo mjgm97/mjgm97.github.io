@@ -33,7 +33,7 @@ const Contact = () => {
 				<NavBar active="contact" />
 				<div className="content-wrapper">
 					<div className="contact-logo-container">
-						<div className="contact-logo">
+						<div className="corner-logo">
 							<Logo width={45} />
 						</div>
 					</div>

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useTheme } from "../hooks/useTheme";
+import { Link } from "react-router-dom";
 
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { faMailBulk, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faTwitter,
+	faGoogle,
+	faResearchgate,
 	faGithub,
 	faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
@@ -17,54 +18,26 @@ import Works from "../components/homepage/works";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
+import PUBLICATIONS from "../data/publications";
+import TEACHING from "../data/teaching";
 
 import "./styles/homepage.css";
 
-const Homepage = () => {
-	const { theme } = useTheme();
-	const [stayLogo, setStayLogo] = useState(false);
-	const [logoSize, setLogoSize] = useState(80);
-	const [oldLogoSize, setOldLogoSize] = useState(80);
+const STATS = [
+	{ number: `${PUBLICATIONS.length}+`, label: "Publications" },
+	{ number: `${INFO.projects.length}`, label: "Research Projects" },
+	{
+		number: `${TEACHING.masterTheses.length + TEACHING.degreeTheses.length}+`,
+		label: "Students Supervised",
+	},
+];
 
+const Homepage = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			let scroll = Math.round(window.pageYOffset, 2);
-
-			let newLogoSize = 80 - (scroll * 4) / 10;
-
-			if (newLogoSize < oldLogoSize) {
-				if (newLogoSize > 40) {
-					setLogoSize(newLogoSize);
-					setOldLogoSize(newLogoSize);
-					setStayLogo(false);
-				} else {
-					setStayLogo(true);
-				}
-			} else {
-				setLogoSize(newLogoSize);
-				setStayLogo(false);
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, [logoSize, oldLogoSize]);
-
 	const currentSEO = SEO.find((item) => item.page === "home");
-
-	const logoStyle = {
-		display: "flex",
-		position: stayLogo ? "fixed" : "relative",
-		top: stayLogo ? "3vh" : "auto",
-		zIndex: 999,
-		border: stayLogo ? "1px solid white" : "none",
-		borderRadius: stayLogo ? "50%" : "none",
-		boxShadow: stayLogo ? "0px 4px 10px rgba(0, 0, 0, 0.25)" : "none",
-	};
 
 	return (
 		<React.Fragment>
@@ -81,83 +54,140 @@ const Homepage = () => {
 				<NavBar active="home" />
 				<div className="content-wrapper">
 					<div className="homepage-logo-container">
-						<div style={logoStyle}>
-							<Logo width={logoSize} link={false} />
+						<div className="corner-logo">
+							<Logo width={44} link={false} />
 						</div>
 					</div>
 
 					<div className="homepage-container">
-						<div className="homepage-first-area">
-							<div className="homepage-first-area-left-side">
-								<div className="homepage-heading">
-									<h1 className="homepage-title">Manuel Jesús Gómez</h1>
-									<h2 className="homepage-subtitle-accent">
-										Ph.D. in Computer Science & Researcher in Serious Games and AI in Education
-									</h2>
-								</div>
+						<div className="hero">
+							<div className="hero-text">
+								<span className="hero-eyebrow">
+									<span className="hero-eyebrow-dot" />
+									Ph.D. &middot; CyberDataLab, University of Murcia
+								</span>
 
-								<div className="subtitle homepage-subtitle">
+								<h1 className="hero-title">
+									Hi, I&apos;m{" "}
+									<span className="hero-title-accent">
+										Manuel Jesús Gómez
+									</span>
+								</h1>
+
+								<h2 className="hero-role">
+									Researcher in Serious Games &amp; AI in Education
+								</h2>
+
+								<p className="hero-description">
 									{INFO.homepage.description}
-								</div>
-							</div>
+								</p>
 
-							<div className="homepage-first-area-right-side">
-								<div className="homepage-image-container">
-									<div className="homepage-image-wrapper">
-										<img
-											src="homepage.jpeg"
-											alt="about"
-											className="homepage-image"
+								<div className="hero-actions">
+									<Link to="/research" className="hero-btn primary">
+										View my research
+										<FontAwesomeIcon icon={faArrowRight} />
+									</Link>
+									<Link to="/contact" className="hero-btn secondary">
+										Get in touch
+									</Link>
+								</div>
+
+								<div className="hero-stats">
+									{STATS.map((stat, index) => (
+										<React.Fragment key={stat.label}>
+											{index > 0 && <span className="hero-stat-divider" />}
+											<div className="hero-stat">
+												<span className="hero-stat-number">
+													{stat.number}
+												</span>
+												<span className="hero-stat-label">
+													{stat.label}
+												</span>
+											</div>
+										</React.Fragment>
+									))}
+								</div>
+
+								<div className="hero-socials">
+									<a
+										href={INFO.socials.scholar}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="scholar"
+									>
+										<FontAwesomeIcon
+											icon={faGoogle}
+											className="hero-social-icon"
 										/>
-									</div>
+									</a>
+									<a
+										href={INFO.socials.researchgate}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="Researchgate"
+									>
+										<FontAwesomeIcon
+											icon={faResearchgate}
+											className="hero-social-icon"
+										/>
+									</a>
+									<a
+										href={INFO.socials.github}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="GitHub"
+									>
+										<FontAwesomeIcon
+											icon={faGithub}
+											className="hero-social-icon"
+										/>
+									</a>
+									<a
+										href={INFO.socials.linkedin}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="LinkedIn"
+									>
+										<FontAwesomeIcon
+											icon={faLinkedin}
+											className="hero-social-icon"
+										/>
+									</a>
+									<a
+										href={`mailto:${INFO.main.email}`}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="Email"
+									>
+										<FontAwesomeIcon
+											icon={faMailBulk}
+											className="hero-social-icon"
+										/>
+									</a>
 								</div>
 							</div>
-						</div>
 
-						<div className="homepage-socials">
-							<a
-								href={INFO.socials.twitter}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faTwitter}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={INFO.socials.github}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faGithub}
-									className="homepage-social-icon"
-								/>
-							</a>
-														<a
-								href={INFO.socials.linkedin}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faLinkedin}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={`mailto:${INFO.main.email}`}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faMailBulk}
-									className="homepage-social-icon"
-								/>
-							</a>
+							<div className="hero-visual">
+								<div className="hero-photo-glow" />
+								<div className="hero-photo-frame">
+									<img
+										src="homepage.jpeg"
+										alt="Manuel Jesús Gómez"
+										className="hero-photo"
+									/>
+								</div>
+							</div>
 						</div>
 
 						<div className="homepage-after-title">
+							<div className="section-heading">
+								<span className="section-heading-eyebrow">
+									Background
+								</span>
+								<h2 className="section-heading-title">
+									Experience &amp; Education
+								</h2>
+							</div>
 							<div className="homepage-works">
 								<Works />
 							</div>

@@ -34,7 +34,7 @@ const Projects = () => {
 				<NavBar active="projects" />
 				<div className="content-wrapper">
 					<div className="projects-logo-container">
-						<div className="projects-logo">
+						<div className="corner-logo">
 							<Logo width={45} />
 						</div>
 					</div>

@@ -9,6 +9,7 @@ import AnimatedCard from "../components/common/animatedCard";
 import INFO from "../data/user";
 import PHD_PUBLICATIONS from "../data/phd_publications";
 import SEO from "../data/seo";
+import TYPE_STYLES from "../data/publicationTypeStyles";
 
 import "./styles/homepage.css"; // reuse layout classes
 import "./styles/research.css";
@@ -45,73 +46,65 @@ const PhD = () => {
 				<NavBar active="" />
 				<div className="content-wrapper">
 					<div className="phd-logo-container">
-						<div className="phd-logo">
+						<div className="corner-logo">
 							<Logo width={45} />
 						</div>
 					</div>
-					{/* === HERO SECTION (two columns like homepage) === */}
-					<div className="homepage-first-area">
-						<div className="homepage-first-area-left-side">
-							<div className="homepage-heading">
-								<h1 className="homepage-title underline-animated">Ph.D. Thesis</h1>
-								<h2 className="homepage-subtitle-accent" style= {{marginBottom: "0px;"}}>
-									Towards Interoperability and Novel Methodological Approaches
-									for Scalable Game-Based Assessment
-								</h2>
-								<p className="homepage-subtitle">
-									Hacia la interoperabilidad y nuevos enfoques metodológicos
-									para la evaluación escalable basada en juegos
-								</p>
-								<p className="homepage-subtitle"><strong>Supervisors:</strong> Dr. Félix Jesús García Clemente and Dr. José Antonio Ruipérez Valiente</p>
-							</div>
+					{/* === HERO SECTION (same layout language as the homepage) === */}
+					<div className="hero thesis-hero">
+						<div className="hero-text">
+							<h1 className="hero-title">Ph.D. Thesis</h1>
 
-							{/* Buttons under subtitle */}
-							<div
-								className="thesis-buttons"
-								style={{
-									marginTop: "60px",
-									display: "flex",
-									flexWrap: "wrap",
-									gap: "15px",
-								}}
-							>
+							<h2 className="hero-role">
+								Towards Interoperability and Novel Methodological Approaches
+								for Scalable Game-Based Assessment
+							</h2>
+
+							<p className="hero-description">
+								Hacia la interoperabilidad y nuevos enfoques metodológicos
+								para la evaluación escalable basada en juegos
+							</p>
+
+							<p className="hero-description">
+								<strong>Supervisors:</strong> Dr. Félix Jesús García Clemente and Dr. José Antonio Ruipérez Valiente
+							</p>
+
+							<div className="hero-actions">
 								<a
 									href="https://mjgm97.github.io/docs/full_thesis.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="glass-btn"
+									className="link-btn primary"
 								>
-									<i className="fa fa-file-pdf-o"></i> Full Version
+									Full Version
 								</a>
 								<a
 									href="https://mjgm97.github.io/docs/short_thesis.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="glass-btn secondary"
+									className="link-btn secondary"
 								>
-									<i className="fa fa-file-pdf-o"></i> Short Version
+									Short Version
 								</a>
 								<a
 									href="https://mjgm97.github.io/docs/slides.pdf"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="glass-btn"
-									style={{ background: "rgba(132,103,215,0.25)" }}
+									className="link-btn secondary"
 								>
-									<i className="fa fa-file-powerpoint-o"></i> Slides
+									Slides
 								</a>
 							</div>
 						</div>
 
-						<div className="homepage-first-area-right-side">
-							<div className="homepage-image-container">
-								<div className="homepage-image-wrapper">
-									<img
-										src="/phdDefense.JPG"
-										alt="PhD Thesis"
-										className="homepage-image"
-									/>
-								</div>
+						<div className="hero-visual">
+							<div className="hero-photo-glow" />
+							<div className="hero-photo-frame">
+								<img
+									src="/phdDefense.JPG"
+									alt="Manuel defending his Ph.D. thesis"
+									className="hero-photo"
+								/>
 							</div>
 						</div>
 					</div>
@@ -143,19 +136,27 @@ const PhD = () => {
 											}`}
 										onClick={() => toggleAbstract(index)}
 									>
-										<div className="research-left">
+										<div className="research-cover-wrap">
 											<img
 												src={pub.cover}
 												alt={pub.title}
 												className="research-cover"
+												loading="lazy"
 											/>
+											{pub.type && (
+												<span
+													className={`cover-badge ${TYPE_STYLES[pub.type] || "journal"
+														}`}
+												>
+													{pub.type}
+												</span>
+											)}
 										</div>
 
 										<div className="research-right">
-											<div className="research-meta">
-												<span className="meta-badge type">{pub.type}</span>
-												<span className="meta-badge journal">{pub.journal}</span>
-											</div>
+											{pub.journal && (
+												<div className="research-journal">{pub.journal}</div>
+											)}
 
 											<h3 className="research-article-title">{pub.title}</h3>
 											<p
@@ -177,33 +178,31 @@ const PhD = () => {
 													href={pub.publisherLink}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="glass-btn"
+													className="link-btn primary"
 													onClick={(e) => e.stopPropagation()}
 												>
-													🌐 External Link
+													External Link
 												</a>
 												<a
 													href={pub.download}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="glass-btn secondary"
+													className="link-btn secondary"
 													onClick={(e) => e.stopPropagation()}
 												>
-													⬇️ Download
+													Download
 												</a>
-												<div className="collapse-right">
-													<button
-														className="glass-btn toggle-btn"
-														onClick={(e) => {
-															e.stopPropagation();
-															toggleAbstract(index);
-														}}
-													>
-														{expanded[index]
-															? "Hide Abstract"
-															: "Show Abstract"}
-													</button>
-												</div>
+												<button
+													className="abstract-toggle"
+													onClick={(e) => {
+														e.stopPropagation();
+														toggleAbstract(index);
+													}}
+												>
+													{expanded[index]
+														? "Hide Abstract"
+														: "Show Abstract"}
+												</button>
 											</div>
 										</div>
 									</div>

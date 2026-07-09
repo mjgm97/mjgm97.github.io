@@ -9,6 +9,7 @@ import AnimatedCard from "../components/common/animatedCard";
 import INFO from "../data/user";
 import SEO from "../data/seo";
 import PUBLICATIONS from "../data/publications";
+import TYPE_STYLES from "../data/publicationTypeStyles";
 
 import "./styles/research.css";
 
@@ -79,14 +80,18 @@ const Research = () => {
 				<NavBar active="research" />
 				<div className="content-wrapper">
 					<div className="research-logo-container">
-						<div className="research-logo">
+						<div className="corner-logo">
 							<Logo width={45} />
 						</div>
 					</div>
 
 					<div className="research-container">
 						<div className="research-heading">
-							<h1 className="research-title underline-animated">
+							<span className="page-eyebrow">
+								<span className="page-eyebrow-dot" />
+								{PUBLICATIONS.length}+ Publications since 2020
+							</span>
+							<h1 className="research-title">
 								{INFO.about.title}
 							</h1>
 							<p className="research-subtitle">
@@ -119,29 +124,29 @@ const Research = () => {
 														}`}
 													onClick={() => toggleAbstract(id)}
 												>
-													<div className="research-left">
+													<div className="research-cover-wrap">
 														<img
 															src={pub.cover}
 															alt={pub.title}
 															className="research-cover"
+															loading="lazy"
 														/>
+														{pub.type && (
+															<span
+																className={`cover-badge ${TYPE_STYLES[pub.type] || "journal"
+																	}`}
+															>
+																{pub.type}
+															</span>
+														)}
 													</div>
 
 													<div className="research-right">
-														<div className="research-meta">
-															{pub.type && (
-																<span
-																	className={`meta-badge type ${pub.type.toLowerCase()}`}
-																>
-																	{pub.type}
-																</span>
-															)}
-															{pub.journal && (
-																<span className="meta-badge journal">
-																	{pub.journal}
-																</span>
-															)}
-														</div>
+														{pub.journal && (
+															<div className="research-journal">
+																{pub.journal}
+															</div>
+														)}
 
 														<h3 className="research-article-title">
 															{pub.title}
@@ -166,10 +171,10 @@ const Research = () => {
 																	href={pub.publisherLink}
 																	target="_blank"
 																	rel="noopener noreferrer"
-																	className="glass-btn"
+																	className="link-btn primary"
 																	onClick={(e) => e.stopPropagation()}
 																>
-																	<span className="btn-icon">🌐</span> External Link
+																	External Link
 																</a>
 															)}
 															{pub.download && (
@@ -177,23 +182,21 @@ const Research = () => {
 																	href={pub.download}
 																	target="_blank"
 																	rel="noopener noreferrer"
-																	className="glass-btn secondary"
+																	className="link-btn secondary"
 																	onClick={(e) => e.stopPropagation()}
 																>
-																	<span className="btn-icon">⬇️</span> Download
+																	Download
 																</a>
 															)}
-															<div className="collapse-right">
-																<button
-																	className="glass-btn toggle-btn"
-																	onClick={(e) => {
-																		e.stopPropagation();
-																		toggleAbstract(id);
-																	}}
-																>
-																	{expanded[id] ? "Hide Abstract" : "Show Abstract"}
-																</button>
-															</div>
+															<button
+																className="abstract-toggle"
+																onClick={(e) => {
+																	e.stopPropagation();
+																	toggleAbstract(id);
+																}}
+															>
+																{expanded[id] ? "Hide Abstract" : "Show Abstract"}
+															</button>
 														</div>
 													</div>
 												</div>
@@ -205,7 +208,7 @@ const Research = () => {
 						))}
 						{visibleYears < sortedYears.length && (
 							<div className={`load-more-container ${visibleYears === sortedYears.length ? "fade-out" : ""}`}>
-								<button className="glass-btn load-more-btn" onClick={handleLoadMore}>
+								<button className="load-more-btn" onClick={handleLoadMore}>
 									Load More
 								</button>
 							</div>

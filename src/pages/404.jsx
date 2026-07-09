@@ -21,7 +21,7 @@ const Notfound = () => {
 				<NavBar />
 				<div className="content-wrapper">
 					<div className="notfound-logo-container">
-						<div className="projects-logo">
+						<div className="corner-logo">
 							<Logo width={45} />
 						</div>
 					</div>

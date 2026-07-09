@@ -41,7 +41,7 @@ const ReadArticle = () => {
 
 				<div className="content-wrapper">
 					<div className="read-article-logo-container">
-						<div className="read-article-logo">
+						<div className="corner-logo">
 							<Logo width={45} />
 						</div>
 					</div>

@@ -6,16 +6,6 @@
 	padding-top: 10px;
 }
 
-.teaching-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid var(--card-background);
-	border-radius: 50%;
-	box-shadow: var(--soft-shadow);
-	top: 4vh;
-	z-index: 999;
-}
-
 .teaching-container {
 	margin-top: 90px;
 	text-align: left;
@@ -260,10 +250,6 @@
 	.university-logo {
 		width: 60px;
 		height: 60px;
-	}
-	.teaching-logo{
-		top: 3vh;
-		opacity: 0.6;
 	}
 }
 

@@ -7,8 +7,9 @@ const INFO = {
 	},
 
 	socials: {
-		twitter: "https://twitter.com/GmezMjgm97",
+		researchgate: "https://www.researchgate.net/profile/Manuel-Gomez-58",
 		github: "https://github.com/mjgm97",
+		scholar: "https://scholar.google.es/citations?user=ny1Rf7wAAAAJ",
 		linkedin: "https://www.linkedin.com/in/manuel-jesús-gómez-moratilla-4860211a3/",
 	},
 

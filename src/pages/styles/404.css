@@ -9,16 +9,6 @@
 	padding-top: 25px;
 }
 
-.notfound-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid var(--card-background);
-	border-radius: 50%;
-	box-shadow: var(--soft-shadow);
-	top: 4vh;
-	z-index: 999;
-}
-
 .notfound-container {
 	display: flex;
 	flex-direction: column;
