@@ -1,55 +1,102 @@
+@import "../../data/styles.css";
+
 /* === Layout === */
 .teaching-logo-container {
 	display: flex;
 	justify-content: left;
 	align-items: center;
-	padding-top: 10px;
+	padding-top: 50px;
 }
 
 .teaching-container {
-	margin-top: 90px;
-	text-align: left;
+	padding-top: 50px;
 }
 
-/* === Animated title & subtitle === */
+.teaching-heading {
+	max-width: 780px;
+	margin-bottom: 40px;
+}
+
+/* === Eyebrow badge (shared visual language with homepage/research) === */
+.page-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 16px 6px 8px;
+	border-radius: var(--radius-pill);
+	background: rgba(var(--primary-rgb), 0.1);
+	border: 1px solid rgba(var(--primary-rgb), 0.25);
+	color: var(--primary-color);
+	font-size: 0.82rem;
+	font-weight: 600;
+	margin-bottom: 18px;
+}
+
+.eyebrow-crest {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 0 0 2px var(--card-background);
+}
+
 .teaching-title {
-	margin-bottom: 20px;
-	font-size: 1.8rem;
-	font-weight: 700;
+	font-family: var(--secondary-font);
+	font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	color: var(--text-color);
+	margin-bottom: 12px;
 }
 
 .teaching-subtitle {
-	max-width: 900px;
 	color: var(--secondary-color);
-	line-height: 1.7;
 	font-size: 1rem;
-	margin-bottom: 30px;
-	opacity: 0;
-	transform: translateY(0px);
-	animation: fadeSlideIn 1s ease-out 0.3s forwards;
+	line-height: 1.65;
+	max-width: 720px;
+	margin-top: 0;
+	margin-bottom: 28px;
+}
+
+/* === Stats row === */
+.teaching-stats {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.teaching-stat {
+	display: flex;
+	flex-direction: column;
+}
+
+.teaching-stat-number {
+	font-family: var(--secondary-font);
+	font-size: 1.7rem;
+	font-weight: 800;
+	color: var(--text-color);
+	line-height: 1.1;
+}
+
+.teaching-stat-label {
+	font-size: 0.8rem;
+	color: var(--tertiary-color);
+	font-weight: 500;
+}
+
+.teaching-stat-divider {
+	width: 1px;
+	height: 32px;
+	background: var(--border-color);
 }
 
 /* === Grid layout for teaching sections === */
 .teaching-row {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 20px;
 	align-items: flex-start;
-	margin-bottom: 30px;
-}
-
-/* === Sub-card grid === */
-.subcard-grid {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	margin-top: 15px;
-}
-
-.glass-card,
-.glass-subcard {
-	width: 100%;
-	box-sizing: border-box;
+	margin-bottom: 20px;
 }
 
 /* === Cards === */
@@ -57,200 +104,252 @@
 	background: var(--card-background);
 	border: 1px solid var(--border-color);
 	border-radius: var(--radius-lg);
-	padding: 30px 20px;
+	padding: 28px 26px;
 	box-shadow: var(--soft-shadow);
 	color: var(--text-color);
-	transition: all 0.3s ease;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* === Fade & Slide Animation === */
-@keyframes fadeSlideIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+.teaching-section {
+	margin-bottom: 20px;
 }
 
-.glass-card,
-.glass-subcard {
-  transform: none;                 /* was set by fadeSlideIn */
-  animation: fadeSlideIn 0.8s ease-out forwards;  /* replace fadeSlideIn */
-  will-change: transform, box-shadow;
-}
-
-/* === Individual sub-card === */
-.glass-subcard {
-	background: var(--background-alt);
-	border: 1px solid var(--border-color);
-	border-radius: var(--radius-md);
-	padding: 20px 15px;
-	flex: 1 1 280px;
-	box-shadow: var(--soft-shadow);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	opacity: 0;
-	transform: translateY(0px);
-	animation: fadeSlideIn 0.8s ease-out forwards;
-}
-
-.glass-card:hover {
+.teaching-section:hover {
 	transform: translateY(-4px);
 	box-shadow: var(--medium-shadow);
 	border-color: var(--glass-border);
 }
 
-.glass-subcard:hover {
-	transform: translateY(-4px);
-	box-shadow: var(--medium-shadow);
-	border-color: var(--glass-border);
-}
-
-/* === Supervision Sections === */
-.supervision-section {
-	margin-bottom: 30px;
-}
-
-.glass-card.fade-slide,
-.supervision-section.fade-slide {
-	opacity: 0;
-	animation: fadeSlideIn 0.8s ease-out forwards;
-}
-
-/* === Subcard Layout: Logo + Text === */
-.subcard-header {
-	display: flex;
-	align-items: flex-start;
-	gap: 16px;
-	flex-wrap: wrap;
-}
-
-/* === University logo === */
-.university-logo {
-	width: 80px;
-	height: 80px;
-	object-fit: contain;
-	border-radius: 10px;
-	flex-shrink: 1;
-	max-width: 25vw;
-	opacity: 0.9;
-	transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.glass-subcard:hover .university-logo {
-	transform: scale(1.05);
-	opacity: 1;
-}
-
-/* === Text column === */
-.subcard-text {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-}
-
-/* === Title and year in one row === */
-.subcard-top {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.section-title {
+	font-size: 1.15rem;
+	font-weight: 700;
 	margin-bottom: 4px;
 }
 
-.subcard-title {
+/* === Faculty badge (single visual identifier per item) === */
+.faculty-badge {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 44px;
+	min-width: 96px;
+	padding: 6px 12px;
+	border-radius: var(--radius-sm);
+	background: #ffffff;
+	border: 1px solid var(--border-color);
+	box-shadow: var(--soft-shadow);
+}
+
+.faculty-logo {
+	height: 20px;
+	width: auto;
+	display: block;
+}
+
+/* === Course list (undergraduate / graduate) === */
+.teaching-list {
+	display: flex;
+	flex-direction: column;
+	margin-top: 18px;
+}
+
+.teaching-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.teaching-item:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.teaching-item:first-child {
+	padding-top: 0;
+}
+
+.teaching-item-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.teaching-item-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 4px;
+}
+
+.teaching-item-title {
 	font-size: 1rem;
 	font-weight: 600;
 	margin: 0;
 	color: var(--text-color);
 }
 
-/* === Year badge (top-right) === */
-.subcard-year {
-	font-size: 0.85rem;
-	font-weight: 600;
+.teaching-item-year {
+	flex-shrink: 0;
+	font-size: 0.78rem;
+	font-weight: 700;
 	padding: 4px 12px;
-	border-radius: 40px;
-	border: 2px solid rgba(var(--primary-rgb), 0.3);
-	background: rgba(var(--primary-rgb), 0.15);
-	color: var(--text-color);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.15);
-	user-select: none;
-	cursor: default;
-	transition: all 0.3s ease;
+	border-radius: var(--radius-pill);
+	background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+	color: #fff;
+	box-shadow: 0 2px 6px rgba(var(--primary-rgb), 0.3);
+	white-space: nowrap;
 }
 
-.subcard-year:hover {
-	transform: scale(1.05);
-	background: var(--glass-bg-strong);
-	color: var(--accent-color);
-	box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.25);
-}
-
-/* === University and degree line === */
-.subcard-detail {
+.teaching-item-detail {
 	margin: 0;
 	font-size: 0.9rem;
 	color: var(--secondary-color);
 	line-height: 1.4;
 }
 
-/* === Student subtitle (for theses) === */
-.subcard-student {
-	color: var(--text-color);
-	font-size: 0.95rem;
-	font-weight: 400;
-	margin-bottom: 6px;
+/* === Thesis grid === */
+.thesis-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 18px;
+	margin-top: 18px;
 }
 
-/* === Thesis card layout === */
 .thesis-card {
-	position: relative;
-	padding-top: 0px; /* space for pill */
+	background: var(--background-alt);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-md);
+	padding: 18px 20px;
+	box-shadow: var(--soft-shadow);
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Year pill positioned top-right inside thesis cards */
+.thesis-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--medium-shadow);
+	border-color: var(--glass-border);
+}
+
+.thesis-card-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 12px;
+}
+
 .thesis-year {
-	position: relative;
-	top: 0px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	padding: 4px 12px;
-	font-size: 0.85rem;
-	font-weight: 600;
-	border-radius: 40px;
-	border: 2px solid rgba(255, 200, 100, 0.4);
-	background: rgba(255, 200, 100, 0.15);
-	color: var(--text-color);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	box-shadow: 0 2px 8px rgba(255, 200, 100, 0.15);
-	transition: transform 0.3s ease, background 0.3s ease;
+	font-size: 0.78rem;
+	font-weight: 700;
+	border-radius: var(--radius-pill);
+	border: 1px solid rgba(var(--primary-rgb), 0.3);
+	background: rgba(var(--primary-rgb), 0.12);
+	color: var(--primary-color);
 }
 
-.thesis-year:hover {
-	transform: scale(1.05);
+.thesis-card .faculty-badge {
+	height: 36px;
+	min-width: 76px;
+	padding: 4px 10px;
+}
+
+.thesis-card .faculty-logo {
+	height: 15px;
+}
+
+.thesis-title {
+	font-size: 1rem;
+	font-weight: 700;
+	margin: 0 0 6px;
 	color: var(--text-color);
-	background: rgba(255, 200, 100, 0.3);
-	box-shadow: 0 6px 16px rgba(255, 200, 100, 0.15);
+	line-height: 1.35;
+}
+
+.thesis-student {
+	color: var(--text-color);
+	font-size: 0.92rem;
+	font-weight: 500;
+	margin: 0 0 4px;
+}
+
+.thesis-detail {
+	margin: 0;
+	font-size: 0.85rem;
+	color: var(--secondary-color);
+	line-height: 1.4;
+}
+
+/* === Animated appearance for heading === */
+.page-eyebrow,
+.teaching-title,
+.teaching-subtitle,
+.teaching-stats {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.page-eyebrow {
+	animation-delay: 0.05s;
+}
+
+.teaching-title {
+	animation-delay: 0.2s;
+}
+
+.teaching-subtitle {
+	animation-delay: 0.35s;
+}
+
+.teaching-stats {
+	animation-delay: 0.5s;
+}
+
+.teaching-row,
+.teaching-container > .glass-card {
+	opacity: 0;
+	animation: fadeSlideIn 0.8s ease-out forwards;
+	animation-delay: 0.2s;
+}
+
+@keyframes fadeSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 /* === Responsive === */
 @media (max-width: 768px) {
-	.subcard-grid {
-		grid-template-columns: 1fr;
-	}
-	.subcard-top {
+	.teaching-item-top {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 4px;
 	}
-	.university-logo {
-		width: 60px;
-		height: 60px;
+
+	.faculty-badge {
+		height: 38px;
+		min-width: 82px;
+	}
+
+	.faculty-logo {
+		height: 17px;
 	}
 }
 
-
+@media (max-width: 600px) {
+	.teaching-logo-container,
+	.teaching-container {
+		padding-top: 40px;
+	}
+}

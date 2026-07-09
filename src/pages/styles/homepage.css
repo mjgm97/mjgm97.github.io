@@ -224,10 +224,10 @@
 
 .hero-photo-glow {
 	position: absolute;
-	width: 88%;
+	width: 68%;
 	height: 88%;
 	background: linear-gradient(140deg, rgba(var(--primary-rgb), 0.5), rgba(var(--primary-rgb), 0));
-	filter: blur(30px);
+	filter: blur(60px);
 	border-radius: 50%;
 	z-index: 0;
 }

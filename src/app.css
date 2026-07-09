@@ -130,8 +130,7 @@
    Single shared rule for the small fixed avatar shown on
    every page. Same top offset and pixel height as the nav
    pill (.nav-background) so the two are always vertically
-   centered on the same line. On mobile the nav pill needs
-   the full width, so the logo drops to its own row below.
+   centered on the same line, on both desktop and mobile.
    ======================================================= */
 .corner-logo {
 	display: flex;
@@ -156,8 +155,18 @@
 
 @media (max-width: 600px) {
 	.corner-logo {
-		top: 78px;
-		width: 32px;
-		height: 32px;
+		top: 3vh;
+		left: 10px;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@media (max-width: 360px) {
+	.corner-logo {
+		top: 3.5vh;
+		left: 6px;
+		width: 24px;
+		height: 24px;
 	}
 }
