@@ -31,4 +31,11 @@ test("renders the BraveRoom project page", () => {
 	).toBeInTheDocument();
 	expect(screen.getByText(/coming soon on github/i)).toBeInTheDocument();
 	expect(screen.queryByRole("link", { name: /github/i })).not.toBeInTheDocument();
+	expect(
+		screen.getByRole("heading", {
+			name: /a persona inside the scenario/i,
+			level: 2,
+		})
+	).toBeInTheDocument();
+	expect(screen.getByText(/claude or a local ollama model/i)).toBeInTheDocument();
 });

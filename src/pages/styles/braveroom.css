@@ -6,6 +6,7 @@
 	--brave-violet: #7965d1;
 	--brave-lilac: #d9d0ff;
 	--brave-mist: #f1eefe;
+	--brave-red: #df332f;
 }
 
 .braveroom-logo-container {
@@ -197,7 +198,8 @@
 	margin-top: 28px;
 }
 
-.braveroom-hero-tags span {
+.braveroom-hero-tags span,
+.braveroom-hero-tags a {
 	padding: 5px 10px;
 	border: 1px solid var(--border-color);
 	border-radius: var(--radius-pill);
@@ -205,6 +207,12 @@
 	color: var(--tertiary-color);
 	font-size: 0.68rem;
 	font-weight: 650;
+}
+
+.braveroom-hero-tags a:hover {
+	border-color: rgba(var(--primary-rgb), 0.35);
+	color: var(--primary-color);
+	text-decoration: none;
 }
 
 .braveroom-hero-visual {
@@ -418,6 +426,250 @@
 	margin-top: 4px;
 	color: var(--primary-color);
 	font-size: 0.72rem;
+}
+
+/* === Optional AI layer === */
+.braveroom-ai {
+	scroll-margin-top: 110px;
+	display: grid;
+	grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+	align-items: center;
+	gap: 54px;
+	padding: 58px;
+	border: 1px solid rgba(var(--primary-rgb), 0.2);
+	border-radius: 28px;
+	background:
+		radial-gradient(circle at 92% 8%, rgba(var(--primary-rgb), 0.13), transparent 32%),
+		var(--card-background);
+	box-shadow: var(--soft-shadow);
+}
+
+.braveroom-ai-copy h2 {
+	margin: 16px 0 0;
+	font-size: clamp(1.7rem, 3vw, 2.35rem);
+	line-height: 1.2;
+	letter-spacing: -0.035em;
+}
+
+.braveroom-ai-copy > p {
+	margin: 20px 0 0;
+	color: var(--secondary-color);
+	font-size: 0.94rem;
+	line-height: 1.75;
+}
+
+.braveroom-ai-copy ul {
+	display: flex;
+	flex-direction: column;
+	gap: 11px;
+	margin: 26px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.braveroom-ai-copy li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	color: var(--secondary-color);
+	font-size: 0.8rem;
+	line-height: 1.55;
+}
+
+.braveroom-ai-copy li svg {
+	flex: 0 0 auto;
+	margin-top: 4px;
+	color: var(--primary-color);
+	font-size: 0.7rem;
+}
+
+.braveroom-ai-demo {
+	min-width: 0;
+	padding: 16px;
+	border: 1px solid var(--border-color);
+	border-radius: 22px;
+	background: var(--background-alt);
+}
+
+.braveroom-ai-demo-heading,
+.braveroom-ai-panel-title,
+.braveroom-ai-flow {
+	display: flex;
+	align-items: center;
+}
+
+.braveroom-ai-demo-heading {
+	justify-content: space-between;
+	gap: 12px;
+	padding: 2px 3px 13px;
+}
+
+.braveroom-ai-demo-heading > span:first-child {
+	color: var(--tertiary-color);
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.braveroom-ai-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 8px;
+	border: 1px solid rgba(var(--primary-rgb), 0.2);
+	border-radius: var(--radius-pill);
+	background: rgba(var(--primary-rgb), 0.08);
+	color: var(--primary-color);
+	font-size: 0.62rem;
+	font-weight: 700;
+}
+
+.braveroom-ai-status i {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--primary-color);
+	box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.16);
+}
+
+.braveroom-ai-panels {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.braveroom-ai-panel {
+	min-width: 0;
+	min-height: 285px;
+	padding: 18px;
+	border: 1px solid var(--border-color);
+	border-radius: 16px;
+	background: var(--card-background);
+}
+
+.braveroom-ai-panel-title {
+	gap: 9px;
+	margin-bottom: 18px;
+}
+
+.braveroom-ai-panel-title > span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	border-radius: 8px;
+	background: rgba(var(--primary-rgb), 0.1);
+	color: var(--primary-color);
+	font-size: 0.64rem;
+	font-weight: 800;
+}
+
+.braveroom-ai-panel-title strong {
+	color: var(--text-color);
+	font-size: 0.76rem;
+}
+
+.braveroom-ai-field {
+	padding: 10px 11px;
+	border: 1px solid var(--border-color);
+	border-radius: 10px;
+	background: var(--background-color);
+}
+
+.braveroom-ai-field + .braveroom-ai-field {
+	margin-top: 8px;
+}
+
+.braveroom-ai-field > span,
+.braveroom-ai-message > span {
+	display: block;
+	margin-bottom: 3px;
+	color: var(--tertiary-color);
+	font-size: 0.58rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.braveroom-ai-field strong,
+.braveroom-ai-field p {
+	color: var(--text-color);
+	font-size: 0.72rem;
+}
+
+.braveroom-ai-field p {
+	margin: 0;
+	line-height: 1.5;
+}
+
+.braveroom-ai-instruction {
+	margin-top: 10px;
+	padding-left: 9px;
+	border-left: 2px solid var(--primary-color);
+	color: var(--tertiary-color);
+	font-size: 0.58rem;
+	line-height: 1.5;
+}
+
+.braveroom-ai-conversation {
+	display: flex;
+	flex-direction: column;
+}
+
+.braveroom-ai-message {
+	max-width: 90%;
+	padding: 10px 12px;
+	border-radius: 12px;
+}
+
+.braveroom-ai-message p {
+	margin: 0;
+	font-size: 0.7rem;
+	line-height: 1.5;
+}
+
+.braveroom-ai-message-persona {
+	align-self: flex-start;
+	border: 1px solid var(--border-color);
+	border-bottom-left-radius: 4px;
+	background: var(--background-color);
+}
+
+.braveroom-ai-message-persona p {
+	color: var(--secondary-color);
+}
+
+.braveroom-ai-message-user {
+	align-self: flex-end;
+	margin-top: 11px;
+	border-bottom-right-radius: 4px;
+	background: linear-gradient(135deg, var(--brave-purple), var(--brave-violet));
+}
+
+.braveroom-ai-message-user > span,
+.braveroom-ai-message-user p {
+	color: #fff;
+}
+
+.braveroom-ai-flow {
+	justify-content: center;
+	gap: 8px;
+	padding: 13px 3px 0;
+}
+
+.braveroom-ai-flow span {
+	color: var(--tertiary-color);
+	font-size: 0.58rem;
+	font-weight: 650;
+}
+
+.braveroom-ai-flow i {
+	flex: 1;
+	max-width: 34px;
+	height: 1px;
+	background: rgba(var(--primary-rgb), 0.3);
 }
 
 /* === Feature grid === */
@@ -639,6 +891,15 @@
 		max-width: 680px;
 	}
 
+	.braveroom-ai {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.braveroom-ai-copy {
+		max-width: 680px;
+	}
+
 	.braveroom-final-cta {
 		grid-template-columns: 74px minmax(0, 1fr);
 	}
@@ -749,6 +1010,13 @@
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
+	.braveroom-ai {
+		gap: 30px;
+		padding: 34px 24px;
+		border-radius: 24px;
+		scroll-margin-top: 86px;
+	}
+
 	.braveroom-library,
 	.braveroom-final-cta {
 		margin-top: 66px;
@@ -800,6 +1068,68 @@
 		grid-template-columns: 1fr;
 	}
 
+	.braveroom-ai-panels {
+		grid-template-columns: 1fr;
+	}
+
+	.braveroom-ai {
+		gap: 24px;
+		padding: 28px 20px;
+	}
+
+	.braveroom-ai-copy h2 {
+		font-size: 1.8rem;
+	}
+
+	.braveroom-ai-copy > p {
+		margin-top: 16px;
+		font-size: 0.9rem;
+		line-height: 1.65;
+	}
+
+	.braveroom-ai-copy ul {
+		gap: 8px;
+		margin-top: 20px;
+	}
+
+	.braveroom-ai-copy li {
+		font-size: 0.75rem;
+	}
+
+	.braveroom-ai-demo {
+		padding: 12px;
+	}
+
+	.braveroom-ai-panel {
+		min-height: 0;
+	}
+
+	.braveroom-ai-authoring {
+		padding: 14px;
+	}
+
+	.braveroom-ai-authoring .braveroom-ai-panel-title {
+		margin-bottom: 0;
+	}
+
+	.braveroom-ai-authoring .braveroom-ai-field,
+	.braveroom-ai-authoring .braveroom-ai-instruction {
+		display: none;
+	}
+
+	.braveroom-ai-conversation {
+		padding: 16px;
+	}
+
+	.braveroom-ai-flow {
+		flex-wrap: wrap;
+		row-gap: 5px;
+	}
+
+	.braveroom-ai-flow i {
+		flex: 0 0 18px;
+	}
+
 	.braveroom-feature-grid article {
 		min-height: 0;
 	}
@@ -812,6 +1142,7 @@
 	.braveroom-origin h2,
 	.braveroom-section-heading h2,
 	.braveroom-showcase-copy h2,
+	.braveroom-ai-copy h2,
 	.braveroom-technical h2 {
 		font-size: clamp(1.65rem, 8vw, 2.1rem);
 	}

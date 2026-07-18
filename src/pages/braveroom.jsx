@@ -41,8 +41,8 @@ const CAPABILITIES = [
 
 const FEATURES = [
 	{
-		title: "Multimodal responses",
-		description: "Text, choice, scale, microphone, and optional AI persona interactions.",
+		title: "Flexible responses",
+		description: "Text, choice, scale, and microphone prompts for different kinds of practice.",
 	},
 	{
 		title: "Live facilitation",
@@ -138,7 +138,7 @@ const BraveRoom = () => {
 								<div className="braveroom-hero-tags" aria-label="Project characteristics">
 									<span>Scenario-based learning</span>
 									<span>Live &amp; self-paced</span>
-									<span>Public release planned</span>
+									<a href="#ai-integration">AI personas</a>
 								</div>
 							</div>
 
@@ -241,6 +241,71 @@ const BraveRoom = () => {
 										<li><FontAwesomeIcon icon={faCheck} /> Presence, synchronized controls, and reconnect recovery</li>
 										<li><FontAwesomeIcon icon={faCheck} /> Responses preserved in each participant&apos;s history</li>
 									</ul>
+								</div>
+							</div>
+						</section>
+
+						<section id="ai-integration" className="braveroom-ai" aria-labelledby="braveroom-ai-title">
+							<div className="braveroom-ai-copy">
+								<span className="braveroom-section-label">AI integration</span>
+								<h2 id="braveroom-ai-title">A persona inside the scenario—not a chatbot beside it.</h2>
+								<p>
+									Authors define a character, an opening line, and behavioral
+									instructions. Participants then respond in the moment while
+									BraveRoom preserves the exchange for later reflection.
+								</p>
+								<ul>
+									<li><FontAwesomeIcon icon={faCheck} /> Claude or a local Ollama model</li>
+									<li><FontAwesomeIcon icon={faCheck} /> Conversation transcripts saved with the run</li>
+									<li><FontAwesomeIcon icon={faCheck} /> Entirely optional—the platform works without an AI backend</li>
+								</ul>
+							</div>
+
+							<div className="braveroom-ai-demo" aria-label="Illustration of the AI persona workflow">
+								<div className="braveroom-ai-demo-heading">
+									<span>Illustrative interaction</span>
+									<span className="braveroom-ai-status"><i /> AI persona</span>
+								</div>
+
+								<div className="braveroom-ai-panels">
+									<div className="braveroom-ai-panel braveroom-ai-authoring">
+										<div className="braveroom-ai-panel-title">
+											<span>01</span>
+											<strong>Author the persona</strong>
+										</div>
+										<div className="braveroom-ai-field">
+											<span>Character</span>
+											<strong>Ms. Rivera</strong>
+										</div>
+										<div className="braveroom-ai-field">
+											<span>Opening line</span>
+											<p>“I want to understand what happened with Jordan&apos;s grade.”</p>
+										</div>
+										<div className="braveroom-ai-instruction">
+											Stay in character · respond briefly · do not evaluate
+										</div>
+									</div>
+
+									<div className="braveroom-ai-panel braveroom-ai-conversation">
+										<div className="braveroom-ai-panel-title">
+											<span>02</span>
+											<strong>Respond in context</strong>
+										</div>
+										<div className="braveroom-ai-message braveroom-ai-message-persona">
+											<span>Ms. Rivera</span>
+											<p>I want to understand what happened with Jordan&apos;s grade.</p>
+										</div>
+										<div className="braveroom-ai-message braveroom-ai-message-user">
+											<span>You</span>
+											<p>Thank you for coming in. Let&apos;s walk through it together.</p>
+										</div>
+									</div>
+								</div>
+
+								<div className="braveroom-ai-flow" aria-hidden="true">
+									<span>Authored context</span><i />
+									<span>Live exchange</span><i />
+									<span>Saved transcript</span>
 								</div>
 							</div>
 						</section>

@@ -74,6 +74,7 @@ const SEO = [
       "BraveRoom",
       "Scenario-Based Learning",
       "Simulation Training",
+      "AI Simulation",
       "Experiential Learning",
       "Learning Analytics",
       "Next.js",
