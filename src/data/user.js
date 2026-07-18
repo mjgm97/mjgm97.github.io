@@ -3,7 +3,7 @@ const INFO = {
 		title: "Manuel J. Gomez",
 		name: "Manuel J. Gomez",
 		email: "manueljesus.gomezm@um.es",
-		logo: "../logo.jpg",
+		logo: "/logo.jpg",
 	},
 
 	socials: {
@@ -98,4 +98,3 @@ const INFO = {
 };
 
 export default INFO;
-

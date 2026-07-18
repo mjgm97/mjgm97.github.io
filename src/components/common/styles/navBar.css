@@ -171,6 +171,21 @@
 	}
 }
 
+@media (max-width: 420px) {
+	.nav-background {
+		padding: 0 3px;
+	}
+
+	.nav-list {
+		margin: 10px 2px;
+	}
+
+	.nav-item a {
+		padding: 0 5px;
+		font-size: 0.68rem;
+	}
+}
+
 /* Toggle competes with the nav pill for space on narrow screens; hide it
    there so the nav never gets squeezed or clipped. */
 @media (max-width: 700px) {

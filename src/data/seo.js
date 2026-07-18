@@ -67,6 +67,20 @@ const SEO = [
     ],
   },
   {
+    page: "braveroom",
+    description:
+      "BraveRoom is a platform by Manuel J. Gomez for designing, facilitating, and reviewing realistic scenario-based practice.",
+    keywords: [
+      "BraveRoom",
+      "Scenario-Based Learning",
+      "Simulation Training",
+      "Experiential Learning",
+      "Learning Analytics",
+      "Next.js",
+      "Educational Technology",
+    ],
+  },
+  {
     page: "gallery",
     description:
       "A gallery of professional and research-related photos of Manuel J. Gomez, including conferences, interviews, and collaborations with MIT and the University of Murcia.",
@@ -107,4 +121,3 @@ const SEO = [
 ];
 
 export default SEO;
-

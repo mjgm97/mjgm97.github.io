@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
@@ -80,7 +83,43 @@ const Projects = () => {
 							</div>
 						</div>
 
+						<section className="featured-project" aria-labelledby="braveroom-feature-title">
+							<div className="featured-project-content">
+								<span className="featured-project-kicker">Featured build</span>
+								<img
+									src="/projects/braveroom/logo-wordmark-dark.png"
+									alt="BraveRoom"
+									className="featured-project-wordmark"
+								/>
+								<h2 id="braveroom-feature-title" className="featured-project-title">
+									Practice the decisions that matter.
+								</h2>
+								<p>
+									An independent platform for designing, facilitating, and
+									reviewing realistic scenario-based practice—from difficult
+									conversations to high-stakes team decisions.
+								</p>
+								<div className="featured-project-tags" aria-label="BraveRoom focus areas">
+									<span>Simulation</span>
+									<span>Learning design</span>
+									<span>AI &amp; analytics</span>
+								</div>
+								<Link to="/projects/braveroom" className="featured-project-link">
+									Explore the project
+									<FontAwesomeIcon icon={faArrowRight} />
+								</Link>
+							</div>
+
+							<div className="featured-project-visual" aria-hidden="true">
+								<img
+									src="/projects/braveroom/dashboard-desktop.jpg"
+									alt=""
+								/>
+							</div>
+						</section>
+
 						<div className="projects-list">
+							<h2 className="projects-list-title">Funded research projects</h2>
 							<AllProjects />
 						</div>
 					</div>

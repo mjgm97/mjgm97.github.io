@@ -1,8 +1,34 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+beforeAll(() => {
+	Object.defineProperty(window, "matchMedia", {
+		writable: true,
+		value: (query) => ({
+			matches: false,
+			media: query,
+			onchange: null,
+			addEventListener: jest.fn(),
+			removeEventListener: jest.fn(),
+		}),
+	});
+	window.scrollTo = jest.fn();
+});
+
+test("renders the BraveRoom project page", () => {
+	render(
+		<MemoryRouter initialEntries={["/projects/braveroom"]}>
+			<App />
+		</MemoryRouter>
+	);
+
+	expect(
+		screen.getByRole("heading", {
+			name: /practice the decisions that matter/i,
+			level: 1,
+		})
+	).toBeInTheDocument();
+	expect(screen.getByText(/coming soon on github/i)).toBeInTheDocument();
+	expect(screen.queryByRole("link", { name: /github/i })).not.toBeInTheDocument();
 });
