@@ -245,7 +245,9 @@
 .tl-card-top {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 8px;
+	row-gap: 8px;
 	margin-bottom: 12px;
 }
 
@@ -275,13 +277,18 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 5px;
+	margin: 0 0 7px;
+	padding: 3px 10px;
 	font-size: 10.5px;
 	font-weight: 700;
-	color: #12a594;
+	color: #0e8c7e;
+	background: rgba(18, 165, 148, 0.12);
+	border-radius: var(--radius-pill);
 	white-space: nowrap;
 }
 [data-theme="dark"] .tl-live {
 	color: #34d6c3;
+	background: rgba(52, 214, 195, 0.14);
 }
 .tl-live-dot {
 	width: 7px;

@@ -184,12 +184,6 @@ const Works = () => {
 											? "Experience"
 											: "Education"}
 									</span>
-									{item.current && (
-										<span className="tl-live">
-											<span className="tl-live-dot" />
-											Ongoing
-										</span>
-									)}
 									<span className="tl-date">{item.date}</span>
 								</div>
 
@@ -202,6 +196,12 @@ const Works = () => {
 										/>
 									)}
 								</h4>
+								{item.current && (
+									<span className="tl-live">
+										<span className="tl-live-dot" />
+										Ongoing
+									</span>
+								)}
 								<p className="tl-org">{item.org}</p>
 							</CardTag>
 						</div>
