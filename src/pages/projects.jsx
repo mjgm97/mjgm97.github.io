@@ -96,7 +96,7 @@ const Projects = () => {
 								</h2>
 								<p>
 									An independent platform for designing, facilitating, and
-									reviewing realistic scenario-based practice—from difficult
+									reviewing realistic scenario-based practice, from difficult
 									conversations to high-stakes team decisions.
 								</p>
 								<div className="featured-project-tags" aria-label="BraveRoom focus areas">
@@ -114,6 +114,42 @@ const Projects = () => {
 								<img
 									src="/projects/braveroom/dashboard-desktop.jpg"
 									alt=""
+								/>
+							</div>
+						</section>
+
+						<section className="featured-project featured-project-ludix" aria-labelledby="ludix-feature-title">
+							<div className="featured-project-content">
+								<span className="featured-project-kicker">Open research software</span>
+								<img
+									src="/projects/ludix/logo-dark-tagline.svg"
+									alt="Ludix"
+									className="featured-project-wordmark featured-project-wordmark-ludix"
+								/>
+								<h2 id="ludix-feature-title" className="featured-project-title">
+									From game events to defensible evidence.
+								</h2>
+								<p>
+									A game-agnostic workbench for serious-games research,
+									uniting reproducible learning analytics, sequence methods,
+									and explainable prediction.
+								</p>
+								<div className="featured-project-tags" aria-label="Ludix focus areas">
+									<span>Learning analytics</span>
+									<span>Process mining</span>
+									<span>Explainable AI</span>
+								</div>
+								<Link to="/projects/ludix" className="featured-project-link featured-project-link-ludix">
+									Explore the research
+									<FontAwesomeIcon icon={faArrowRight} />
+								</Link>
+							</div>
+
+							<div className="featured-project-visual" aria-hidden="true">
+								<img
+									src="/projects/ludix/process.jpg"
+									alt=""
+									className="featured-project-ludix-portrait"
 								/>
 							</div>
 						</section>

@@ -82,6 +82,21 @@ const SEO = [
     ],
   },
   {
+    page: "ludix",
+    description:
+      "Ludix is open research software by Manuel J. Gomez for reproducible, game-agnostic learning analytics across serious games.",
+    keywords: [
+      "Ludix",
+      "Serious Games",
+      "Learning Analytics",
+      "Process Mining",
+      "Transition Network Analysis",
+      "Explainable AI",
+      "Educational Data Mining",
+      "Open Research Software",
+    ],
+  },
+  {
     page: "gallery",
     description:
       "A gallery of professional and research-related photos of Manuel J. Gomez, including conferences, interviews, and collaborations with MIT and the University of Murcia.",

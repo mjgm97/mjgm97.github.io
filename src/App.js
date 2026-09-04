@@ -8,6 +8,7 @@ import Homepage from "./pages/homepage";
 import Research from "./pages/research";
 import Projects from "./pages/projects";
 import BraveRoom from "./pages/braveroom";
+import Ludix from "./pages/ludix";
 import Teaching from "./pages/teaching";
 import PhD from "./pages/phd";
 import ReadArticle from "./pages/readArticle";
@@ -40,6 +41,7 @@ function App() {
 				<Route path="/research" element={<Research />} />
 				<Route path="/projects" element={<Projects />} />
 				<Route path="/projects/braveroom" element={<BraveRoom />} />
+				<Route path="/projects/ludix" element={<Ludix />} />
 				<Route path="/phd" element={<PhD />} />
 				<Route path="/teaching" element={<Teaching />} />
 				<Route path="/article/:slug" element={<ReadArticle />} />
