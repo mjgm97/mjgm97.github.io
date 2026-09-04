@@ -56,7 +56,7 @@ test("renders the Ludix research project page", () => {
 	).toBeInTheDocument();
 	expect(screen.getByRole("link", { name: /view source on github/i })).toHaveAttribute(
 		"href",
-		"https://github.com/mjgm97/ludix"
+		"https://github.com/mjgm97/ludix-platform"
 	);
 	expect(
 		screen.getByRole("heading", { name: /one event model, many research questions/i })

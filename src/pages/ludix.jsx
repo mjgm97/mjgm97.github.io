@@ -134,7 +134,7 @@ const Ludix = () => {
 								</p>
 								<div className="ludix-actions">
 									<a
-										href="https://github.com/mjgm97/ludix"
+										href="https://github.com/mjgm97/ludix-platform"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="ludix-button ludix-button-primary"
@@ -360,7 +360,7 @@ const Ludix = () => {
 								</p>
 							</div>
 							<a
-								href="https://github.com/mjgm97/ludix"
+								href="https://github.com/mjgm97/ludix-platform"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="ludix-button ludix-button-light"
