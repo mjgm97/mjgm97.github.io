@@ -38,6 +38,7 @@ test("renders the BraveRoom project page", () => {
 		})
 	).toBeInTheDocument();
 	expect(screen.getByText(/claude or a local ollama model/i)).toBeInTheDocument();
+	expect(document.querySelector(".pointer-glow-braveroom")).toBeInTheDocument();
 });
 
 test("renders the Ludix research project page", () => {
@@ -60,4 +61,5 @@ test("renders the Ludix research project page", () => {
 	expect(
 		screen.getByRole("heading", { name: /one event model, many research questions/i })
 	).toBeInTheDocument();
+	expect(document.querySelector(".pointer-glow-ludix")).toBeInTheDocument();
 });
