@@ -17,12 +17,20 @@ import "./styles/works.css";
 const TIMELINE = [
 	{
 		type: "experience",
-		title: "FPI Predoctoral Researcher",
+		title: "FPI Postdoctoral Researcher",
 		org: "Fundación Séneca · Department of Information and Communications Engineering, University of Murcia",
-		date: "2023 — Present",
+		date: "2025 — 2026",
 		img: "./escudoUmu.jpg",
 		sort: 2027,
 		current: true,
+	},
+	{
+		type: "experience",
+		title: "FPI Predoctoral Researcher",
+		org: "Fundación Séneca · Department of Information and Communications Engineering, University of Murcia",
+		date: "2023 — 2025",
+		img: "./escudoUmu.jpg",
+		sort: 2025,
 	},
 	{
 		type: "experience",
