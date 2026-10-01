@@ -2,10 +2,11 @@ const SEO = [
   {
     page: "home",
     description:
-      "Personal webpage of Manuel J. Gomez, Ph.D. in Computer Science at the University of Murcia. Researcher in Game-Based Assessment, Learning Analytics, and Artificial Intelligence.",
+      "Personal webpage of Manuel J. Gomez, Assistant Professor at the University of Murcia. Researcher in Game-Based Assessment, Learning Analytics, and Artificial Intelligence.",
     keywords: [
       "Manuel J. Gomez",
       "University of Murcia",
+      "Assistant Professor",
       "PhD Computer Science",
       "Game-Based Assessment",
       "Learning Analytics",

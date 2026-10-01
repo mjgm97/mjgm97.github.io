@@ -17,12 +17,20 @@ import "./styles/works.css";
 const TIMELINE = [
 	{
 		type: "experience",
+		title: "Assistant Professor",
+		org: "Department of Informatics and Systems, University of Murcia",
+		date: "2026 — Present",
+		img: "./escudoUmu.jpg",
+		sort: 2027,
+		current: true,
+	},
+	{
+		type: "experience",
 		title: "FPI Postdoctoral Researcher",
 		org: "Fundación Séneca · Department of Information and Communications Engineering, University of Murcia",
 		date: "2025 — 2026",
 		img: "./escudoUmu.jpg",
-		sort: 2027,
-		current: true,
+		sort: 2026,
 	},
 	{
 		type: "experience",

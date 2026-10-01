@@ -64,7 +64,7 @@ const Homepage = () => {
 							<div className="hero-text">
 								<span className="hero-eyebrow">
 									<span className="hero-eyebrow-dot" />
-									Ph.D. &middot; CyberDataLab, University of Murcia
+									Assistant Professor &middot; CyberDataLab, University of Murcia
 								</span>
 
 								<h1 className="hero-title">

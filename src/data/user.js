@@ -16,7 +16,7 @@ const INFO = {
 	homepage: {
 		title: "Hi! I am Manuel Jesus Gómez",
 		description:
-		"Manuel J. Gomez holds a Ph.D. in Computer Science from the University of Murcia, Spain. He obtained his B.Sc. in Applied Computing and Data Science and an M.Sc. in Big Data. He is a member of the CyberDataLab at the University of Murcia, and his research interests include serious games, educational tecnhnology, artificial intelligence and large language models.",
+		"Manuel J. Gomez is an Assistant Professor in the Department of Informatics and Systems at the University of Murcia, Spain, where he also received his Ph.D. in Computer Science. He obtained his B.Sc. in Applied Computing and Data Science and an M.Sc. in Big Data. He is a member of the CyberDataLab, and his research interests include serious games, educational technology, artificial intelligence and large language models.",
 	},
 
 	about: {
