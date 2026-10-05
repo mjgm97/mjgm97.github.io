@@ -6,8 +6,9 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import AnimatedCard from "../components/common/animatedCard";
 
-import INFO from "../data/user";
-import SEO from "../data/seo";
+import { getInfo } from "../data/user";
+import { getSEO } from "../data/seo";
+import { useLanguage } from "../i18n/LanguageContext";
 import PUBLICATIONS from "../data/publications";
 import TYPE_STYLES from "../data/publicationTypeStyles";
 
@@ -28,7 +29,9 @@ const Research = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "research");
+	const { lang, t } = useLanguage();
+	const INFO = getInfo(lang);
+	const currentSEO = getSEO(lang, "research");
 
 	// Group publications by year
 	const groupedPublications = PUBLICATIONS.reduce((acc, pub) => {
@@ -68,7 +71,7 @@ const Research = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Research | ${INFO.main.title}`}</title>
+				<title>{`${t.research.pageTitle} | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -89,18 +92,13 @@ const Research = () => {
 						<div className="research-heading">
 							<span className="page-eyebrow">
 								<span className="page-eyebrow-dot" />
-								{PUBLICATIONS.length}+ Publications since 2020
+								{t.research.eyebrow(PUBLICATIONS.length)}
 							</span>
 							<h1 className="research-title">
 								{INFO.about.title}
 							</h1>
 							<p className="research-subtitle">
-								I explore how Artificial Intelligence, Learning
-								Analytics, and Serious Games can improve the way we understand,
-								assess, and design learning experiences. My work focuses on
-								developing explainable and interoperable systems that connect
-								gameplay data with educational insights, making learning
-								processes more measurable, transparent, and scalable.
+								{t.research.subtitle}
 							</p>
 						</div>
 
@@ -136,7 +134,7 @@ const Research = () => {
 																className={`cover-badge ${TYPE_STYLES[pub.type] || "journal"
 																	}`}
 															>
-																{pub.type}
+																{t.publications.types[pub.type] || pub.type}
 															</span>
 														)}
 													</div>
@@ -174,7 +172,7 @@ const Research = () => {
 																	className="link-btn primary"
 																	onClick={(e) => e.stopPropagation()}
 																>
-																	External Link
+																	{t.publications.externalLink}
 																</a>
 															)}
 															{pub.download && (
@@ -185,7 +183,7 @@ const Research = () => {
 																	className="link-btn secondary"
 																	onClick={(e) => e.stopPropagation()}
 																>
-																	Download
+																	{t.publications.download}
 																</a>
 															)}
 															<button
@@ -195,7 +193,9 @@ const Research = () => {
 																	toggleAbstract(id);
 																}}
 															>
-																{expanded[id] ? "Hide Abstract" : "Show Abstract"}
+																{expanded[id]
+																	? t.publications.hideAbstract
+																	: t.publications.showAbstract}
 															</button>
 														</div>
 													</div>
@@ -209,7 +209,7 @@ const Research = () => {
 						{visibleYears < sortedYears.length && (
 							<div className={`load-more-container ${visibleYears === sortedYears.length ? "fade-out" : ""}`}>
 								<button className="load-more-btn" onClick={handleLoadMore}>
-									Load More
+									{t.publications.loadMore}
 								</button>
 							</div>
 						)}

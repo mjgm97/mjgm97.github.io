@@ -8,8 +8,9 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 
-import INFO from "../data/user";
-import SEO from "../data/seo";
+import { getInfo } from "../data/user";
+import { getSEO } from "../data/seo";
+import { useLanguage } from "../i18n/LanguageContext";
 
 import "./styles/contact.css";
 
@@ -18,12 +19,14 @@ const Contact = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "contact");
+	const { lang, t } = useLanguage();
+	const INFO = getInfo(lang);
+	const currentSEO = getSEO(lang, "contact");
 
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Contact | ${INFO.main.title}`}</title>
+				<title>{`${t.contact.pageTitle} | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -54,7 +57,7 @@ const Contact = () => {
 									href={`mailto:${INFO.contact.email}`}
 									className="contact-btn primary"
 								>
-									Email me
+									{t.contact.emailMe}
 									<FontAwesomeIcon icon={faArrowRight} />
 								</a>
 							</div>
@@ -64,23 +67,23 @@ const Contact = () => {
 
 						<div className="contact-grid">
 							<div className="glass-card contact-info-card">
-								<h2 className="section-title">Find me</h2>
+								<h2 className="section-title">{t.contact.findMe}</h2>
 								<p className="contact-info-text">
 									{INFO.contact.address}
 								</p>
 
 								<dl className="contact-meta">
 									<div className="contact-meta-row">
-										<dt>Office</dt>
-										<dd>Lab 2.39</dd>
+										<dt>{t.contact.office}</dt>
+										<dd>{t.contact.officeValue}</dd>
 									</div>
 									<div className="contact-meta-row">
-										<dt>Phone</dt>
+										<dt>{t.contact.phone}</dt>
 										<dd>{INFO.contact.phone}</dd>
 									</div>
 									<div className="contact-meta-row">
-										<dt>Availability</dt>
-										<dd>Mon–Fri, 10:00–18:00 (by appointment)</dd>
+										<dt>{t.contact.availability}</dt>
+										<dd>{t.contact.availabilityValue}</dd>
 									</div>
 								</dl>
 							</div>
@@ -88,7 +91,7 @@ const Contact = () => {
 							<div className="glass-card contact-map-card">
 								<div className="map-wrapper">
 									<iframe
-										title="Facultad de Informática - Universidad de Murcia"
+										title={t.contact.mapTitle}
 										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.298021440967!2d-1.173267924338795!3d38.01767427191389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6381b0df8e3aa3%3A0x73a09bb2187cb7b7!2sFacultad%20de%20Inform%C3%A1tica%20-%20Universidad%20de%20Murcia!5e0!3m2!1ses!2ses!4v1730481072731!5m2!1ses!2ses"
 										allowFullScreen=""
 										loading="lazy"

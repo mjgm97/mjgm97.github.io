@@ -110,86 +110,236 @@
 	font-weight: 700;
 }
 
-/* === Theme toggle (its own floating pill) === */
+/* === Controls: language + color theme in one group === */
+.nav-controls {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.nav-controls-divider {
+	width: 1px;
+	height: 18px;
+	background: rgba(var(--primary-rgb), 0.35);
+}
+
+.lang-switch {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.lang-option {
+	border: 0;
+	border-radius: 20px;
+	padding: 6px 9px;
+	background: transparent;
+	color: var(--text-color);
+	font-family: inherit;
+	font-size: 0.74rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	opacity: 0.6;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.lang-option:hover {
+	opacity: 1;
+	color: var(--primary-color-dark);
+}
+
+.lang-option.active {
+	opacity: 1;
+	background: rgba(var(--primary-rgb), 0.22);
+	color: var(--primary-color-dark);
+}
+
 .theme-toggle {
-	position: fixed;
-	top: 3.5vh;
-	right: 4%;
-	z-index: 1000;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 42px;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: var(--text-color);
+	font-size: 0.95rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+	transform: scale(1.1);
+	background: rgba(var(--primary-rgb), 0.22);
+	color: var(--accent-color);
+}
+
+.lang-option:focus-visible,
+.theme-toggle:focus-visible,
+.nav-burger:focus-visible {
+	outline: 2px solid var(--primary-color);
+	outline-offset: 1px;
+}
+
+/* Wide screens: one floating pill mirroring the nav pill */
+.nav-controls-floating {
+	position: fixed;
+	top: 3vh;
+	right: 4%;
+	z-index: 1000;
+	box-sizing: border-box;
 	height: 42px;
+	padding: 0 6px;
 	background: rgba(var(--primary-rgb), 0.12);
 	border: 3px solid rgba(var(--primary-rgb), 0.2);
 	border-radius: 40px;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+	transition: all 0.4s ease;
+}
+
+.nav-controls-floating:hover {
+	background: var(--glass-bg-strong);
+	box-shadow: 0px 6px 25px rgba(var(--primary-rgb), 0.2);
+	transform: translateY(-1px);
+}
+
+/* === Burger menu (narrow screens) === */
+.mobile-nav {
+	display: none;
+}
+
+.nav-burger {
+	position: fixed;
+	top: 3vh;
+	right: 12px;
+	z-index: 1001;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	background: rgba(var(--primary-rgb), 0.12);
+	border: 3px solid rgba(var(--primary-rgb), 0.2);
+	border-radius: 50%;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 	color: var(--text-color);
-	font-size: 1.1rem;
+	font-size: 1.05rem;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
 
-.theme-toggle:hover {
-	transform: translateY(-1px) scale(1.06);
+.nav-burger:hover,
+.nav-burger[aria-expanded="true"] {
 	background: var(--glass-bg-strong);
-	color: var(--accent-color);
-	box-shadow: 0px 6px 25px rgba(var(--primary-rgb), 0.2);
+	color: var(--primary-color-dark);
 }
 
-/* === Responsive === */
-@media (max-width: 600px) {
-	.nav-background {
-		padding: 0 4px;
-		height: 40px;
-		max-width: 92vw;
-	}
+.mobile-menu {
+	position: fixed;
+	top: calc(3vh + 52px);
+	right: 12px;
+	z-index: 1000;
+	box-sizing: border-box;
+	width: min(260px, calc(100vw - 24px));
+	padding: 10px;
+	background: var(--glass-bg-strong);
+	border: 3px solid rgba(var(--primary-rgb), 0.2);
+	border-radius: var(--radius-lg);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	box-shadow: var(--medium-shadow);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px) scale(0.98);
+	transform-origin: top right;
+	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
 
-	.nav-list {
-		margin: 10px 4px;
-	}
+.mobile-menu.open {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+}
 
-	.nav-item {
-		font-weight: 700;
-	}
+.mobile-menu-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
 
-	.nav-item a::after {
-	bottom: -3px;
-	}
+.mobile-menu-item a {
+	display: block;
+	padding: 11px 14px;
+	border-radius: var(--radius-sm);
+	color: var(--text-color);
+	font-size: 0.95rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
 
-	.nav-item a {
-		padding: 0 7px;
-		font-size: 0.74rem;
-	}
+.mobile-menu-item a:hover {
+	background: rgba(var(--primary-rgb), 0.1);
+	color: var(--primary-color-dark);
+}
 
-	/* Logo already links home; drop the label to make room */
-	.nav-item.home-link {
+.mobile-menu-item.active a {
+	background: rgba(var(--primary-rgb), 0.16);
+	color: var(--primary-color-dark);
+	font-weight: 700;
+}
+
+.nav-controls-menu {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 8px;
+	padding: 10px 6px 2px 8px;
+	border-top: 1px solid rgba(var(--primary-rgb), 0.25);
+}
+
+.nav-controls-menu .nav-controls-divider {
+	display: none;
+}
+
+.nav-controls-menu .lang-option {
+	padding: 8px 12px;
+	font-size: 0.8rem;
+}
+
+.nav-controls-menu .theme-toggle {
+	width: 36px;
+	height: 36px;
+	font-size: 1.05rem;
+}
+
+/* Below this width the nav pill and the controls pill no longer fit side
+   by side, so everything folds into the burger menu. */
+@media (max-width: 900px) {
+	.navbar,
+	.nav-controls-floating {
 		display: none;
 	}
-}
 
-@media (max-width: 420px) {
-	.nav-background {
-		padding: 0 3px;
-	}
-
-	.nav-list {
-		margin: 10px 2px;
-	}
-
-	.nav-item a {
-		padding: 0 5px;
-		font-size: 0.68rem;
+	.mobile-nav {
+		display: block;
 	}
 }
 
-/* Toggle competes with the nav pill for space on narrow screens; hide it
-   there so the nav never gets squeezed or clipped. */
-@media (max-width: 700px) {
-	.theme-toggle {
-		display: none;
+@media (prefers-reduced-motion: reduce) {
+	.mobile-menu {
+		transition: none;
 	}
 }

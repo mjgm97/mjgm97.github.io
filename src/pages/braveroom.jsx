@@ -14,57 +14,10 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
-import SEO from "../data/seo";
+import { getSEO } from "../data/seo";
+import { useLanguage } from "../i18n/LanguageContext";
 
 import "./styles/braveroom.css";
-
-const CAPABILITIES = [
-	{
-		number: "01",
-		title: "Author",
-		description:
-			"Build a sequence of realistic moments with narrative, media, callouts, and open, choice, scale, voice, or AI conversation prompts.",
-	},
-	{
-		number: "02",
-		title: "Practice",
-		description:
-			"Run simulations individually or bring a cohort into a synchronized live room where every participant responds from their own device.",
-	},
-	{
-		number: "03",
-		title: "Reflect",
-		description:
-			"Review decisions and reasoning, follow cohort progress, revisit personal histories, and export structured responses for analysis.",
-	},
-];
-
-const FEATURES = [
-	{
-		title: "Flexible responses",
-		description: "Text, choice, scale, and microphone prompts for different kinds of practice.",
-	},
-	{
-		title: "Live facilitation",
-		description: "Short room codes, participant presence, synchronized pacing, and reconnect recovery.",
-	},
-	{
-		title: "Cohorts and assignments",
-		description: "Organize groups, assign scenarios, and follow progress participant by participant.",
-	},
-	{
-		title: "Research-ready records",
-		description: "Durable response and event histories with run review and CSV export.",
-	},
-	{
-		title: "Flexible deployment",
-		description: "Start with embedded SQLite or move to PostgreSQL for production concurrency.",
-	},
-	{
-		title: "Inclusive interface",
-		description: "Responsive light and dark themes with an English and Spanish product interface.",
-	},
-];
 
 const STACK = [
 	"Next.js 16",
@@ -80,7 +33,9 @@ const BraveRoom = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "braveroom");
+	const { lang, t } = useLanguage();
+	const c = t.braveroom;
+	const currentSEO = getSEO(lang, "braveroom");
 
 	return (
 		<React.Fragment>
@@ -102,12 +57,12 @@ const BraveRoom = () => {
 					<main className="braveroom-container">
 						<Link to="/projects" className="braveroom-back-link">
 							<FontAwesomeIcon icon={faArrowLeft} />
-							All projects
+							{c.back}
 						</Link>
 
 						<section className="braveroom-hero">
 							<div className="braveroom-hero-copy">
-								<span className="braveroom-kicker">Independent platform · 2026</span>
+								<span className="braveroom-kicker">{c.kicker}</span>
 								<span className="braveroom-wordmark" role="img" aria-label="BraveRoom">
 									<img
 										src="/projects/braveroom/logo-wordmark.png"
@@ -120,25 +75,25 @@ const BraveRoom = () => {
 										className="braveroom-wordmark-dark"
 									/>
 								</span>
-								<h1>Practice the decisions that matter.</h1>
+								<h1>{c.heroTitle}</h1>
 								<p className="braveroom-hero-lead">
-									A safe place for teams to rehearse difficult conversations and
-									high-stakes decisions before they happen in the real world.
+									{c.heroLead}
 								</p>
 								<div className="braveroom-actions">
 									<span className="braveroom-button braveroom-button-status">
 										<FontAwesomeIcon icon={faGithub} />
-										Coming soon on GitHub
+										{c.comingSoon}
 									</span>
 									<a href="#how-it-works" className="braveroom-button braveroom-button-secondary">
-										Explore the platform
+										{c.explore}
 										<FontAwesomeIcon icon={faArrowDown} />
 									</a>
 								</div>
-								<div className="braveroom-hero-tags" aria-label="Project characteristics">
-									<span>Scenario-based learning</span>
-									<span>Live &amp; self-paced</span>
-									<a href="#ai-integration">AI personas</a>
+								<div className="braveroom-hero-tags" aria-label={c.heroTagsLabel}>
+									{c.heroTags.map((tag) => (
+									<span key={tag}>{tag}</span>
+								))}
+									<a href="#ai-integration">{c.heroTagAi}</a>
 								</div>
 							</div>
 
@@ -150,45 +105,39 @@ const BraveRoom = () => {
 								</div>
 								<img
 									src="/projects/braveroom/dashboard-desktop.jpg"
-									alt="BraveRoom dashboard showing example practice scenarios"
+									alt={c.heroImageAlt}
 								/>
-								<figcaption>Facilitator dashboard with ready-to-run examples</figcaption>
+								<figcaption>{c.heroCaption}</figcaption>
 							</figure>
 						</section>
 
 						<section className="braveroom-origin">
 							<div>
-								<span className="braveroom-section-label">The idea</span>
-								<h2>A room for consequential practice.</h2>
+								<span className="braveroom-section-label">{c.originLabel}</span>
+								<h2>{c.originTitle}</h2>
 							</div>
 							<div className="braveroom-origin-copy">
 								<p>
-									BraveRoom is a platform for designing, facilitating, and
-									reviewing realistic scenario-based practice. Authors create a
-									sequence of moments, participants respond in context, and
-									facilitators examine both the decision and the reasoning behind it.
+									{c.originP1}
 								</p>
 								<p>
-									The project began as a modern reimplementation of the digital
-									clinical simulation concept pioneered by MIT Teaching Systems
-									Lab&apos;s <em>Teacher Moments</em>, then grew into a flexible,
-									general-purpose platform for education, management, health care,
-									media literacy, and crisis response.
+									{c.originP2Before}
+									<em>Teacher Moments</em>
+									{c.originP2After}
 								</p>
 							</div>
 						</section>
 
 						<section id="how-it-works" className="braveroom-workflow">
 							<div className="braveroom-section-heading">
-								<span className="braveroom-section-label">How it works</span>
-								<h2>From authored moment to shared insight.</h2>
+								<span className="braveroom-section-label">{c.workflowLabel}</span>
+								<h2>{c.workflowTitle}</h2>
 								<p>
-									One continuous workflow connects scenario design, authentic
-									practice, and thoughtful review.
+									{c.workflowLead}
 								</p>
 							</div>
 							<div className="braveroom-workflow-grid">
-								{CAPABILITIES.map((capability) => (
+								{c.capabilities.map((capability) => (
 									<article key={capability.number} className="braveroom-workflow-card">
 										<span>{capability.number}</span>
 										<h3>{capability.title}</h3>
@@ -203,20 +152,19 @@ const BraveRoom = () => {
 								<div className="braveroom-showcase-image">
 									<img
 										src="/projects/braveroom/scenario-editor-desktop.jpg"
-										alt="BraveRoom visual scenario editor"
+										alt={c.editorImageAlt}
 									/>
 								</div>
 								<div className="braveroom-showcase-copy">
-									<span className="braveroom-section-label">Rich authoring</span>
-									<h2>Design the moment, not the machinery.</h2>
+									<span className="braveroom-section-label">{c.authoringLabel}</span>
+									<h2>{c.authoringTitle}</h2>
 									<p>
-										The visual editor lets authors combine narrative, guidance,
-										media, and interaction without losing sight of the learning goal.
+										{c.authoringText}
 									</p>
 									<ul>
-										<li><FontAwesomeIcon icon={faCheck} /> Autosave, preview, publish, copy, and recovery workflows</li>
-										<li><FontAwesomeIcon icon={faCheck} /> Text, choice, scale, audio, video, and voice components</li>
-										<li><FontAwesomeIcon icon={faCheck} /> Optional conversations with an authored AI persona</li>
+										{c.authoringList.map((item) => (
+											<li key={item}><FontAwesomeIcon icon={faCheck} /> {item}</li>
+										))}
 									</ul>
 								</div>
 							</div>
@@ -225,21 +173,19 @@ const BraveRoom = () => {
 								<div className="braveroom-showcase-image">
 									<img
 										src="/projects/braveroom/live-room-desktop.jpg"
-										alt="BraveRoom live session waiting room"
+										alt={c.liveImageAlt}
 									/>
 								</div>
 								<div className="braveroom-showcase-copy">
-									<span className="braveroom-section-label">Live rooms</span>
-									<h2>Practice together, respond individually.</h2>
+									<span className="braveroom-section-label">{c.liveLabel}</span>
+									<h2>{c.liveTitle}</h2>
 									<p>
-										A facilitator controls the shared pace while every participant
-										responds privately on their own device—then the cohort can
-										reflect on the experience together.
+										{c.liveText}
 									</p>
 									<ul>
-										<li><FontAwesomeIcon icon={faCheck} /> Shareable links and memorable room codes</li>
-										<li><FontAwesomeIcon icon={faCheck} /> Presence, synchronized controls, and reconnect recovery</li>
-										<li><FontAwesomeIcon icon={faCheck} /> Responses preserved in each participant&apos;s history</li>
+										{c.liveList.map((item) => (
+											<li key={item}><FontAwesomeIcon icon={faCheck} /> {item}</li>
+										))}
 									</ul>
 								</div>
 							</div>
@@ -247,76 +193,74 @@ const BraveRoom = () => {
 
 						<section id="ai-integration" className="braveroom-ai" aria-labelledby="braveroom-ai-title">
 							<div className="braveroom-ai-copy">
-								<span className="braveroom-section-label">AI integration</span>
-								<h2 id="braveroom-ai-title">A persona inside the scenario—not a chatbot beside it.</h2>
+								<span className="braveroom-section-label">{c.aiLabel}</span>
+								<h2 id="braveroom-ai-title">{c.aiTitle}</h2>
 								<p>
-									Authors define a character, an opening line, and behavioral
-									instructions. Participants then respond in the moment while
-									BraveRoom preserves the exchange for later reflection.
+									{c.aiText}
 								</p>
 								<ul>
-									<li><FontAwesomeIcon icon={faCheck} /> Claude or a local Ollama model</li>
-									<li><FontAwesomeIcon icon={faCheck} /> Conversation transcripts saved with the run</li>
-									<li><FontAwesomeIcon icon={faCheck} /> Entirely optional—the platform works without an AI backend</li>
+									{c.aiList.map((item) => (
+										<li key={item}><FontAwesomeIcon icon={faCheck} /> {item}</li>
+									))}
 								</ul>
 							</div>
 
-							<div className="braveroom-ai-demo" aria-label="Illustration of the AI persona workflow">
+							<div className="braveroom-ai-demo" aria-label={c.aiDemoLabel}>
 								<div className="braveroom-ai-demo-heading">
-									<span>Illustrative interaction</span>
-									<span className="braveroom-ai-status"><i /> AI persona</span>
+									<span>{c.aiDemoHeading}</span>
+									<span className="braveroom-ai-status"><i /> {c.aiStatus}</span>
 								</div>
 
 								<div className="braveroom-ai-panels">
 									<div className="braveroom-ai-panel braveroom-ai-authoring">
 										<div className="braveroom-ai-panel-title">
 											<span>01</span>
-											<strong>Author the persona</strong>
+											<strong>{c.aiAuthorTitle}</strong>
 										</div>
 										<div className="braveroom-ai-field">
-											<span>Character</span>
-											<strong>Ms. Rivera</strong>
+											<span>{c.aiCharacterLabel}</span>
+											<strong>{c.aiCharacter}</strong>
 										</div>
 										<div className="braveroom-ai-field">
-											<span>Opening line</span>
-											<p>“I want to understand what happened with Jordan&apos;s grade.”</p>
+											<span>{c.aiOpeningLabel}</span>
+											<p>“{c.aiOpening}”</p>
 										</div>
 										<div className="braveroom-ai-instruction">
-											Stay in character · respond briefly · do not evaluate
+											{c.aiInstruction}
 										</div>
 									</div>
 
 									<div className="braveroom-ai-panel braveroom-ai-conversation">
 										<div className="braveroom-ai-panel-title">
 											<span>02</span>
-											<strong>Respond in context</strong>
+											<strong>{c.aiRespondTitle}</strong>
 										</div>
 										<div className="braveroom-ai-message braveroom-ai-message-persona">
-											<span>Ms. Rivera</span>
-											<p>I want to understand what happened with Jordan&apos;s grade.</p>
+											<span>{c.aiCharacter}</span>
+											<p>{c.aiOpening}</p>
 										</div>
 										<div className="braveroom-ai-message braveroom-ai-message-user">
-											<span>You</span>
-											<p>Thank you for coming in. Let&apos;s walk through it together.</p>
+											<span>{c.aiYou}</span>
+											<p>{c.aiReply}</p>
 										</div>
 									</div>
 								</div>
 
 								<div className="braveroom-ai-flow" aria-hidden="true">
-									<span>Authored context</span><i />
-									<span>Live exchange</span><i />
-									<span>Saved transcript</span>
+									<span>{c.aiFlow[0]}</span><i />
+									<span>{c.aiFlow[1]}</span><i />
+									<span>{c.aiFlow[2]}</span>
 								</div>
 							</div>
 						</section>
 
 						<section className="braveroom-features">
 							<div className="braveroom-section-heading">
-								<span className="braveroom-section-label">Designed as a system</span>
-								<h2>Everything needed to close the learning loop.</h2>
+								<span className="braveroom-section-label">{c.featuresLabel}</span>
+								<h2>{c.featuresTitle}</h2>
 							</div>
 							<div className="braveroom-feature-grid">
-								{FEATURES.map((feature) => (
+								{c.features.map((feature) => (
 									<article key={feature.title}>
 										<div className="braveroom-feature-mark" aria-hidden="true" />
 										<h3>{feature.title}</h3>
@@ -328,19 +272,17 @@ const BraveRoom = () => {
 
 						<section className="braveroom-technical">
 							<div className="braveroom-technical-copy">
-								<span className="braveroom-section-label">Technical foundation</span>
-								<h2>Built to move from research prototype to real deployment.</h2>
+								<span className="braveroom-section-label">{c.technicalLabel}</span>
+								<h2>{c.technicalTitle}</h2>
 								<p>
-									The self-contained application works with zero-configuration
-									SQLite for small cohorts, PostgreSQL for concurrent production
-									use, and a focused Socket.IO service for live presence and control.
+									{c.technicalText}
 								</p>
 								<div className="braveroom-release-note">
 									<FontAwesomeIcon icon={faGithub} />
-									Architecture notes will launch with the public repository.
+									{c.releaseNote}
 								</div>
 							</div>
-							<div className="braveroom-stack" aria-label="Technology stack">
+							<div className="braveroom-stack" aria-label={c.stackLabel}>
 								{STACK.map((item) => <span key={item}>{item}</span>)}
 							</div>
 						</section>
@@ -348,28 +290,25 @@ const BraveRoom = () => {
 						<figure className="braveroom-library">
 							<img
 								src="/projects/braveroom/scenario-library-desktop.jpg"
-								alt="BraveRoom scenario library with examples from education, the workplace, health care, and media literacy"
+								alt={c.libraryImageAlt}
 							/>
 							<figcaption>
-								The included examples span education, workplace feedback,
-								health care, and misinformation response.
+								{c.libraryCaption}
 							</figcaption>
 						</figure>
 
 						<section className="braveroom-final-cta">
 							<img src="/projects/braveroom/logo-alone-dark.png" alt="" aria-hidden="true" />
 							<div>
-								<span className="braveroom-section-label">In development</span>
-								<h2>Public release coming soon.</h2>
+								<span className="braveroom-section-label">{c.ctaLabel}</span>
+								<h2>{c.ctaTitle}</h2>
 								<p>
-									BraveRoom is being prepared for release. The code,
-									architecture notes, and deployment guide will be published on
-									GitHub when they are ready.
+									{c.ctaText}
 								</p>
 							</div>
 							<span className="braveroom-button braveroom-button-status braveroom-button-status-light">
 								<FontAwesomeIcon icon={faGithub} />
-								Soon on GitHub
+								{c.ctaStatus}
 							</span>
 						</section>
 					</main>

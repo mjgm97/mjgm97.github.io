@@ -2,14 +2,18 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+import { useLanguage } from "../../i18n/LanguageContext";
+
 import "./styles/project.css";
 
 const Project = ({ logo, title, tag, description, linkText, link }) => {
+	const { t } = useLanguage();
+
 	return (
 		<div className="project glass-card">
 			<div className="project-cover">
 				{logo && (
-					<img src={logo} alt={`${title} logo`} className="project-logo-img" />
+					<img src={logo} alt={t.projects.logoAlt(title)} className="project-logo-img" />
 				)}
 				{tag && <span className="project-tag">{tag}</span>}
 			</div>

@@ -1,17 +1,24 @@
 const TEACHING = {
 	undergraduateCourses: [
 		{
+			title: "Algoritmos y Estructuras de Datos I",
+			university: "University of Murcia",
+			degree: "Computer Science Degree",
+			years: "2026-2027",
+			faculty: "informatica",
+		},
+		{
 			title: "Programación Concurrente y Distribuida",
 			university: "University of Murcia",
 			degree: "Computer Science Degree",
-			years: "2025-Present",
+			years: "2025-2026",
 			faculty: "informatica",
 		},
 		{
 			title: "Analítica de Aprendizaje y Minería de Datos Educacionales",
 			university: "University of Murcia",
 			degree: "Data Science and Data Engineering Degree",
-			years: "2025-Present",
+			years: "2025-2026",
 			faculty: "informatica",
 		},
 		{
@@ -27,7 +34,7 @@ const TEACHING = {
 			title: "Inteligencia de Negocio",
 			university: "University of Murcia",
 			degree: "MSc on Big Data Analytics Technologies",
-			years: "2022–Present",
+			years: "2022–2025",
 			faculty: "informatica",
 		},
 		{
@@ -147,6 +154,34 @@ const TEACHING = {
 			faculty: "informatica",
 		},
 	],
+};
+
+// Course and thesis titles keep their official wording; only degree names
+// and the "Present" marker are translated.
+const DEGREES_ES = {
+	"Computer Science Degree": "Grado en Ingeniería Informática",
+	"Data Science and Data Engineering Degree": "Grado en Ciencia e Ingeniería de Datos",
+	"Data Science and Engineering Degree": "Grado en Ciencia e Ingeniería de Datos",
+	"Information and Digital Content Management Degree":
+		"Grado en Gestión de Información y Contenidos Digitales",
+	"MSc on Big Data Analytics Technologies":
+		"Máster en Tecnologías de Análisis de Datos Masivos: Big Data",
+	"MSc on New Technologies in Computer Science":
+		"Máster en Nuevas Tecnologías en Informática",
+};
+
+const translateItem = (item) => ({
+	...item,
+	university: "Universidad de Murcia",
+	degree: DEGREES_ES[item.degree] || item.degree,
+	...(item.years ? { years: item.years.replace("Present", "Actualidad") } : {}),
+});
+
+export const getTeaching = (lang) => {
+	if (lang !== "es") return TEACHING;
+	return Object.fromEntries(
+		Object.entries(TEACHING).map(([key, items]) => [key, items.map(translateItem)])
+	);
 };
 
 export default TEACHING;

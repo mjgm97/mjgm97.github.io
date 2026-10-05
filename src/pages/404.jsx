@@ -8,9 +8,13 @@ import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
 
+import { useLanguage } from "../i18n/LanguageContext";
+
 import "./styles/404.css";
 
 const Notfound = () => {
+	const { t } = useLanguage();
+
 	useEffect(() => {
 		document.title = `404 | ${INFO.main.title}`;
 	}, []);
@@ -28,17 +32,15 @@ const Notfound = () => {
 					<div className="notfound-container">
 						<div className="notfound-message">
 							<div className="notfound-title">
-								Oops! <FontAwesomeIcon icon={faFaceSadTear} />
+								{t.notFound.title} <FontAwesomeIcon icon={faFaceSadTear} />
 							</div>
 							<div className="not-found-message">
-								We can't seem to find the page you're looking
-								for.
+								{t.notFound.message}
 								<br />
-								The requested URL "{window.location.href}" was
-								not found on this server.
+								{t.notFound.urlMessage(window.location.href)}
 							</div>
 							<a href="/" className="not-found-link">
-								Go back to the home page
+								{t.notFound.back}
 							</a>
 						</div>
 					</div>

@@ -2,13 +2,17 @@ import React from "react";
 
 import Project from "./project";
 
-import INFO from "../../data/user";
+import { getInfo } from "../../data/user";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 import AnimatedCard from "../common/animatedCard";
 
 import "./styles/allProjects.css";
 
 const AllProjects = () => {
+	const { lang } = useLanguage();
+	const INFO = getInfo(lang);
+
 	return (
 		<div className="all-projects-grid">
 			{INFO.projects.map((project, index) => (

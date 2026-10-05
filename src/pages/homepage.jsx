@@ -16,19 +16,21 @@ import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
 import Works from "../components/homepage/works";
 
-import INFO from "../data/user";
-import SEO from "../data/seo";
+import { getInfo } from "../data/user";
+import { getSEO } from "../data/seo";
+import { useLanguage } from "../i18n/LanguageContext";
 import PUBLICATIONS from "../data/publications";
 import TEACHING from "../data/teaching";
+import INFO_BASE from "../data/user";
 
 import "./styles/homepage.css";
 
 const STATS = [
-	{ number: `${PUBLICATIONS.length}+`, label: "Publications" },
-	{ number: `${INFO.projects.length}`, label: "Research Projects" },
+	{ number: `${PUBLICATIONS.length}+`, label: "publications" },
+	{ number: `${INFO_BASE.projects.length}`, label: "projects" },
 	{
 		number: `${TEACHING.masterTheses.length + TEACHING.degreeTheses.length}+`,
-		label: "Students Supervised",
+		label: "students",
 	},
 ];
 
@@ -37,7 +39,9 @@ const Homepage = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "home");
+	const { lang, t } = useLanguage();
+	const INFO = getInfo(lang);
+	const currentSEO = getSEO(lang, "home");
 
 	return (
 		<React.Fragment>
@@ -64,18 +68,18 @@ const Homepage = () => {
 							<div className="hero-text">
 								<span className="hero-eyebrow">
 									<span className="hero-eyebrow-dot" />
-									Assistant Professor &middot; CyberDataLab, University of Murcia
+									{t.home.eyebrow}
 								</span>
 
 								<h1 className="hero-title">
-									Hi, I&apos;m{" "}
+									{t.home.greeting}{" "}
 									<span className="hero-title-accent">
 										Manuel Jesús Gómez
 									</span>
 								</h1>
 
 								<h2 className="hero-role">
-									Researcher in Serious Games &amp; AI in Education
+									{t.home.role}
 								</h2>
 
 								<p className="hero-description">
@@ -84,11 +88,11 @@ const Homepage = () => {
 
 								<div className="hero-actions">
 									<Link to="/research" className="hero-btn primary">
-										View my research
+										{t.home.viewResearch}
 										<FontAwesomeIcon icon={faArrowRight} />
 									</Link>
 									<Link to="/contact" className="hero-btn secondary">
-										Get in touch
+										{t.home.getInTouch}
 									</Link>
 								</div>
 
@@ -101,7 +105,7 @@ const Homepage = () => {
 													{stat.number}
 												</span>
 												<span className="hero-stat-label">
-													{stat.label}
+													{t.home.stats[stat.label]}
 												</span>
 											</div>
 										</React.Fragment>
@@ -182,10 +186,10 @@ const Homepage = () => {
 						<div className="homepage-after-title">
 							<div className="section-heading">
 								<span className="section-heading-eyebrow">
-									Background
+									{t.home.backgroundEyebrow}
 								</span>
 								<h2 className="section-heading-title">
-									Experience &amp; Education
+									{t.home.backgroundTitle}
 								</h2>
 							</div>
 							<div className="homepage-works">

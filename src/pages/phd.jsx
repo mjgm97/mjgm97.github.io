@@ -7,8 +7,9 @@ import Logo from "../components/common/logo";
 import AnimatedCard from "../components/common/animatedCard";
 
 import INFO from "../data/user";
+import { getSEO } from "../data/seo";
+import { useLanguage } from "../i18n/LanguageContext";
 import PHD_PUBLICATIONS from "../data/phd_publications";
-import SEO from "../data/seo";
 import TYPE_STYLES from "../data/publicationTypeStyles";
 
 import "./styles/homepage.css"; // reuse layout classes
@@ -27,7 +28,8 @@ const PhD = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "phd");
+	const { lang, t } = useLanguage();
+	const currentSEO = getSEO(lang, "phd");
 	const [expanded, setExpanded] = useState({});
 
 	const toggleAbstract = (index) => {
@@ -37,7 +39,7 @@ const PhD = () => {
 	return (
 		<>
 			<Helmet>
-				<title>{`PhD | ${INFO.main.title}`}</title>
+				<title>{`${t.phd.pageTitle} | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta name="keywords" content={currentSEO.keywords.join(", ")} />
 			</Helmet>
@@ -53,20 +55,18 @@ const PhD = () => {
 					{/* === HERO SECTION (same layout language as the homepage) === */}
 					<div className="hero thesis-hero">
 						<div className="hero-text">
-							<h1 className="hero-title">Ph.D. Thesis</h1>
+							<h1 className="hero-title">{t.phd.title}</h1>
 
 							<h2 className="hero-role">
-								Towards Interoperability and Novel Methodological Approaches
-								for Scalable Game-Based Assessment
+								{t.phd.thesisTitle}
 							</h2>
 
 							<p className="hero-description">
-								Hacia la interoperabilidad y nuevos enfoques metodológicos
-								para la evaluación escalable basada en juegos
+								{t.phd.thesisTitleAlt}
 							</p>
 
 							<p className="hero-description">
-								<strong>Supervisors:</strong> Dr. Félix Jesús García Clemente and Dr. José Antonio Ruipérez Valiente
+								<strong>{t.phd.supervisorsLabel}</strong> {t.phd.supervisors}
 							</p>
 
 							<div className="hero-actions">
@@ -76,7 +76,7 @@ const PhD = () => {
 									rel="noopener noreferrer"
 									className="link-btn primary"
 								>
-									Full Version
+									{t.phd.fullVersion}
 								</a>
 								<a
 									href="https://mjgm97.github.io/docs/short_thesis.pdf"
@@ -84,7 +84,7 @@ const PhD = () => {
 									rel="noopener noreferrer"
 									className="link-btn secondary"
 								>
-									Short Version
+									{t.phd.shortVersion}
 								</a>
 								<a
 									href="https://mjgm97.github.io/docs/slides.pdf"
@@ -92,7 +92,7 @@ const PhD = () => {
 									rel="noopener noreferrer"
 									className="link-btn secondary"
 								>
-									Slides
+									{t.phd.slides}
 								</a>
 							</div>
 						</div>
@@ -102,7 +102,7 @@ const PhD = () => {
 							<div className="hero-photo-frame">
 								<img
 									src="/phdDefense.JPG"
-									alt="Manuel defending his Ph.D. thesis"
+									alt={t.phd.photoAlt}
 									className="hero-photo"
 								/>
 							</div>
@@ -110,14 +110,14 @@ const PhD = () => {
 					</div>
 					{/* === Thesis Info Section === */}
 					<div className="thesis-info glass-card" style={{marginTop: "40px", marginBottom: "0px"}}>
-						<h2 className="thesis-info-title">🎓 Defense Details</h2>
+						<h2 className="thesis-info-title">{t.phd.defenseDetails}</h2>
 
 						<div className="thesis-info-content">
 							
-							<p><strong>Thesis Defense Committee:</strong> Ms. Ruth Cobos Pérez (Chair), Mr. Óscar Cánovas Reverte (Secretary), and Ms. Sonsoles López Pernas (External Member)</p>
-							<p><strong>Date of the Defense:</strong> 03/10/2025</p>
-							<p><strong>Grade:</strong> Sobresaliente</p>
-							<p><strong>Honors:</strong> “Cum Laude” and “International Doctorate”</p>
+							<p><strong>{t.phd.committeeLabel}</strong> {t.phd.committee}</p>
+							<p><strong>{t.phd.dateLabel}</strong> {t.phd.date}</p>
+							<p><strong>{t.phd.gradeLabel}</strong> {t.phd.grade}</p>
+							<p><strong>{t.phd.honorsLabel}</strong> {t.phd.honors}</p>
 						</div>
 					</div>
 					{/* === Publications Section === */}
@@ -125,7 +125,7 @@ const PhD = () => {
 						<div className="research-year-section" style={{marginTop: "0px", marginBottom: "50px"}}>
 							<div className="year-line"></div>
 							<h2 className="research-year-title st">
-								<span className="year-text">Publications included</span>
+								<span className="year-text">{t.phd.publicationsIncluded}</span>
 							</h2>
 						</div>
 						<div className="research-list">
@@ -148,7 +148,7 @@ const PhD = () => {
 													className={`cover-badge ${TYPE_STYLES[pub.type] || "journal"
 														}`}
 												>
-													{pub.type}
+													{t.publications.types[pub.type] || pub.type}
 												</span>
 											)}
 										</div>
@@ -181,7 +181,7 @@ const PhD = () => {
 													className="link-btn primary"
 													onClick={(e) => e.stopPropagation()}
 												>
-													External Link
+													{t.publications.externalLink}
 												</a>
 												<a
 													href={pub.download}
@@ -190,7 +190,7 @@ const PhD = () => {
 													className="link-btn secondary"
 													onClick={(e) => e.stopPropagation()}
 												>
-													Download
+													{t.publications.download}
 												</a>
 												<button
 													className="abstract-toggle"
@@ -200,8 +200,7 @@ const PhD = () => {
 													}}
 												>
 													{expanded[index]
-														? "Hide Abstract"
-														: "Show Abstract"}
+														? t.publications.hideAbstract : t.publications.showAbstract}
 												</button>
 											</div>
 										</div>

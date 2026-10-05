@@ -1,6 +1,9 @@
 @import "../../data/styles.css";
 
 .ludix-page {
+	/* The hero glow bleeds past the right edge; without this it widens the
+	   page on phones and pushes the fixed menu button off-screen. */
+	overflow-x: clip;
 	--ludix-bg: #0b1120;
 	--ludix-panel: #111a2e;
 	--ludix-yellow: #ffd54a;

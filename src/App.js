@@ -15,6 +15,7 @@ import ReadArticle from "./pages/readArticle";
 import Contact from "./pages/contact";
 import Notfound from "./pages/404";
 import PointerGlow from "./components/common/pointerGlow";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 import { TRACKING_ID } from "./data/tracking";
 import "./app.css";
@@ -36,6 +37,7 @@ function App() {
 	}, [navigate]);
 
 	return (
+		<LanguageProvider>
 		<div className="App">
 			<PointerGlow />
 			<Routes>
@@ -51,6 +53,7 @@ function App() {
 				<Route path="*" element={<Notfound />} />
 			</Routes>
 		</div>
+		</LanguageProvider>
 	);
 }
 

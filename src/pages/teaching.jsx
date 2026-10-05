@@ -6,28 +6,29 @@ import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
-import TEACHING from "../data/teaching";
-import SEO from "../data/seo";
+import TEACHING, { getTeaching } from "../data/teaching";
+import { getSEO } from "../data/seo";
+import { useLanguage } from "../i18n/LanguageContext";
 
 import "./styles/teaching.css";
 
 const FACULTIES = {
 	informatica: {
 		logo: "/informatica-2.svg",
-		name: "Faculty of Computer Science, University of Murcia",
 	},
 	comunicacion: {
 		logo: "/comunicacion-2.svg",
-		name: "Faculty of Communication and Documentation, University of Murcia",
 	},
 };
 
 const FacultyBadge = ({ faculty }) => {
+	const { t } = useLanguage();
 	const info = FACULTIES[faculty];
 	if (!info) return null;
+	const name = t.teaching.faculties[faculty];
 	return (
-		<span className="faculty-badge" title={info.name}>
-			<img src={info.logo} alt={info.name} className="faculty-logo" />
+		<span className="faculty-badge" title={name}>
+			<img src={info.logo} alt={name} className="faculty-logo" />
 		</span>
 	);
 };
@@ -35,13 +36,13 @@ const FacultyBadge = ({ faculty }) => {
 const STATS = [
 	{
 		number: `${TEACHING.undergraduateCourses.length + TEACHING.graduateCourses.length}`,
-		label: "Courses Taught",
+		label: "courses",
 	},
 	{
 		number: `${TEACHING.masterTheses.length + TEACHING.degreeTheses.length}+`,
-		label: "Theses Supervised",
+		label: "theses",
 	},
-	{ number: "2022", label: "Teaching Since" },
+	{ number: "2022", label: "since" },
 ];
 
 const Teaching = () => {
@@ -49,12 +50,14 @@ const Teaching = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-	const currentSEO = SEO.find((item) => item.page === "teaching");
+	const { lang, t } = useLanguage();
+	const currentSEO = getSEO(lang, "teaching");
+	const teaching = getTeaching(lang);
 
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Teaching | ${INFO.main.title}`}</title>
+				<title>{`${t.teaching.pageTitle} | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta name="keywords" content={currentSEO.keywords.join(", ")} />
 			</Helmet>
@@ -74,19 +77,16 @@ const Teaching = () => {
 							<span className="page-eyebrow">
 								<img
 									src="/escudoUmu.jpg"
-									alt="University of Murcia"
+									alt={t.teaching.university}
 									className="eyebrow-crest"
 								/>
-								University of Murcia
+								{t.teaching.university}
 							</span>
 
-							<h1 className="teaching-title">Teaching &amp; Supervision</h1>
+							<h1 className="teaching-title">{t.teaching.title}</h1>
 
 							<p className="teaching-subtitle">
-								I teach undergraduate and graduate courses in computer
-								science, artificial intelligence, and educational
-								technologies, and I supervise different master and degree
-								theses exploring AI and learning analytics.
+								{t.teaching.subtitle}
 							</p>
 
 							<div className="teaching-stats">
@@ -98,7 +98,7 @@ const Teaching = () => {
 												{stat.number}
 											</span>
 											<span className="teaching-stat-label">
-												{stat.label}
+												{t.teaching.stats[stat.label]}
 											</span>
 										</div>
 									</React.Fragment>
@@ -109,9 +109,9 @@ const Teaching = () => {
 						{/* === Undergraduate & Graduate Studies === */}
 						<div className="teaching-row">
 							<div className="glass-card teaching-section">
-								<h2 className="section-title">Undergraduate Studies</h2>
+								<h2 className="section-title">{t.teaching.undergraduate}</h2>
 								<div className="teaching-list">
-									{TEACHING.undergraduateCourses.map((course, i) => (
+									{teaching.undergraduateCourses.map((course, i) => (
 										<div className="teaching-item" key={i}>
 											<FacultyBadge faculty={course.faculty} />
 											<div className="teaching-item-content">
@@ -133,9 +133,9 @@ const Teaching = () => {
 							</div>
 
 							<div className="glass-card teaching-section">
-								<h2 className="section-title">Graduate Studies</h2>
+								<h2 className="section-title">{t.teaching.graduate}</h2>
 								<div className="teaching-list">
-									{TEACHING.graduateCourses.map((course, i) => (
+									{teaching.graduateCourses.map((course, i) => (
 										<div className="teaching-item" key={i}>
 											<FacultyBadge faculty={course.faculty} />
 											<div className="teaching-item-content">
@@ -159,9 +159,9 @@ const Teaching = () => {
 
 						{/* === Master's Thesis Supervision === */}
 						<div className="glass-card teaching-section">
-							<h2 className="section-title">Master&rsquo;s Thesis Supervision</h2>
+							<h2 className="section-title">{t.teaching.masterTheses}</h2>
 							<div className="thesis-grid">
-								{TEACHING.masterTheses.map((thesis, i) => (
+								{teaching.masterTheses.map((thesis, i) => (
 									<div className="thesis-card" key={i}>
 										<div className="thesis-card-top">
 											<span className="thesis-year">{thesis.year}</span>
@@ -177,9 +177,9 @@ const Teaching = () => {
 
 						{/* === Degree Thesis Supervision === */}
 						<div className="glass-card teaching-section">
-							<h2 className="section-title">Degree Thesis Supervision</h2>
+							<h2 className="section-title">{t.teaching.degreeTheses}</h2>
 							<div className="thesis-grid">
-								{TEACHING.degreeTheses.map((thesis, i) => (
+								{teaching.degreeTheses.map((thesis, i) => (
 									<div className="thesis-card" key={i}>
 										<div className="thesis-card-top">
 											<span className="thesis-year">{thesis.year}</span>

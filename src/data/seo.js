@@ -137,4 +137,138 @@ const SEO = [
   },
 ];
 
+const SEO_ES = {
+  home: {
+    description:
+      "Página personal de Manuel J. Gomez, Profesor Ayudante Doctor en la Universidad de Murcia. Investigador en evaluación basada en juegos, analítica del aprendizaje e inteligencia artificial.",
+    keywords: [
+      "Manuel J. Gomez",
+      "Universidad de Murcia",
+      "Profesor Ayudante Doctor",
+      "Doctorado en Informática",
+      "Evaluación basada en juegos",
+      "Analítica del aprendizaje",
+      "Inteligencia artificial",
+      "LLM",
+    ],
+  },
+  research: {
+    description:
+      "Investigación de Manuel J. Gomez en analítica del aprendizaje, evaluación basada en juegos, inteligencia artificial y grandes modelos de lenguaje, con colaboraciones en el MIT y la Universidad de Murcia.",
+    keywords: [
+      "Investigación",
+      "Analítica del aprendizaje",
+      "Evaluación basada en juegos",
+      "Inteligencia artificial",
+      "Grandes modelos de lenguaje",
+      "MIT",
+      "CyberDataLab",
+    ],
+  },
+  teaching: {
+    description:
+      "Experiencia docente de Manuel J. Gomez en la Universidad de Murcia, con asignaturas de grado y máster sobre inteligencia de negocio y Big Data, y dirección de trabajos fin de estudios.",
+    keywords: [
+      "Docencia",
+      "Inteligencia de negocio",
+      "Big Data",
+      "Universidad de Murcia",
+      "Dirección de TFG y TFM",
+    ],
+  },
+  publication: {
+    description:
+      "Lista de publicaciones científicas de Manuel J. Gomez sobre juegos serios, analítica del aprendizaje, inteligencia artificial y tecnología educativa.",
+    keywords: [
+      "Publicaciones",
+      "Evaluación basada en juegos",
+      "Juegos serios",
+      "Analítica del aprendizaje",
+      "IA en educación",
+      "Artículos de investigación",
+    ],
+  },
+  projects: {
+    description:
+      "Proyectos de investigación en los que participa Manuel J. Gomez, como REASSESS, EU-GUARDIAN y LAGA, centrados en interoperabilidad, IA en educación y ciberseguridad.",
+    keywords: [
+      "Proyectos",
+      "REASSESS",
+      "EU-GUARDIAN",
+      "LAGA",
+      "Ciberseguridad",
+      "Interoperabilidad",
+      "Investigación en IA",
+    ],
+  },
+  braveroom: {
+    description:
+      "BraveRoom es una plataforma de Manuel J. Gomez para diseñar, facilitar y revisar prácticas realistas basadas en escenarios.",
+    keywords: [
+      "BraveRoom",
+      "Aprendizaje basado en escenarios",
+      "Formación con simulación",
+      "Simulación con IA",
+      "Aprendizaje experiencial",
+      "Analítica del aprendizaje",
+      "Next.js",
+      "Tecnología educativa",
+    ],
+  },
+  ludix: {
+    description:
+      "Ludix es un software de investigación abierto de Manuel J. Gomez para una analítica del aprendizaje reproducible e independiente del juego en juegos serios.",
+    keywords: [
+      "Ludix",
+      "Juegos serios",
+      "Analítica del aprendizaje",
+      "Minería de procesos",
+      "Análisis de redes de transición",
+      "IA explicable",
+      "Minería de datos educativos",
+      "Software de investigación abierto",
+    ],
+  },
+  gallery: {
+    description:
+      "Galería de fotos profesionales y de investigación de Manuel J. Gomez, con congresos, entrevistas y colaboraciones con el MIT y la Universidad de Murcia.",
+    keywords: [
+      "Galería",
+      "MIT",
+      "Universidad de Murcia",
+      "Investigación",
+      "Eventos",
+      "Fotos",
+    ],
+  },
+  phd: {
+    description:
+      "Tesis doctoral de Manuel J. Gomez titulada «Hacia la interoperabilidad y nuevos enfoques metodológicos para la evaluación escalable basada en juegos».",
+    keywords: [
+      "Tesis doctoral",
+      "Evaluación basada en juegos",
+      "Interoperabilidad",
+      "Ontología",
+      "IA explicable",
+      "Juegos serios",
+    ],
+  },
+  contact: {
+    description:
+      "Información de contacto del Dr. Manuel J. Gomez: correo electrónico, redes sociales y ubicación de su despacho en la Universidad de Murcia.",
+    keywords: [
+      "Contacto",
+      "Correo electrónico",
+      "LinkedIn",
+      "Universidad de Murcia",
+      "Manuel Gomez",
+    ],
+  },
+};
+
+export const getSEO = (lang, page) => {
+  const entry = SEO.find((item) => item.page === page);
+  return lang === "es" && SEO_ES[page] ? { ...entry, ...SEO_ES[page] } : entry;
+};
+
 export default SEO;

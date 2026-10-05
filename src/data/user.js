@@ -97,4 +97,92 @@ const INFO = {
 	},
 };
 
+// Spanish text, merged over INFO by getInfo(). Projects follow INFO.projects order.
+const INFO_ES = {
+	homepage: {
+		title: "¡Hola! Soy Manuel Jesús Gómez",
+		description:
+			"Manuel J. Gomez es Profesor Ayudante Doctor en el Departamento de Informática y Sistemas de la Universidad de Murcia (España), donde también obtuvo su doctorado en Informática. Obtuvo su grado en Ingeniería Informática con mención en Computación y un máster en Big Data. Es miembro del CyberDataLab, y sus intereses de investigación incluyen los juegos serios, la tecnología educativa, la inteligencia artificial y los LLMs.",
+	},
+
+	about: {
+		title: "Investigación en la intersección de la IA, el aprendizaje y los juegos",
+		description:
+			"Estudio cómo los sistemas inteligentes y lúdicos pueden revelar cómo aprenden las personas, y cómo podemos diseñar mejores herramientas para ellas.",
+	},
+
+	teaching: {
+		title: "Explorando la intersección entre los juegos serios, la IA y la analítica del aprendizaje.",
+		description:
+			"Una recopilación de mis artículos publicados y reflexiones sobre ciencia de datos educativa, juegos serios, IA explicable y marcos de interoperabilidad para la evaluación basada en juegos.",
+	},
+
+	projects: [
+		{
+			title: "HEXA-X-II - Iniciativa insignia europea para las redes 6G",
+			tag: "Horizon Europe",
+			description:
+				"Una iniciativa de Horizon Europe que da forma a la próxima generación de redes 6G. En la UMU, las contribuciones se centran en el aprendizaje basado en IA y la conciencia situacional en ciberseguridad dentro de sistemas de comunicación complejos.",
+			linkText: "Visitar la web del proyecto",
+		},
+		{
+			title: "ECYSAP EYE - Plataforma europea de conciencia situacional en el ciberespacio",
+			tag: "European Defence Fund",
+			description:
+				"Enmarcado en el Fondo Europeo de Defensa, ECYSAP EYE busca mejorar la conciencia situacional en el ciberespacio y la toma de decisiones mediante IA y fusión de datos entre organizaciones de defensa multinacionales.",
+			linkText: "Visitar la web del proyecto",
+		},
+		{
+			title: "SEMANTIC - Evaluaciones basadas en juegos distribuidas y eficientes como servicio",
+			tag: "Fundación Séneca",
+			description:
+				"Un proyecto de prueba de concepto financiado por la Fundación Séneca para transferir las innovaciones académicas en evaluación basada en juegos (GBA) a herramientas aplicadas para su comercialización y para los ecosistemas de tecnología educativa.",
+			linkText: "Detalles del proyecto",
+		},
+		{
+			title: "REASSESS - Hacia evaluaciones basadas en juegos interoperables como servicio",
+			tag: "Fundación Séneca",
+			description:
+				"Financiado por la Fundación Séneca, REASSESS desarrolla arquitecturas escalables e interoperables para la evaluación basada en juegos, que permiten integrar análisis basados en IA en los juegos serios.",
+			linkText: "Detalles del proyecto",
+		},
+		{
+			title: "GBA-ARCH - Arquitectura para la analítica de evaluaciones basadas en juegos",
+			tag: "Serious Games Asia",
+			description:
+				"Una colaboración con Serious Games Asia (Singapur) para diseñar una arquitectura general de analítica de datos e integración de IA en sistemas de aprendizaje basado en juegos.",
+			linkText: "Sobre el proyecto",
+		},
+		{
+			title: "LAGA - Analítica del aprendizaje y evaluación basada en juegos",
+			tag: "Colaboración con el MIT",
+			description:
+				"Una colaboración con el Massachusetts Institute of Technology (MIT) centrada en desarrollar indicadores analíticos y paneles para juegos educativos, avanzando en la analítica del aprendizaje multimodal.",
+			linkText: "Sobre el proyecto",
+		},
+	],
+
+	contact: {
+		title: "Hablemos.",
+		description:
+			"Si te gustaría colaborar o hablar sobre oportunidades de investigación, no dudes en escribirme. Siempre estoy abierto a explorar nuevas ideas en IA, ciencia de datos y tecnología educativa.",
+		address: "Departamento de Informática y Sistemas, Facultad de Informática, Universidad de Murcia",
+	},
+};
+
+export const getInfo = (lang) => {
+	if (lang !== "es") return INFO;
+	return {
+		...INFO,
+		homepage: { ...INFO.homepage, ...INFO_ES.homepage },
+		about: { ...INFO.about, ...INFO_ES.about },
+		teaching: { ...INFO.teaching, ...INFO_ES.teaching },
+		projects: INFO.projects.map((project, index) => ({
+			...project,
+			...INFO_ES.projects[index],
+		})),
+		contact: { ...INFO.contact, ...INFO_ES.contact },
+	};
+};
+
 export default INFO;
