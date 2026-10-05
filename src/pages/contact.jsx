@@ -72,7 +72,7 @@ const Contact = () => {
 								<dl className="contact-meta">
 									<div className="contact-meta-row">
 										<dt>Office</dt>
-										<dd>Lab B1.1.050</dd>
+										<dd>Lab 2.39</dd>
 									</div>
 									<div className="contact-meta-row">
 										<dt>Phone</dt>

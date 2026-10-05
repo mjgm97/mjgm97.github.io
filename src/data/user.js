@@ -91,7 +91,7 @@ const INFO = {
 		title: "Let’s connect.",
 		description:
 			"If you’d like to collaborate or discuss research opportunities, feel free to reach out. I’m always open to exploring new ideas in AI, data science, and educational technology.",
-		address: "Department of Information and Communications Engineering, Faculty of Computer Science, University of Murcia",
+		address: "Department of Informatics and Systems, Faculty of Computer Science, University of Murcia",
 		email: "manueljesus.gomezm@um.es",
 		phone: "868 88 7866",
 	},
