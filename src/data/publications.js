@@ -1,5 +1,36 @@
 const PUBLICATIONS = [
     {
+        cover: "../covers/ectel-cover.png",
+        year: "2026",
+        type: "Conference Paper",
+        journal: "European Conference on Technology Enhanced Learning (ECTEL) 2026",
+        title: "Reinforcement Learning in Serious Games: an Exploratory Analysis",
+        authors: "Mariano Albaladejo-González, Manuel J. Gomez, José A. Ruipérez-Valiente",
+        abstract: "In recent years, Reinforcement Learning (RL) has emerged as a powerful approach for solving complex decision-making problems. RL enables the development of intelligent agents that interact with an environment by making sequential decisions. Rather than depending on labeled datasets, these agents learn directly from the outcomes of their decisions. For this reason, RL has promising applications in Serious Games (SGs) as they acquire knowledge directly through interactions with the game environment. This paper explores the application of RL in SGs, providing practical insights on how to incorporate such agents. First, we reviewed existing tools for integrating RL into SGs environments. Next, we analyzed how the format in which the agent receives information from the environment influences its training. Specifically, we assessed vector-based and visual observations across three environments of increasing complexity. The results showed a consistent advantage for vector-based observations in terms of convergence speed, training stability, and overall performance. Nevertheless, vector-based observations required a more extensive design before their integration, as they are highly dependent on the application scenario. Finally, we explored the applications of RL agents to enhance SGs. This work aims to encourage researchers and developers to integrate RL agents into SGs.",
+        publisherLink: "https://link.springer.com/chapter/10.1007/978-3-032-37982-5_3",    
+    },
+    {
+        cover: "../covers/ectel-cover.png",
+        year: "2026",
+        type: "Conference Paper",
+        journal: "European Conference on Technology Enhanced Learning (ECTEL) 2026",
+        title: "BioStream: An Open-Source Solution for Collecting Biosignals in Educational Environments Through Smartwatches",
+        authors: "Mariano Albaladejo-González, Guillermo Vidal-Pina, Manuel J. Gomez, Félix Gómez Mármol, José A. Ruipérez-Valiente",
+        abstract: "Despite the widespread adoption of physiological sensors in user-oriented devices, their use in research and educational settings remains limited due to the lack of user-friendly applications for data collection and transmission. To address this problem, we introduce BioStream, an integrated, open-source infrastructure designed to streamline the acquisition of physiological signals using intuitive and affordable devices. This system comprises two independent components: SmartBioStream and ServerBioStream. SmartBioStream is a Wear OS application that enables the collection of physiological data through commercial smartwatches. Additionally, we provide a web platform, ServerBioStream, to receive, store, and download the data transmitted by smartwatches. The combination of both tools enables conducting educational research that requires the analysis of physiological signals. In addition to supporting research, SmartBioStream can transmit physiological data to other platforms, including learning management systems and educational simulators. This functionality enables monitoring of students’ physiological signals and the identification of potential risks, such as elevated heart rate. As an illustrative example, we have used SmartBioStream to send heart rate data to a Cyber Range, enabling the analysis of stress management skills during cybersecurity training. The flexibility, ease of use, and cost-effectiveness of both applications make them valuable tools for democratizing physiological data collection.",
+        publisherLink: "https://link.springer.com/chapter/10.1007/978-3-032-37982-5_2",    
+    },
+    {
+        cover: "../covers/ecgbl.jpeg",
+        year: "2026",
+        type: "Conference Paper",
+        journal: "20th European Conference on Games Based Learning",
+        title: "Sortica: a VR serious game to teach scheduling algorithms to undergraduate students",
+        authors: "Frank Antonio Oldfield Montilla, Luke Beveridge, Manuel J. Gomez, Marco Gilardi",
+        abstract: "Scheduling algorithms are an important part of the Computer Science curriculum as these algorithms control how resources are handled and shared within the operating system. Outside the realm of Computer Science, scheduling algorithms are a critical part of project management, enabling the translation of project plans into realistic and efficient operating time tables. Scheduling algorithms are often hard to understand by undergraduate students who struggle to visualise them and understand the practicalities of their implementation. Immersive Serious Games (iSG) have been shown to be an effective approach to visualise abstract concepts and immerse and engage students in practical tasks that require hands-on intervention. This paper presents the case study of “Sortica” a prototype iSG aimed at introducing students unfamiliar with scheduling algorithms to the foundational algorithms of the subject, such as last-in-first-out (LIFO) and first-in-first-out (FIFO). Within “Sortica” students took on the role of a robot worker tasked to rebuild town street buildings using the LIFO and FIFO algorithms...",
+        publisherLink: "https://research-portal.uws.ac.uk/en/publications/sortica-a-vr-serious-game-to-teach-scheduling-algorithms-to-under/",
+        download: "https://myresearchspace.uws.ac.uk/ws/portalfiles/portal/77875044/2026_07_16_Montilla_et_al_Sortica_accepted.pdf"
+    },
+    {
         cover: "../covers/las26.jpg",
         year: "2026",
         type: "Conference Paper",
